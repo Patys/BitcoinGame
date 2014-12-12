@@ -33,6 +33,7 @@ void App::draw()
 	      break;
 	    }
 	}
+      window.draw(explosion_sprite);
       s_wallet.setPosition(player.pos);
       window.draw(s_wallet);
       window.draw(t_score);

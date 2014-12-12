@@ -11,6 +11,9 @@ bool isCollision(sf::Vector2f pos, sf::Vector2f size,
 
 void App::update()
 {
+
+  static sf::Clock frame_clock;
+
   // Process events
   sf::Event event;
   while (window.pollEvent(event))
@@ -19,6 +22,7 @@ void App::update()
       if (event.type == sf::Event::Closed)
 	window.close();
     }
+  sf::Time frame_time = frame_clock.restart();
   if(state == GAME)
     {
       // ADDING NEW BITCOINS, STONES, BONUSES
@@ -27,15 +31,15 @@ void App::update()
       addBonus(bonus_timer);
       
       updatePlayer();
-
       updateBitcoins();
-
       updateStones();
-
       updateBonuses();
-
       updateActiveBonuses();
-      
+
+    
+      if(!explosion_sprite.isPlaying())
+	explosion_sprite.setPosition(sf::Vector2f(-100, -100));
+      explosion_sprite.update(frame_time);
 
       // POINTS
       std::ostringstream _score_string;
@@ -70,6 +74,7 @@ void App::update()
 	{
 	  stones.clear();
 	  bitcoins.clear();
+	  bonuses.clear();
 	  player.pos = sf::Vector2f(300,400);
 	  player.score = 0;
 	  state = GAME;
@@ -104,7 +109,7 @@ void App::update()
       if(click_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  state = MENU;
-	  game_music.stop();
+	  score_music.stop();
 	  menu_music.play();
 	}
     }
@@ -160,6 +165,8 @@ void App::updateStones()
       if(collision_with_player)
 	{
 	  state = SCORE;
+	  score_music.play();
+	  game_music.stop();
 	}
 
       if(stones[i].pos.y > 600)
@@ -204,6 +211,14 @@ void App::updateBonuses()
 	  if(collision_with_player)
 	    {
 	      active_bonuses.push_back(ActiveBonus(bonuses[i].type, bonuses[i].time_working));
+	      
+	      if(bonuses[i].type == B_EXPLODE)
+		{
+		  sf::Vector2f pos = bonuses[i].pos;
+		  explosion_sprite.setPosition(pos);
+		  explosion_sprite.play(explosion);
+		  explosion_sound.play();
+		}
 	    }
 	  bonuses.erase(bonuses.begin() + i);
 	}
@@ -240,7 +255,6 @@ void App::updateActiveBonuses()
 	    }
 	  active_bonuses[i].activated = true;
 	}
-	  
 
       if(active_bonuses[i].clock.getElapsedTime().asMilliseconds() > active_bonuses[i].time_working)
 	{

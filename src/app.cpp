@@ -1,7 +1,8 @@
 #include <app.h>
 
 App::App():
-  window(sf::VideoMode(800, 600), "BTC")
+  window(sf::VideoMode(800, 600), "BTC"),
+  explosion_sprite(sf::milliseconds(25), true, false)
 {
   srand(time(0));
   window.setFramerateLimit(60);
@@ -12,6 +13,7 @@ App::App():
   s_double_btc_bonus.setTexture(tex_menager.getTexture("data/graphics/double_btc.png"));
   s_double_stones_bonus.setTexture(tex_menager.getTexture("data/graphics/double_stones.png"));
   s_explode_bonus.setTexture(tex_menager.getTexture("data/graphics/explode.png"));
+  s_explosion.setTexture(tex_menager.getTexture("data/graphics/explosion.png"));
 
   font.loadFromFile("data/Raleway-Regular.otf");
 
@@ -38,17 +40,41 @@ App::App():
   game_music.openFromFile("data/audio/loop3.wav");
   game_music.setVolume(80);
   game_music.setLoop(true);
+  score_music.openFromFile("data/audio/awesomeness.wav");
+  score_music.setVolume(80);
+  score_music.setLoop(true);
 
   btc_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   btc_sound.setBuffer(btc_soundbuffer);
   stone_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   stone_sound.setBuffer(stone_soundbuffer);
+  explosion_soundbuffer.loadFromFile("data/audio/explosion.wav");
+  explosion_sound.setBuffer(explosion_soundbuffer);
+
+  explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion.png"));
+  explosion.addFrame(sf::IntRect(192, 192, 64, 64));
+  explosion.addFrame(sf::IntRect(128, 192, 64, 64));
+  explosion.addFrame(sf::IntRect(64, 192, 64, 64));
+  explosion.addFrame(sf::IntRect(0, 192, 64, 64));
+  explosion.addFrame(sf::IntRect(192, 128, 64, 64));
+  explosion.addFrame(sf::IntRect(128, 128, 64, 64));
+  explosion.addFrame(sf::IntRect(64, 128, 64, 64));
+  explosion.addFrame(sf::IntRect(0, 128, 64, 64));
+  explosion.addFrame(sf::IntRect(192, 64, 64, 64));
+  explosion.addFrame(sf::IntRect(128, 64, 64, 64));
+  explosion.addFrame(sf::IntRect(64, 64, 64, 64));
+  explosion.addFrame(sf::IntRect(0, 64, 64, 64));
+  explosion.addFrame(sf::IntRect(192, 0, 64, 64));
+  explosion.addFrame(sf::IntRect(128, 0, 64, 64));
+  explosion.addFrame(sf::IntRect(64, 0, 64, 64));
+  explosion.addFrame(sf::IntRect(0, 0, 64, 64));
 
   state = MENU;
   
   bitcoin_timer = 1000;
   stone_timer = 1000;
-  bonus_timer = 1000;
+  bonus_timer = 4000;
+  
 }
 
 void App::run()

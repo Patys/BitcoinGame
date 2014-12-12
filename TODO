@@ -1,9 +1,11 @@
 TODO list:
 
  - background menu, score, credits
- - explosion after bonus: explode - animation or particles
- - some magic things after touching bitcoin
+ - some better graphics
+ - animation for wallet
+ - some magic things after touching bitcoin like particles or animations
 
+ - explode animation - testing
  - explode bonus - destroy stones and convert them in the bicoins - testing
 
  - bonus x2 bitcoins - bicoins comming 2 times faster - done

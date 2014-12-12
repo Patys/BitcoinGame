@@ -9,6 +9,7 @@
 #include <sstream>
 
 #include <ResourceMenager.h>
+#include <animated_sprite.h>
 
 #include <player.h>
 #include <stone.h>
@@ -59,6 +60,9 @@ class App
   float stone_timer;
   float bonus_timer;
 
+  Animation explosion;
+  AnimatedSprite explosion_sprite;
+
   // texture holder
   ResourceMenager tex_menager;
   
@@ -72,6 +76,7 @@ class App
   sf::Sprite s_double_btc_bonus;
   sf::Sprite s_double_stones_bonus;
   sf::Sprite s_explode_bonus;
+  sf::Sprite s_explosion;
 
   // sf::Text ...
   sf::Text b_start;
@@ -84,10 +89,13 @@ class App
   // sf::Music ...
   sf::Music menu_music;
   sf::Music game_music;
+  sf::Music score_music;
 
   // sf::Sound ...
   sf::SoundBuffer btc_soundbuffer;
   sf::Sound btc_sound;
   sf::SoundBuffer stone_soundbuffer;
   sf::Sound stone_sound;
+  sf::SoundBuffer explosion_soundbuffer;
+  sf::Sound explosion_sound;
 };
