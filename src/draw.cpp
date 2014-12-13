@@ -33,6 +33,10 @@ void App::draw()
 	      break;
 	    }
 	}
+      if(show_t_btc_falling)
+	window.draw(t_btc_falling);
+      if(show_t_stone_falling)
+	window.draw(t_stone_falling);
       window.draw(explosion_sprite);
       s_wallet.setPosition(player.pos);
       window.draw(s_wallet);

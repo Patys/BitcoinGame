@@ -34,6 +34,25 @@ App::App():
   t_credits.setString("Game created by Patys.");
   t_score.setFont(font);
 
+  t_btc_falling.setFont(font);
+  t_btc_falling.setCharacterSize(56);
+  t_btc_falling.setString("MORE BITCOINS!");
+  t_btc_falling.setPosition(sf::Vector2f(400,300));
+  sf::Vector2f center_t_btc_falling(t_btc_falling.getLocalBounds().width/2,
+				    t_btc_falling.getLocalBounds().height/2);
+  t_btc_falling.setOrigin(center_t_btc_falling);
+
+  t_stone_falling.setFont(font);
+  t_stone_falling.setCharacterSize(56);
+  t_stone_falling.setString("BE AWARE! STONES!");
+  t_stone_falling.setPosition(sf::Vector2f(400,300));
+  sf::Vector2f center_t_stone_falling(t_stone_falling.getLocalBounds().width/2,
+				    t_stone_falling.getLocalBounds().height/2);
+  t_stone_falling.setOrigin(center_t_stone_falling);
+
+  show_t_btc_falling = false;
+  show_t_stone_falling = false;
+
   menu_music.openFromFile("data/audio/rock_theme.wav");
   menu_music.setVolume(80);
   menu_music.setLoop(true);
@@ -50,6 +69,8 @@ App::App():
   stone_sound.setBuffer(stone_soundbuffer);
   explosion_soundbuffer.loadFromFile("data/audio/explosion.wav");
   explosion_sound.setBuffer(explosion_soundbuffer);
+  alarm_soundbuffer.loadFromFile("data/audio/alarm_0.ogg");
+  alarm_sound.setBuffer(alarm_soundbuffer);
 
   explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion.png"));
   explosion.addFrame(sf::IntRect(192, 192, 64, 64));

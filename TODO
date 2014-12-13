@@ -4,9 +4,11 @@ TODO list:
  - some better graphics
  - animation for wallet
  - some magic things after touching bitcoin like particles or animations
+ - better font
+ - moving bonus text
 
  - explode animation - testing
- - explode bonus - destroy stones and convert them in the bicoins - testing
+ - explode bonus - destroy stones and convert them in the bicoins - testing (not every stone is destroing)
 
  - bonus x2 bitcoins - bicoins comming 2 times faster - done
  - bonus x2 stones - stones comming 2 times faster - done

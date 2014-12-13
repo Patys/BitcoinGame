@@ -1,5 +1,7 @@
 #include <app.h>
 
+#include <cmath>
+
 // //
 bool isCollision(float x1, float y1, float w1, float h1,
                  float x2, float y2, float w2, float h2 );
@@ -13,6 +15,9 @@ void App::update()
 {
 
   static sf::Clock frame_clock;
+  static sf::Clock sin_clock;
+  static float sin_amplitude = 15;
+  static float sin_time = 100;
 
   // Process events
   sf::Event event;
@@ -36,6 +41,16 @@ void App::update()
       updateBonuses();
       updateActiveBonuses();
 
+      if(sin_clock.getElapsedTime().asMilliseconds() > sin_time)
+	{
+	  sin_amplitude = -sin_amplitude;
+	  t_btc_falling.setRotation(0);
+	  t_stone_falling.setRotation(0);
+	  sin_clock.restart();
+	}
+
+      t_btc_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
+      t_stone_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
     
       if(!explosion_sprite.isPlaying())
 	explosion_sprite.setPosition(sf::Vector2f(-100, -100));
@@ -227,6 +242,7 @@ void App::updateBonuses()
 
 void App::updateActiveBonuses()
 {
+
   for(std::size_t i = 0; i < active_bonuses.size(); i++)
     {
       if(active_bonuses[i].activated == false)
@@ -234,10 +250,14 @@ void App::updateActiveBonuses()
 	  switch(active_bonuses[i].type)
 	    {
 	    case B_DOUBLE_BTC:
-	      bitcoin_timer /= 2;
+	      bitcoin_timer = 150;
+	      show_t_btc_falling = true;
+	      alarm_sound.play();
 	      break;
 	    case B_DOUBLE_STONES:
-	      stone_timer /= 2;
+	      stone_timer = 150;
+	      show_t_stone_falling = true;
+	      alarm_sound.play();
 	      break;
 	    case B_EXPLODE:
 	      {
@@ -261,10 +281,12 @@ void App::updateActiveBonuses()
 	  switch(active_bonuses[i].type)
 	    {
 	    case B_DOUBLE_BTC:
-	      bitcoin_timer *= 2;
+	      bitcoin_timer = 1000;
+	      show_t_btc_falling = false;
 	      break;
 	    case B_DOUBLE_STONES:
-	      stone_timer *= 2;
+	      stone_timer = 1000;
+	      show_t_stone_falling = false;
 	      break;
 	    default:
 	      break;
@@ -310,7 +332,7 @@ void App::addBonus(float milliseconds)
 	  type = B_EXPLODE;
 	  break;
 	}
-      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%5+1, type, rand()%5000+500));
+      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%5+1, type, 2000));
       bonus_clock.restart();
     }
 }

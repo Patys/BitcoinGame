@@ -60,6 +60,9 @@ class App
   float stone_timer;
   float bonus_timer;
 
+  bool show_t_btc_falling;
+  bool show_t_stone_falling;
+
   Animation explosion;
   AnimatedSprite explosion_sprite;
 
@@ -85,6 +88,8 @@ class App
   sf::Text b_back;
   sf::Text t_credits;
   sf::Text t_score;
+  sf::Text t_btc_falling;
+  sf::Text t_stone_falling;
 
   // sf::Music ...
   sf::Music menu_music;
@@ -98,4 +103,6 @@ class App
   sf::Sound stone_sound;
   sf::SoundBuffer explosion_soundbuffer;
   sf::Sound explosion_sound;
+  sf::SoundBuffer alarm_soundbuffer;
+  sf::Sound alarm_sound;
 };
