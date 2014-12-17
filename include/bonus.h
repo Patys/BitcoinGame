@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-enum BONUS_TYPE { B_DOUBLE_BTC, B_DOUBLE_STONES, B_EXPLODE };
+enum BONUS_TYPE { B_DOUBLE_BTC, B_DOUBLE_ENEMIES, B_EXPLODE };
 
 class Bonus
 {

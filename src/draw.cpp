@@ -10,10 +10,12 @@ void App::draw()
 	  s_btc.setPosition(btc.pos);
 	  window.draw(s_btc);
 	}
-      for(auto st : stones)
+      s_enemy.setOrigin(sf::Vector2f(16,16));
+      s_enemy.rotate(10);
+      for(auto st : enemies)
 	{
-	  s_stone.setPosition(st.pos);
-	  window.draw(s_stone);
+	  s_enemy.setPosition(sf::Vector2f(st.pos.x + 16, st.pos.y + 16));
+	  window.draw(s_enemy);
 	}
       for(auto i : bonuses)
 	{
@@ -23,9 +25,9 @@ void App::draw()
 	      s_double_btc_bonus.setPosition(i.pos);
 	      window.draw(s_double_btc_bonus);
 	      break;
-	    case B_DOUBLE_STONES:
-	      s_double_stones_bonus.setPosition(i.pos);
-	      window.draw(s_double_stones_bonus);
+	    case B_DOUBLE_ENEMIES:
+	      s_double_enemy_bonus.setPosition(i.pos);
+	      window.draw(s_double_enemy_bonus);
 	      break;
 	    case B_EXPLODE:
 	      s_explode_bonus.setPosition(i.pos);
@@ -35,8 +37,8 @@ void App::draw()
 	}
       if(show_t_btc_falling)
 	window.draw(t_btc_falling);
-      if(show_t_stone_falling)
-	window.draw(t_stone_falling);
+      if(show_t_enemy_falling)
+	window.draw(t_enemy_falling);
       window.draw(explosion_sprite);
       s_wallet.setPosition(player.pos);
       window.draw(s_wallet);

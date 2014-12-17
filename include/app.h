@@ -12,7 +12,7 @@
 #include <animated_sprite.h>
 
 #include <player.h>
-#include <stone.h>
+#include <enemy.h>
 #include <bitcoin.h>
 #include <bonus.h>
 
@@ -31,21 +31,21 @@ class App
   void update();
 
   void updateBitcoins();
-  void updateStones();
+  void updateEnemies();
   void updatePlayer();
   void updateBonuses();
   void updateActiveBonuses();
 
   // add after x milliseconds
   void addBitcoin(float milliseconds);
-  void addStone(float milliseconds);
+  void addEnemy(float milliseconds);
   void addBonus(float milliseconds);
 
   sf::RenderWindow window;
   sf::Event event;
   
   std::vector<Bitcoin> bitcoins;
-  std::vector<Stone> stones;
+  std::vector<Enemy> enemies;
   std::vector<Bonus> bonuses;
   std::vector<ActiveBonus> active_bonuses;
   Player player;
@@ -54,14 +54,14 @@ class App
   APP_STATE state;
   
   sf::Clock bitcoin_clock;
-  sf::Clock stone_clock;
+  sf::Clock enemy_clock;
   sf::Clock bonus_clock;
   float bitcoin_timer;
-  float stone_timer;
+  float enemy_timer;
   float bonus_timer;
 
   bool show_t_btc_falling;
-  bool show_t_stone_falling;
+  bool show_t_enemy_falling;
 
   Animation explosion;
   AnimatedSprite explosion_sprite;
@@ -74,10 +74,10 @@ class App
 
   // sf::Sprite ...
   sf::Sprite s_btc;
-  sf::Sprite s_stone;
+  sf::Sprite s_enemy;
   sf::Sprite s_wallet;
   sf::Sprite s_double_btc_bonus;
-  sf::Sprite s_double_stones_bonus;
+  sf::Sprite s_double_enemy_bonus;
   sf::Sprite s_explode_bonus;
   sf::Sprite s_explosion;
 
@@ -89,7 +89,7 @@ class App
   sf::Text t_credits;
   sf::Text t_score;
   sf::Text t_btc_falling;
-  sf::Text t_stone_falling;
+  sf::Text t_enemy_falling;
 
   // sf::Music ...
   sf::Music menu_music;
@@ -99,8 +99,8 @@ class App
   // sf::Sound ...
   sf::SoundBuffer btc_soundbuffer;
   sf::Sound btc_sound;
-  sf::SoundBuffer stone_soundbuffer;
-  sf::Sound stone_sound;
+  sf::SoundBuffer enemy_soundbuffer;
+  sf::Sound enemy_sound;
   sf::SoundBuffer explosion_soundbuffer;
   sf::Sound explosion_sound;
   sf::SoundBuffer alarm_soundbuffer;

@@ -32,12 +32,12 @@ void App::update()
     {
       // ADDING NEW BITCOINS, STONES, BONUSES
       addBitcoin(bitcoin_timer);
-      addStone(stone_timer);
+      addEnemy(enemy_timer);
       addBonus(bonus_timer);
       
       updatePlayer();
       updateBitcoins();
-      updateStones();
+      updateEnemies();
       updateBonuses();
       updateActiveBonuses();
 
@@ -45,12 +45,12 @@ void App::update()
 	{
 	  sin_amplitude = -sin_amplitude;
 	  t_btc_falling.setRotation(0);
-	  t_stone_falling.setRotation(0);
+	  t_enemy_falling.setRotation(0);
 	  sin_clock.restart();
 	}
 
       t_btc_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
-      t_stone_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
+      t_enemy_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
     
       if(!explosion_sprite.isPlaying())
 	explosion_sprite.setPosition(sf::Vector2f(-100, -100));
@@ -87,7 +87,7 @@ void App::update()
 
       if(click_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-	  stones.clear();
+	  enemies.clear();
 	  bitcoins.clear();
 	  bonuses.clear();
 	  player.pos = sf::Vector2f(300,400);
@@ -168,14 +168,14 @@ void App::updateBitcoins()
     }
 }
 
-void App::updateStones()
+void App::updateEnemies()
 {
-  for(std::size_t i = 0; i < stones.size(); i++)
+  for(std::size_t i = 0; i < enemies.size(); i++)
     {
-      stones[i].pos.y += stones[i].vel;
+      enemies[i].pos.y += enemies[i].vel;
 
       bool collision_with_player = isCollision(player.pos.x, player.pos.y, 96, 64,
-					       stones[i].pos.x, stones[i].pos.y, 32, 32);
+					       enemies[i].pos.x, enemies[i].pos.y, 32, 32);
 
       if(collision_with_player)
 	{
@@ -184,9 +184,9 @@ void App::updateStones()
 	  game_music.stop();
 	}
 
-      if(stones[i].pos.y > 600)
+      if(enemies[i].pos.y > 600)
 	{
-	  stones.erase(stones.begin() + i);
+	  enemies.erase(enemies.begin() + i);
 	}
     }
 }
@@ -254,21 +254,23 @@ void App::updateActiveBonuses()
 	      show_t_btc_falling = true;
 	      alarm_sound.play();
 	      break;
-	    case B_DOUBLE_STONES:
-	      stone_timer = 150;
-	      show_t_stone_falling = true;
+	    case B_DOUBLE_ENEMIES:
+	      enemy_timer = 150;
+	      show_t_enemy_falling = true;
 	      alarm_sound.play();
 	      break;
 	    case B_EXPLODE:
 	      {
-		for(std::size_t i = 0; i < stones.size(); i++)
+		// deleting enemies and adding bitcoins
+		std::size_t num_enemies = enemies.size();
+		for(std::size_t i = 0; i < num_enemies; i++)
 		  {
-		    sf::Vector2f pos = stones[i].pos;
-		    float vel = stones[i].vel;
+		    sf::Vector2f pos = enemies[i].pos;
+		    float vel = enemies[i].vel;
 		    float points = rand() % 20 + 1;
 		    Bitcoin btc(pos, vel, points);
 		    bitcoins.push_back(btc);
-		    stones.erase(stones.begin() + i);
+		    enemies.erase(enemies.begin() + i);
 		  }
 	      }
 	      break;
@@ -284,9 +286,9 @@ void App::updateActiveBonuses()
 	      bitcoin_timer = 1000;
 	      show_t_btc_falling = false;
 	      break;
-	    case B_DOUBLE_STONES:
-	      stone_timer = 1000;
-	      show_t_stone_falling = false;
+	    case B_DOUBLE_ENEMIES:
+	      enemy_timer = 1000;
+	      show_t_enemy_falling = false;
 	      break;
 	    default:
 	      break;
@@ -305,12 +307,12 @@ void App::addBitcoin(float milliseconds)
     }
 }
 
-void App::addStone(float milliseconds)
+void App::addEnemy(float milliseconds)
 {
-  if(stone_clock.getElapsedTime().asMilliseconds() > milliseconds)
+  if(enemy_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      stones.push_back(Stone(sf::Vector2f(rand()%760+1, -32), rand()%5+1));
-      stone_clock.restart();
+      enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), rand()%5+1));
+      enemy_clock.restart();
     }
 }
 
@@ -326,7 +328,7 @@ void App::addBonus(float milliseconds)
 	  type = B_DOUBLE_BTC;
 	  break;
 	case 2:
-	  type = B_DOUBLE_STONES;
+	  type = B_DOUBLE_ENEMIES;
 	  break;
 	case 3:
 	  type = B_EXPLODE;

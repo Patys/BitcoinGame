@@ -8,10 +8,10 @@ App::App():
   window.setFramerateLimit(60);
 
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
-  s_stone.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
+  s_enemy.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
   s_double_btc_bonus.setTexture(tex_menager.getTexture("data/graphics/double_btc.png"));
-  s_double_stones_bonus.setTexture(tex_menager.getTexture("data/graphics/double_stones.png"));
+  s_double_enemy_bonus.setTexture(tex_menager.getTexture("data/graphics/double_stones.png"));
   s_explode_bonus.setTexture(tex_menager.getTexture("data/graphics/explode.png"));
   s_explosion.setTexture(tex_menager.getTexture("data/graphics/explosion.png"));
 
@@ -42,16 +42,16 @@ App::App():
 				    t_btc_falling.getLocalBounds().height/2);
   t_btc_falling.setOrigin(center_t_btc_falling);
 
-  t_stone_falling.setFont(font);
-  t_stone_falling.setCharacterSize(56);
-  t_stone_falling.setString("BE AWARE! STONES!");
-  t_stone_falling.setPosition(sf::Vector2f(400,300));
-  sf::Vector2f center_t_stone_falling(t_stone_falling.getLocalBounds().width/2,
-				    t_stone_falling.getLocalBounds().height/2);
-  t_stone_falling.setOrigin(center_t_stone_falling);
+  t_enemy_falling.setFont(font);
+  t_enemy_falling.setCharacterSize(56);
+  t_enemy_falling.setString("BE AWARE! SHURIKENS!");
+  t_enemy_falling.setPosition(sf::Vector2f(400,300));
+  sf::Vector2f center_t_enemy_falling(t_enemy_falling.getLocalBounds().width/2,
+				      t_enemy_falling.getLocalBounds().height/2);
+  t_enemy_falling.setOrigin(center_t_enemy_falling);
 
   show_t_btc_falling = false;
-  show_t_stone_falling = false;
+  show_t_enemy_falling = false;
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
   menu_music.setVolume(80);
@@ -65,8 +65,8 @@ App::App():
 
   btc_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   btc_sound.setBuffer(btc_soundbuffer);
-  stone_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
-  stone_sound.setBuffer(stone_soundbuffer);
+  enemy_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
+  enemy_sound.setBuffer(enemy_soundbuffer);
   explosion_soundbuffer.loadFromFile("data/audio/explosion.wav");
   explosion_sound.setBuffer(explosion_soundbuffer);
   alarm_soundbuffer.loadFromFile("data/audio/alarm_0.ogg");
@@ -93,7 +93,7 @@ App::App():
   state = MENU;
   
   bitcoin_timer = 1000;
-  stone_timer = 1000;
+  enemy_timer = 1000;
   bonus_timer = 4000;
   
 }
