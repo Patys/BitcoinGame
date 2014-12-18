@@ -15,6 +15,9 @@ App::App():
   s_explode_bonus.setTexture(tex_menager.getTexture("data/graphics/explode.png"));
   s_explosion.setTexture(tex_menager.getTexture("data/graphics/explosion.png"));
 
+  s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
+  s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
+
   font.loadFromFile("data/Raleway-Regular.otf");
 
   b_start.setFont(font);
@@ -31,7 +34,10 @@ App::App():
   b_exit.setPosition(sf::Vector2f(100,200));
   
   t_credits.setFont(font);
-  t_credits.setString("Game created by Patys.");
+  t_credits.setString("\
+Game created by Patys.\nI hope it helps to promote Bitcoins.\n\n\
+If you can, tell about Bitcoins to sombody.\
+");
   t_score.setFont(font);
 
   t_btc_falling.setFont(font);

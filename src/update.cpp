@@ -30,6 +30,12 @@ void App::update()
   sf::Time frame_time = frame_clock.restart();
   if(state == GAME)
     {
+      
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+	{
+	  state = MENU;
+	}
+      
       // ADDING NEW BITCOINS, STONES, BONUSES
       addBitcoin(bitcoin_timer);
       addEnemy(enemy_timer);
@@ -87,14 +93,7 @@ void App::update()
 
       if(click_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-	  enemies.clear();
-	  bitcoins.clear();
-	  bonuses.clear();
-	  player.pos = sf::Vector2f(300,400);
-	  player.score = 0;
-	  state = GAME;
-	  menu_music.stop();
-	  game_music.play();
+	  restart();
 	}
 
       // Click on credits menu
@@ -127,6 +126,15 @@ void App::update()
 	  score_music.stop();
 	  menu_music.play();
 	}
+
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+	{
+	  state = MENU;
+	}
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+	  restart();
+	}
     }
   else if(state == CREDITS)
     {
@@ -140,6 +148,11 @@ void App::update()
 				       b_back.getPosition(), b_back_size);
 
       if(click_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  state = MENU;
+	}
+
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 	  state = MENU;
 	}
@@ -193,13 +206,17 @@ void App::updateEnemies()
 
 void App::updatePlayer()
 {
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) ||
+     sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     player.pos.y -= 6;
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
+     sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     player.pos.y += 6;
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
+     sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     player.pos.x -= 6;
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
+     sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     player.pos.x += 6;
 
   if(player.pos.y > 600 - 64)
@@ -242,7 +259,6 @@ void App::updateBonuses()
 
 void App::updateActiveBonuses()
 {
-
   for(std::size_t i = 0; i < active_bonuses.size(); i++)
     {
       if(active_bonuses[i].activated == false)
@@ -296,6 +312,18 @@ void App::updateActiveBonuses()
 	  active_bonuses.erase(active_bonuses.begin() + i);
 	}
     }
+}
+
+void App::restart()
+{
+  enemies.clear();
+  bitcoins.clear();
+  bonuses.clear();
+  player.pos = sf::Vector2f(300,400);
+  player.score = 0;
+  state = GAME;
+  menu_music.stop();
+  game_music.play();
 }
 
 void App::addBitcoin(float milliseconds)

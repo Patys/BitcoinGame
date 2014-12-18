@@ -36,6 +36,8 @@ class App
   void updateBonuses();
   void updateActiveBonuses();
 
+  void restart();
+
   // add after x milliseconds
   void addBitcoin(float milliseconds);
   void addEnemy(float milliseconds);
@@ -80,6 +82,9 @@ class App
   sf::Sprite s_double_enemy_bonus;
   sf::Sprite s_explode_bonus;
   sf::Sprite s_explosion;
+
+  sf::Sprite s_menu_background;
+  sf::Sprite s_game_background;
 
   // sf::Text ...
   sf::Text b_start;

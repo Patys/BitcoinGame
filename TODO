@@ -1,14 +1,23 @@
 TODO list:
 
- - background menu, score, credits
+Todo:
+ - background score, credits
  - some better graphics
  - animation for wallet
  - some magic things after touching bitcoin like particles or animations
  - better font
- - moving bonus text
+ - explode animation (to change and should be everywhere the enemies are destroing)
+ - resume in menu to allow pause game
+ - displaying frame under menu button text
+ - connection with server
+ - sending score to server and validate datas
 
- - explode animation - testing
- - explode bonus - destroy stones and convert them in the bicoins - testing (not every stone is destroing)
+Testing:
 
+
+Done:
+ - background menu
+ - moving bonus text - done
+ - explode bonus - destroy stones and convert them in the bicoins - done
  - bonus x2 bitcoins - bicoins comming 2 times faster - done
  - bonus x2 stones - stones comming 2 times faster - done

@@ -5,13 +5,14 @@ void App::draw()
   if(state == GAME)
     {
       window.clear();
+      window.draw(s_game_background);
       for(auto btc : bitcoins)
 	{
 	  s_btc.setPosition(btc.pos);
 	  window.draw(s_btc);
 	}
       s_enemy.setOrigin(sf::Vector2f(16,16));
-      s_enemy.rotate(10);
+      s_enemy.rotate(5);
       for(auto st : enemies)
 	{
 	  s_enemy.setPosition(sf::Vector2f(st.pos.x + 16, st.pos.y + 16));
@@ -48,6 +49,7 @@ void App::draw()
   else if(state == MENU)
     {
       window.clear();
+      window.draw(s_menu_background);
       window.draw(b_start);
       window.draw(b_credits);
       window.draw(b_exit);
