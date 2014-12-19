@@ -17,8 +17,10 @@ App::App():
 
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
+  s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
 
-  font.loadFromFile("data/Raleway-Regular.otf");
+  font.loadFromFile("data/RussoOne-Regular.ttf");
+  font1.loadFromFile("data/Raleway-Regular.otf");
 
   b_start.setFont(font);
   b_start.setString("Start");
@@ -29,15 +31,17 @@ App::App():
   b_back.setFont(font);
   b_back.setString("Go to menu.");
 
+  b_back.setPosition(sf::Vector2f(500,500));
   b_start.setPosition(sf::Vector2f(100,100));
   b_credits.setPosition(sf::Vector2f(100,150));
   b_exit.setPosition(sf::Vector2f(100,200));
   
-  t_credits.setFont(font);
-  t_credits.setString("\
-Game created by Patys.\nI hope it helps to promote Bitcoins.\n\n\
-If you can, tell about Bitcoins to sombody.\
+  t_credits.setFont(font1);
+  t_credits.setString(L"\
+Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
+If you can, tell about\nBitcoins to sombody.\
 ");
+  t_credits.setPosition(sf::Vector2f(50,100));
   t_score.setFont(font);
 
   t_btc_falling.setFont(font);

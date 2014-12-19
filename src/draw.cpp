@@ -58,6 +58,7 @@ void App::draw()
   else if(state == SCORE)
     {  
       window.clear();
+      window.draw(s_credits_background);
       window.draw(t_score);
       window.draw(b_back);
       window.display();
@@ -65,6 +66,7 @@ void App::draw()
   else if(state == CREDITS)
     {
       window.clear();
+      window.draw(s_credits_background);
       window.draw(t_credits);
       window.draw(b_back);
       window.display();

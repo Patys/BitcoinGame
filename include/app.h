@@ -73,6 +73,7 @@ class App
   
   // sf::Font ...
   sf::Font font;
+  sf::Font font1;
 
   // sf::Sprite ...
   sf::Sprite s_btc;
@@ -85,6 +86,7 @@ class App
 
   sf::Sprite s_menu_background;
   sf::Sprite s_game_background;
+  sf::Sprite s_credits_background;
 
   // sf::Text ...
   sf::Text b_start;

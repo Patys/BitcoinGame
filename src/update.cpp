@@ -138,9 +138,6 @@ void App::update()
     }
   else if(state == CREDITS)
     {
-      b_back.setPosition(sf::Vector2f(500,500));
-      t_credits.setPosition(sf::Vector2f(100,150));
-
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
       sf::Vector2f b_back_size(b_back.getLocalBounds().width, b_back.getLocalBounds().height);
       
