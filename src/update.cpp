@@ -2,14 +2,6 @@
 
 #include <cmath>
 
-// //
-bool isCollision(float x1, float y1, float w1, float h1,
-                 float x2, float y2, float w2, float h2 );
-
-bool isCollision(sf::Vector2f pos, sf::Vector2f size,
-                 sf::Vector2f pos2, sf::Vector2f size2 );
-// //
-
 
 void App::update()
 {
@@ -41,9 +33,9 @@ void App::update()
       addEnemy(enemy_timer);
       addBonus(bonus_timer);
       
-      updatePlayer();
-      updateBitcoins();
-      updateEnemies();
+      updatePlayer(frame_time.asSeconds());
+      updateBitcoins(frame_time.asSeconds());
+      updateEnemies(frame_time.asSeconds());
       updateBonuses();
       updateActiveBonuses();
 
@@ -52,19 +44,28 @@ void App::update()
 	  sin_amplitude = -sin_amplitude;
 	  t_btc_falling.setRotation(0);
 	  t_enemy_falling.setRotation(0);
+	  t_explosion.setRotation(0);
 	  sin_clock.restart();
 	}
 
       t_btc_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
       t_enemy_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
-    
-      if(!explosion_sprite.isPlaying())
-	explosion_sprite.setPosition(sf::Vector2f(-100, -100));
-      explosion_sprite.update(frame_time);
+      t_explosion.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
+      
+      for(std::size_t i = 0; i < explosion_sprites.size(); i++)
+	{
+	  if(!explosion_sprites[i].isPlaying())
+	    explosion_sprites[i].setPosition(sf::Vector2f(-100, -100));
+	  explosion_sprites[i].update(frame_time);
+	}
+
+      if(!small_explosion_sprite.isPlaying())
+	small_explosion_sprite.setPosition(sf::Vector2f(-100, -100));
+      small_explosion_sprite.update(frame_time);
 
       // POINTS
       std::ostringstream _score_string;
-      _score_string << player.score;
+      _score_string << player.getScore();
 	  
       t_score.setString( _score_string.str());
       sf::FloatRect textRect = t_score.getLocalBounds();
@@ -130,6 +131,8 @@ void App::update()
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 	  state = MENU;
+	  score_music.stop();
+	  menu_music.play();
 	}
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
@@ -156,20 +159,18 @@ void App::update()
     }
 }
 
-void App::updateBitcoins()
+void App::updateBitcoins(float delta_time)
 {
   for(std::size_t i = 0; i < bitcoins.size(); i++)
     {
-      bitcoins[i].pos.y += bitcoins[i].vel;
-	  
-      bool collision_with_player = isCollision(player.pos.x, player.pos.y, 96, 64,
-					       bitcoins[i].pos.x, bitcoins[i].pos.y, 32, 32);
+      bitcoins[i].update(delta_time, &player);
 
-      if(bitcoins[i].pos.y > 600 || collision_with_player)
+      if(bitcoins[i].isCollisionWithBottom() || bitcoins[i].isCollisionWithPlayer())
 	{
-	  if(collision_with_player)
+	  if(bitcoins[i].isCollisionWithPlayer())
 	    {
-	      player.score += bitcoins[i].points;
+	      small_explosion_sprite.setPosition(bitcoins[i].getPosition());
+	      small_explosion_sprite.play(small_explosion);
 	      btc_sound.play();
 	    }
 
@@ -178,52 +179,29 @@ void App::updateBitcoins()
     }
 }
 
-void App::updateEnemies()
+void App::updateEnemies(float delta_time)
 {
   for(std::size_t i = 0; i < enemies.size(); i++)
     {
-      enemies[i].pos.y += enemies[i].vel;
+      enemies[i].update(delta_time, &player);
 
-      bool collision_with_player = isCollision(player.pos.x, player.pos.y, 96, 64,
-					       enemies[i].pos.x, enemies[i].pos.y, 32, 32);
-
-      if(collision_with_player)
+      if(enemies[i].isCollisionWithPlayer())
 	{
 	  state = SCORE;
 	  score_music.play();
 	  game_music.stop();
 	}
 
-      if(enemies[i].pos.y > 600)
+      if(enemies[i].isCollisionWithBottom())
 	{
 	  enemies.erase(enemies.begin() + i);
 	}
     }
 }
 
-void App::updatePlayer()
+void App::updatePlayer(float delta_time)
 {
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::W) ||
-     sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    player.pos.y -= 6;
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::S) ||
-     sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    player.pos.y += 6;
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
-     sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-    player.pos.x -= 6;
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
-     sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-    player.pos.x += 6;
-
-  if(player.pos.y > 600 - 64)
-    player.pos.y = 600 - 64;
-  if(player.pos.y < 0)
-    player.pos.y = 0;
-  if(player.pos.x > 800 - 96)
-    player.pos.x = 800 - 96;
-  if(player.pos.x < 0)
-    player.pos.x = 0;
+  player.update(delta_time);
 }
 
 void App::updateBonuses()
@@ -232,8 +210,8 @@ void App::updateBonuses()
     {
       bonuses[i].pos.y += bonuses[i].vel;
 
-      bool collision_with_player = isCollision(player.pos.x, player.pos.y, 96, 64,
-					       bonuses[i].pos.x, bonuses[i].pos.y, 32, 32);
+      bool collision_with_player = isCollision(player.getPosition(), sf::Vector2f(96, 64),
+					       bonuses[i].pos, sf::Vector2f(32, 32));
 
       if(bonuses[i].pos.y > 600 || collision_with_player)
 	{
@@ -243,9 +221,12 @@ void App::updateBonuses()
 	      
 	      if(bonuses[i].type == B_EXPLODE)
 		{
-		  sf::Vector2f pos = bonuses[i].pos;
-		  explosion_sprite.setPosition(pos);
-		  explosion_sprite.play(explosion);
+		  for(std::size_t i = 0; i < explosion_sprites.size(); i++)
+		    {
+		      sf::Vector2f pos = sf::Vector2f(rand()%800, rand()%600);
+		      explosion_sprites[i].setPosition(pos);
+		      explosion_sprites[i].play(explosion);
+		    }
 		  explosion_sound.play();
 		}
 	    }
@@ -275,11 +256,12 @@ void App::updateActiveBonuses()
 	    case B_EXPLODE:
 	      {
 		// deleting enemies and adding bitcoins
+		show_t_explosion = true;
 		std::size_t num_enemies = enemies.size();
 		for(std::size_t i = 0; i < num_enemies; i++)
 		  {
-		    sf::Vector2f pos = enemies[i].pos;
-		    float vel = enemies[i].vel;
+		    sf::Vector2f pos = enemies[i].getPosition();
+		    sf::Vector2f vel = enemies[i].getVelocity();
 		    float points = rand() % 20 + 1;
 		    Bitcoin btc(pos, vel, points);
 		    bitcoins.push_back(btc);
@@ -303,6 +285,9 @@ void App::updateActiveBonuses()
 	      enemy_timer = 1000;
 	      show_t_enemy_falling = false;
 	      break;
+	    case B_EXPLODE:
+	      show_t_explosion = false;
+	      break;
 	    default:
 	      break;
 	    }
@@ -316,10 +301,11 @@ void App::restart()
   enemies.clear();
   bitcoins.clear();
   bonuses.clear();
-  player.pos = sf::Vector2f(300,400);
-  player.score = 0;
+  player.setPosition(sf::Vector2f(300,400));
+  player.setScore(0);
   state = GAME;
   menu_music.stop();
+  score_music.stop();
   game_music.play();
 }
 
@@ -327,7 +313,7 @@ void App::addBitcoin(float milliseconds)
 {
   if(bitcoin_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), rand()%5+1, rand()%20+1));
+      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50), rand()%20+1));
       bitcoin_clock.restart();
     }
 }
@@ -336,7 +322,7 @@ void App::addEnemy(float milliseconds)
 {
   if(enemy_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), rand()%5+1));
+      enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50)));
       enemy_clock.restart();
     }
 }
@@ -346,38 +332,24 @@ void App::addBonus(float milliseconds)
   if(bonus_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
       int rand_bonus = rand()%3+1;
+      int time_work = 0;
       BONUS_TYPE type;
       switch(rand_bonus)
 	{
 	case 1:
 	  type = B_DOUBLE_BTC;
+	  time_work = 2000;
 	  break;
 	case 2:
 	  type = B_DOUBLE_ENEMIES;
+	  time_work = 2000;
 	  break;
 	case 3:
 	  type = B_EXPLODE;
+	  time_work = 500;
 	  break;
 	}
-      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%5+1, type, 2000));
+      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%5+1, type, time_work));
       bonus_clock.restart();
     }
-}
-
-// // //
-bool isCollision(float x1, float y1, float w1, float h1,
-                 float x2, float y2, float w2, float h2 )
-{
-  if( x1 + w1 >= x2 && x1 <= x2 + w2 && y1 + h1 >= y2 && y1 <= y2 + h2 )
-    return( true );
-  return( false );
-}
-
-bool isCollision(sf::Vector2f pos, sf::Vector2f size,
-                 sf::Vector2f pos2, sf::Vector2f size2 )
-{
-  if( pos.x + size.x >= pos2.x && pos.x <= pos2.x + size2.x &&
-      pos.y + size.y >= pos2.y && pos.y <= pos2.y + size2.y )
-    return( true );
-  return( false );
 }

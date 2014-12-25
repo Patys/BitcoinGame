@@ -6,7 +6,7 @@ CC = g++
 # Run Options       
 COMMANDLINE_OPTIONS = /dev/ttyS0
 # Compiler options during compilation
-COMPILE_OPTIONS = -pedantic -Wall -std=c++11
+COMPILE_OPTIONS = -pedantic -Weffc++ -Wall -Wunsafe-loop-optimizations -Wmissing-braces -Wmissing-noreturn -Wreturn-type -Wswitch -Wuninitialized -std=c++11
  
 #Header include directories
 HEADERS = -I"include/" 

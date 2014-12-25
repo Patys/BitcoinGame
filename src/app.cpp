@@ -2,7 +2,7 @@
 
 App::App():
   window(sf::VideoMode(800, 600), "BTC"),
-  explosion_sprite(sf::milliseconds(25), true, false)
+  small_explosion_sprite(sf::milliseconds(50), true, false)
 {
   srand(time(0));
   window.setFramerateLimit(60);
@@ -13,7 +13,6 @@ App::App():
   s_double_btc_bonus.setTexture(tex_menager.getTexture("data/graphics/double_btc.png"));
   s_double_enemy_bonus.setTexture(tex_menager.getTexture("data/graphics/double_stones.png"));
   s_explode_bonus.setTexture(tex_menager.getTexture("data/graphics/explode.png"));
-  s_explosion.setTexture(tex_menager.getTexture("data/graphics/explosion.png"));
 
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
@@ -60,8 +59,17 @@ If you can, tell about\nBitcoins to sombody.\
 				      t_enemy_falling.getLocalBounds().height/2);
   t_enemy_falling.setOrigin(center_t_enemy_falling);
 
+  t_explosion.setFont(font);
+  t_explosion.setCharacterSize(56);
+  t_explosion.setString("! EXPLOSION !");
+  t_explosion.setPosition(sf::Vector2f(400,300));
+  sf::Vector2f center_t_explosion(t_explosion.getLocalBounds().width/2,
+				  t_explosion.getLocalBounds().height/2);
+  t_explosion.setOrigin(center_t_explosion);
+
   show_t_btc_falling = false;
   show_t_enemy_falling = false;
+  show_t_explosion = false;
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
   menu_music.setVolume(80);
@@ -82,23 +90,31 @@ If you can, tell about\nBitcoins to sombody.\
   alarm_soundbuffer.loadFromFile("data/audio/alarm_0.ogg");
   alarm_sound.setBuffer(alarm_soundbuffer);
 
-  explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion.png"));
-  explosion.addFrame(sf::IntRect(192, 192, 64, 64));
-  explosion.addFrame(sf::IntRect(128, 192, 64, 64));
-  explosion.addFrame(sf::IntRect(64, 192, 64, 64));
-  explosion.addFrame(sf::IntRect(0, 192, 64, 64));
-  explosion.addFrame(sf::IntRect(192, 128, 64, 64));
-  explosion.addFrame(sf::IntRect(128, 128, 64, 64));
-  explosion.addFrame(sf::IntRect(64, 128, 64, 64));
-  explosion.addFrame(sf::IntRect(0, 128, 64, 64));
-  explosion.addFrame(sf::IntRect(192, 64, 64, 64));
-  explosion.addFrame(sf::IntRect(128, 64, 64, 64));
-  explosion.addFrame(sf::IntRect(64, 64, 64, 64));
-  explosion.addFrame(sf::IntRect(0, 64, 64, 64));
-  explosion.addFrame(sf::IntRect(192, 0, 64, 64));
-  explosion.addFrame(sf::IntRect(128, 0, 64, 64));
-  explosion.addFrame(sf::IntRect(64, 0, 64, 64));
-  explosion.addFrame(sf::IntRect(0, 0, 64, 64));
+  explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion3.png"));
+  explosion.addFrame(sf::IntRect(1, 1, 89, 89));
+  explosion.addFrame(sf::IntRect(93, 1, 89, 89));
+  explosion.addFrame(sf::IntRect(185, 1, 89, 89));
+  explosion.addFrame(sf::IntRect(277, 1, 89, 89));
+  explosion.addFrame(sf::IntRect(369, 1, 89, 89));
+  explosion.addFrame(sf::IntRect(1, 93, 89, 89));
+  explosion.addFrame(sf::IntRect(93, 93, 89, 89));
+  explosion.addFrame(sf::IntRect(185, 93, 89, 89));
+  explosion.addFrame(sf::IntRect(277, 93, 89, 89));
+  explosion.addFrame(sf::IntRect(369, 93, 89, 89));
+
+  small_explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion3.png"));
+  small_explosion.addFrame(sf::IntRect(1, 305, 47, 47));
+  small_explosion.addFrame(sf::IntRect(51, 305, 47, 47));
+  small_explosion.addFrame(sf::IntRect(101, 305, 47, 47));
+  small_explosion.addFrame(sf::IntRect(151, 305, 47, 47));
+  small_explosion.addFrame(sf::IntRect(201, 305, 47, 47));
+  small_explosion.addFrame(sf::IntRect(251, 305, 47, 47));
+
+
+  for(int i = 0; i < 25; i++)
+    {
+      explosion_sprites.push_back(AnimatedSprite(sf::milliseconds(50), true, false));
+    }
 
   state = MENU;
   

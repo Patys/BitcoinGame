@@ -30,9 +30,9 @@ class App
   void draw();
   void update();
 
-  void updateBitcoins();
-  void updateEnemies();
-  void updatePlayer();
+  void updateBitcoins(float delta_time);
+  void updateEnemies(float delta_time);
+  void updatePlayer(float delta_time);
   void updateBonuses();
   void updateActiveBonuses();
 
@@ -45,7 +45,7 @@ class App
 
   sf::RenderWindow window;
   sf::Event event;
-  
+
   std::vector<Bitcoin> bitcoins;
   std::vector<Enemy> enemies;
   std::vector<Bonus> bonuses;
@@ -64,9 +64,13 @@ class App
 
   bool show_t_btc_falling;
   bool show_t_enemy_falling;
+  bool show_t_explosion;
 
   Animation explosion;
-  AnimatedSprite explosion_sprite;
+  std::vector<AnimatedSprite> explosion_sprites;
+
+  Animation small_explosion;
+  AnimatedSprite small_explosion_sprite;
 
   // texture holder
   ResourceMenager tex_menager;
@@ -97,6 +101,7 @@ class App
   sf::Text t_score;
   sf::Text t_btc_falling;
   sf::Text t_enemy_falling;
+  sf::Text t_explosion;
 
   // sf::Music ...
   sf::Music menu_music;

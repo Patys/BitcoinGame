@@ -1,12 +1,9 @@
 TODO list:
 
 Todo:
- - background score, credits
+ - background score
  - some better graphics
  - animation for wallet
- - some magic things after touching bitcoin like particles or animations
- - better font
- - explode animation (to change and should be everywhere the enemies are destroing)
  - resume in menu to allow pause game
  - displaying frame under menu button text
  - connection with server
@@ -14,9 +11,12 @@ Todo:
  - score text, some stuff to sharing etc.
 
 Testing:
-
+ - explode animation
+ - better font
+ - some magic things after touching bitcoin like particles or animations
 
 Done:
+ - background credits
  - background menu
  - moving bonus text - done
  - explode bonus - destroy stones and convert them in the bicoins - done

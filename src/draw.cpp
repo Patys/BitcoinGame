@@ -8,14 +8,14 @@ void App::draw()
       window.draw(s_game_background);
       for(auto btc : bitcoins)
 	{
-	  s_btc.setPosition(btc.pos);
+	  s_btc.setPosition(btc.getPosition());
 	  window.draw(s_btc);
 	}
       s_enemy.setOrigin(sf::Vector2f(16,16));
       s_enemy.rotate(5);
       for(auto st : enemies)
 	{
-	  s_enemy.setPosition(sf::Vector2f(st.pos.x + 16, st.pos.y + 16));
+	  s_enemy.setPosition(sf::Vector2f(st.getPosition().x + 16, st.getPosition().y + 16));
 	  window.draw(s_enemy);
 	}
       for(auto i : bonuses)
@@ -36,13 +36,19 @@ void App::draw()
 	      break;
 	    }
 	}
+      for(auto i : explosion_sprites)
+	{
+	  window.draw(i);
+	}
+      window.draw(small_explosion_sprite);
+      s_wallet.setPosition(player.getPosition());
+      window.draw(s_wallet);
       if(show_t_btc_falling)
 	window.draw(t_btc_falling);
       if(show_t_enemy_falling)
 	window.draw(t_enemy_falling);
-      window.draw(explosion_sprite);
-      s_wallet.setPosition(player.pos);
-      window.draw(s_wallet);
+      if(show_t_explosion)
+	window.draw(t_explosion);
       window.draw(t_score);
       window.display();
     }

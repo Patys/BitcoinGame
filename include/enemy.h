@@ -1,10 +1,24 @@
 #pragma once
 
+#include <GameObject.h>
+#include <Collision.h>
+#include <player.h>
 
-struct Enemy
+class Enemy : public GameObject
 {
-  Enemy(sf::Vector2f _pos, float _vel):
-    pos(_pos), vel(_vel) {}
-  sf::Vector2f pos;
-  float vel;
+ public:
+  Enemy(sf::Vector2f _pos, sf::Vector2f _vel)
+  {
+    pos = _pos;
+    vel = _vel;
+  }
+  
+  const bool isCollisionWithPlayer() { return collision_with_player; }
+  const bool isCollisionWithBottom() { return collision_with_bottom; }
+
+  void update(float delta_time, Player *player);
+
+ private:
+  bool collision_with_player;
+  bool collision_with_bottom;
 };
