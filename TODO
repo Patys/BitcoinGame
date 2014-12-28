@@ -1,7 +1,6 @@
 TODO list:
 
 Todo:
- - background score
  - some better graphics
  - animation for wallet
  - resume in menu to allow pause game
@@ -16,6 +15,7 @@ Testing:
  - some magic things after touching bitcoin like particles or animations
 
 Done:
+ - background score
  - background credits
  - background menu
  - moving bonus text - done
