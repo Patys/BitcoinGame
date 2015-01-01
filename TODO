@@ -2,19 +2,18 @@ TODO list:
 
 Todo:
  - some better graphics
+ - better bonus graphics
  - animation for wallet
  - resume in menu to allow pause game
  - displaying frame under menu button text
- - connection with server
- - sending score to server and validate datas
- - score text, some stuff to sharing etc.
+ - super fast shuriken
 
 Testing:
- - explode animation
- - better font
- - some magic things after touching bitcoin like particles or animations
 
 Done:
+ - some magic things after touching bitcoin like particles or animations
+ - better font
+ - explode animation
  - background score
  - background credits
  - background menu

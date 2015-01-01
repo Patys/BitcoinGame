@@ -20,21 +20,8 @@ void App::draw()
 	}
       for(auto i : bonuses)
 	{
-	  switch(i.type)
-	    {
-	    case B_DOUBLE_BTC:
-	      s_double_btc_bonus.setPosition(i.pos);
-	      window.draw(s_double_btc_bonus);
-	      break;
-	    case B_DOUBLE_ENEMIES:
-	      s_double_enemy_bonus.setPosition(i.pos);
-	      window.draw(s_double_enemy_bonus);
-	      break;
-	    case B_EXPLODE:
-	      s_explode_bonus.setPosition(i.pos);
-	      window.draw(s_explode_bonus);
-	      break;
-	    }
+	  s_double_btc_bonus.setPosition(i.pos);
+	  window.draw(s_double_btc_bonus);
 	}
       for(auto i : explosion_sprites)
 	{
@@ -49,6 +36,8 @@ void App::draw()
 	window.draw(t_enemy_falling);
       if(show_t_explosion)
 	window.draw(t_explosion);
+      if(show_t_keys)
+	window.draw(t_keys);
       window.draw(t_score);
       window.display();
     }
@@ -75,6 +64,14 @@ void App::draw()
       window.draw(s_credits_background);
       window.draw(t_credits);
       window.draw(b_back);
+      window.display();
+    }
+  else if(state == RESUME)
+    {
+      window.clear();
+      window.draw(s_menu_background);
+      window.draw(b_resume);
+      window.draw(b_menu);
       window.display();
     }
 }

@@ -16,7 +16,7 @@
 #include <bitcoin.h>
 #include <bonus.h>
 
-enum APP_STATE {MENU, GAME, CREDITS, SCORE};
+enum APP_STATE {MENU, GAME, CREDITS, SCORE, RESUME};
 
 class App
 {
@@ -58,13 +58,17 @@ class App
   sf::Clock bitcoin_clock;
   sf::Clock enemy_clock;
   sf::Clock bonus_clock;
+
   float bitcoin_timer;
   float enemy_timer;
   float bonus_timer;
-
+  
   bool show_t_btc_falling;
   bool show_t_enemy_falling;
   bool show_t_explosion;
+  bool show_t_keys;
+
+  bool fast_enemy_warning;
 
   Animation explosion;
   std::vector<AnimatedSprite> explosion_sprites;
@@ -97,11 +101,14 @@ class App
   sf::Text b_credits;
   sf::Text b_exit;
   sf::Text b_back;
+  sf::Text b_menu;
+  sf::Text b_resume;
   sf::Text t_credits;
   sf::Text t_score;
   sf::Text t_btc_falling;
   sf::Text t_enemy_falling;
   sf::Text t_explosion;
+  sf::Text t_keys;
 
   // sf::Music ...
   sf::Music menu_music;

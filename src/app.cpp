@@ -1,7 +1,7 @@
 #include <app.h>
 
 App::App():
-  window(sf::VideoMode(800, 600), "BTC"),
+  window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
   small_explosion_sprite(sf::milliseconds(50), true, false)
 {
   srand(time(0));
@@ -29,12 +29,18 @@ App::App():
   b_exit.setString("Exit");
   b_back.setFont(font);
   b_back.setString("Go to menu.");
+  b_menu.setFont(font);
+  b_menu.setString("Menu");
+  b_resume.setFont(font);
+  b_resume.setString("Resume");
 
   b_back.setPosition(sf::Vector2f(500,500));
   b_start.setPosition(sf::Vector2f(100,100));
   b_credits.setPosition(sf::Vector2f(100,150));
   b_exit.setPosition(sf::Vector2f(100,200));
-  
+  b_menu.setPosition(sf::Vector2f(100,150));
+  b_resume.setPosition(sf::Vector2f(100,100));
+
   t_credits.setFont(font1);
   t_credits.setString(L"\
 Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
@@ -45,7 +51,7 @@ If you can, tell about\nBitcoins to sombody.\
 
   t_btc_falling.setFont(font);
   t_btc_falling.setCharacterSize(56);
-  t_btc_falling.setString("MORE BITCOINS!");
+  t_btc_falling.setString("! BITCOINS !");
   t_btc_falling.setPosition(sf::Vector2f(400,300));
   sf::Vector2f center_t_btc_falling(t_btc_falling.getLocalBounds().width/2,
 				    t_btc_falling.getLocalBounds().height/2);
@@ -53,7 +59,7 @@ If you can, tell about\nBitcoins to sombody.\
 
   t_enemy_falling.setFont(font);
   t_enemy_falling.setCharacterSize(56);
-  t_enemy_falling.setString("BE AWARE! SHURIKENS!");
+  t_enemy_falling.setString("! SHURIKENS !");
   t_enemy_falling.setPosition(sf::Vector2f(400,300));
   sf::Vector2f center_t_enemy_falling(t_enemy_falling.getLocalBounds().width/2,
 				      t_enemy_falling.getLocalBounds().height/2);
@@ -67,9 +73,18 @@ If you can, tell about\nBitcoins to sombody.\
 				  t_explosion.getLocalBounds().height/2);
   t_explosion.setOrigin(center_t_explosion);
 
+  t_keys.setFont(font);
+  t_keys.setCharacterSize(56);
+  t_keys.setString("! INVERTED KEYS !");
+  t_keys.setPosition(sf::Vector2f(400,300));
+  sf::Vector2f center_t_keys(t_keys.getLocalBounds().width/2,
+				  t_keys.getLocalBounds().height/2);
+  t_keys.setOrigin(center_t_keys);
+
   show_t_btc_falling = false;
   show_t_enemy_falling = false;
   show_t_explosion = false;
+  show_t_keys = false;
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
   menu_music.setVolume(80);
@@ -121,7 +136,6 @@ If you can, tell about\nBitcoins to sombody.\
   bitcoin_timer = 1000;
   enemy_timer = 1000;
   bonus_timer = 4000;
-  
 }
 
 void App::run()

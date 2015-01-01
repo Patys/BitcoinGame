@@ -23,9 +23,12 @@ void App::update()
   if(state == GAME)
     {
       
-      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+      static float temp_resume_timer = 0;
+      temp_resume_timer += frame_time.asMilliseconds();
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 100)
 	{
-	  state = MENU;
+	  state = RESUME;
+	  temp_resume_timer = 0;
 	}
       
       // ADDING NEW BITCOINS, STONES, BONUSES
@@ -92,21 +95,27 @@ void App::update()
       bool click_on_exit = isCollision(mouse_position, sf::Vector2f(1,1),
 				       b_exit.getPosition(), b_exit_size);
 
-      if(click_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+      static float temp_resume_timer = 0;
+      temp_resume_timer += frame_time.asMilliseconds();
+
+      if(click_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
 	{
 	  restart();
+	  temp_resume_timer = 0;
 	}
 
       // Click on credits menu
-      if(click_on_credits && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+      if(click_on_credits && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
 	{
 	  state = CREDITS;
+	  temp_resume_timer = 0;
 	}
 
       // Click on exit menu
-      if(click_on_exit && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+      if(click_on_exit && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
 	{
 	  window.close();
+	  temp_resume_timer = 0;
 	}
     } 
   // SCORE
@@ -155,6 +164,39 @@ void App::update()
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 	  state = MENU;
+	}
+    }
+  else if(state == RESUME)
+    {
+      sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
+      sf::Vector2f b_menu_size(b_menu.getLocalBounds().width, b_menu.getLocalBounds().height);
+      sf::Vector2f b_resume_size(b_resume.getLocalBounds().width, b_resume.getLocalBounds().height);
+
+      bool mouse_on_menu = isCollision(mouse_position, sf::Vector2f(1,1),
+				       b_menu.getPosition(), b_menu_size);
+
+      bool mouse_on_resume = isCollision(mouse_position, sf::Vector2f(1,1),
+					 b_resume.getPosition(), b_resume_size);
+
+      static float temp_resume_timer = 0;
+      temp_resume_timer += frame_time.asMilliseconds();
+
+      if(mouse_on_menu && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+	{
+	  state = MENU;
+	  game_music.stop();
+	  menu_music.play();
+	  temp_resume_timer = 0;
+	}
+      if(mouse_on_resume && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+	{
+	  state = GAME;
+	  temp_resume_timer = 0;
+	}
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 100)
+	{
+	  state = GAME;
+	  temp_resume_timer = 0;
 	}
     }
 }
@@ -265,9 +307,13 @@ void App::updateActiveBonuses()
 		    float points = rand() % 20 + 1;
 		    Bitcoin btc(pos, vel, points);
 		    bitcoins.push_back(btc);
-		    enemies.erase(enemies.begin() + i);
 		  }
+		enemies.clear();
 	      }
+	      break;
+	    case B_INVERSE_KEYS:
+	      player.inverseKeys();
+	      show_t_keys = true;
 	      break;
 	    }
 	  active_bonuses[i].activated = true;
@@ -287,6 +333,10 @@ void App::updateActiveBonuses()
 	      break;
 	    case B_EXPLODE:
 	      show_t_explosion = false;
+	      break;
+	    case B_INVERSE_KEYS:
+	      player.inverseKeys();
+	      show_t_keys = false;
 	      break;
 	    default:
 	      break;
@@ -327,11 +377,13 @@ void App::addEnemy(float milliseconds)
     }
 }
 
+
 void App::addBonus(float milliseconds)
 {
   if(bonus_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      int rand_bonus = rand()%3+1;
+      int rand_bonus = rand()%4+1;
+      //int rand_bonus = 3;
       int time_work = 0;
       BONUS_TYPE type;
       switch(rand_bonus)
@@ -347,6 +399,10 @@ void App::addBonus(float milliseconds)
 	case 3:
 	  type = B_EXPLODE;
 	  time_work = 500;
+	  break;
+	case 4:
+	  type = B_INVERSE_KEYS;
+	  time_work = 3000;
 	  break;
 	}
       bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%5+1, type, time_work));
