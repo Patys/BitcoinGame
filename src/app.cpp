@@ -10,7 +10,7 @@ App::App():
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
   s_enemy.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
-  s_bonus.setTexture(tex_menager.getTexture("data/graphics/double_btc.png"));
+  s_bonus.setTexture(tex_menager.getTexture("data/graphics/bonus.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
   s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
