@@ -39,7 +39,7 @@ void App::update()
       updatePlayer(frame_time.asSeconds());
       updateBitcoins(frame_time.asSeconds());
       updateEnemies(frame_time.asSeconds());
-      updateBonuses();
+      updateBonuses(frame_time.asSeconds());
       updateActiveBonuses();
 
       if(sin_clock.getElapsedTime().asMilliseconds() > sin_time)
@@ -244,13 +244,14 @@ void App::updateEnemies(float delta_time)
 void App::updatePlayer(float delta_time)
 {
   player.update(delta_time);
+
 }
 
-void App::updateBonuses()
+void App::updateBonuses(float delta_time)
 {
   for(std::size_t i = 0; i < bonuses.size(); i++)
     {
-      bonuses[i].pos.y += bonuses[i].vel;
+      bonuses[i].pos.y += bonuses[i].vel * delta_time;
 
       bool collision_with_player = isCollision(player.getPosition(), sf::Vector2f(96, 64),
 					       bonuses[i].pos, sf::Vector2f(32, 32));
@@ -281,6 +282,18 @@ void App::updateActiveBonuses()
 {
   for(std::size_t i = 0; i < active_bonuses.size(); i++)
     {
+      // HACK hardcoded update darkness bonus
+      if(active_bonuses[i].type == B_DARKNESS && show_t_darkness)
+	{
+	  s_light.setPosition(sf::Vector2f(player.getPosition().x + 32 - 310,
+					 player.getPosition().y + 32 - 310));
+	  tex_lighting.clear( sf::Color( 0, 0, 0, 0 ) );
+	  tex_lighting.draw( s_light, sf::BlendAdd ); // light - sprite, figura, cokolwiek sf::Drawable
+	  tex_lighting.display(); // wywołanie tekstury, zapieczętowanie
+  
+	  s_lighting.setTexture( tex_lighting.getTexture() );
+	}
+      
       if(active_bonuses[i].activated == false)
 	{
 	  switch(active_bonuses[i].type)
@@ -315,6 +328,9 @@ void App::updateActiveBonuses()
 	      player.inverseKeys();
 	      show_t_keys = true;
 	      break;
+	    case B_DARKNESS:
+	      show_t_darkness = true;
+	      break;
 	    }
 	  active_bonuses[i].activated = true;
 	}
@@ -337,6 +353,9 @@ void App::updateActiveBonuses()
 	    case B_INVERSE_KEYS:
 	      player.inverseKeys();
 	      show_t_keys = false;
+	      break;
+	    case B_DARKNESS:
+	      show_t_darkness = false;
 	      break;
 	    default:
 	      break;
@@ -382,8 +401,9 @@ void App::addBonus(float milliseconds)
 {
   if(bonus_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      int rand_bonus = rand()%4+1;
-      //int rand_bonus = 3;
+      int rand_bonus = rand()%5+1;
+      // HACK TO TESTING BONUSES
+      // rand_bonus = 5;
       int time_work = 0;
       BONUS_TYPE type;
       switch(rand_bonus)
@@ -404,8 +424,12 @@ void App::addBonus(float milliseconds)
 	  type = B_INVERSE_KEYS;
 	  time_work = 3000;
 	  break;
+	case 5:
+	  type = B_DARKNESS;
+	  time_work = 4000;
+	  break;
 	}
-      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%5+1, type, time_work));
+      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%500+100, type, time_work));
       bonus_clock.restart();
     }
 }

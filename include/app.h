@@ -33,7 +33,8 @@ class App
   void updateBitcoins(float delta_time);
   void updateEnemies(float delta_time);
   void updatePlayer(float delta_time);
-  void updateBonuses();
+  void updateBonuses(float delta_time);
+
   void updateActiveBonuses();
 
   void restart();
@@ -67,8 +68,7 @@ class App
   bool show_t_enemy_falling;
   bool show_t_explosion;
   bool show_t_keys;
-
-  bool fast_enemy_warning;
+  bool show_t_darkness;
 
   Animation explosion;
   std::vector<AnimatedSprite> explosion_sprites;
@@ -79,6 +79,11 @@ class App
   // texture holder
   ResourceMenager tex_menager;
   
+  // TEST : lighting - darkness bonus
+  sf::Sprite s_light;
+  sf::RenderTexture tex_lighting;
+  sf::Sprite s_lighting;
+
   // sf::Font ...
   sf::Font font;
   sf::Font font1;
@@ -87,9 +92,7 @@ class App
   sf::Sprite s_btc;
   sf::Sprite s_enemy;
   sf::Sprite s_wallet;
-  sf::Sprite s_double_btc_bonus;
-  sf::Sprite s_double_enemy_bonus;
-  sf::Sprite s_explode_bonus;
+  sf::Sprite s_bonus;
   sf::Sprite s_explosion;
 
   sf::Sprite s_menu_background;
@@ -109,6 +112,7 @@ class App
   sf::Text t_enemy_falling;
   sf::Text t_explosion;
   sf::Text t_keys;
+  sf::Text t_darkness;
 
   // sf::Music ...
   sf::Music menu_music;

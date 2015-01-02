@@ -10,13 +10,15 @@ App::App():
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
   s_enemy.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
-  s_double_btc_bonus.setTexture(tex_menager.getTexture("data/graphics/double_btc.png"));
-  s_double_enemy_bonus.setTexture(tex_menager.getTexture("data/graphics/double_stones.png"));
-  s_explode_bonus.setTexture(tex_menager.getTexture("data/graphics/explode.png"));
-
+  s_bonus.setTexture(tex_menager.getTexture("data/graphics/double_btc.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
   s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
+
+  // TEST : lighting - darkness bonus
+  s_light.setTexture(tex_menager.getTexture("data/graphics/light.png"));
+  tex_lighting.create( 800, 600 );
+  // 
 
   font.loadFromFile("data/RussoOne-Regular.ttf");
   font1.loadFromFile("data/Raleway-Regular.otf");
@@ -81,10 +83,19 @@ If you can, tell about\nBitcoins to sombody.\
 				  t_keys.getLocalBounds().height/2);
   t_keys.setOrigin(center_t_keys);
 
+  t_darkness.setFont(font);
+  t_darkness.setCharacterSize(56);
+  t_darkness.setString("DARKNESS");
+  t_darkness.setPosition(sf::Vector2f(400,300));
+  sf::Vector2f center_t_darkness(t_darkness.getLocalBounds().width/2,
+				 t_darkness.getLocalBounds().height/2);
+  t_darkness.setOrigin(center_t_darkness);
+
   show_t_btc_falling = false;
   show_t_enemy_falling = false;
   show_t_explosion = false;
   show_t_keys = false;
+  show_t_darkness = false;
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
   menu_music.setVolume(80);

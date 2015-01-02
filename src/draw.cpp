@@ -20,8 +20,8 @@ void App::draw()
 	}
       for(auto i : bonuses)
 	{
-	  s_double_btc_bonus.setPosition(i.pos);
-	  window.draw(s_double_btc_bonus);
+	  s_bonus.setPosition(i.pos);
+	  window.draw(s_bonus);
 	}
       for(auto i : explosion_sprites)
 	{
@@ -30,6 +30,8 @@ void App::draw()
       window.draw(small_explosion_sprite);
       s_wallet.setPosition(player.getPosition());
       window.draw(s_wallet);
+      if(show_t_darkness) // HACK - using bool used to text
+	window.draw( s_lighting, sf::BlendMultiply );
       if(show_t_btc_falling)
 	window.draw(t_btc_falling);
       if(show_t_enemy_falling)
@@ -38,6 +40,8 @@ void App::draw()
 	window.draw(t_explosion);
       if(show_t_keys)
 	window.draw(t_keys);
+      if(show_t_darkness)
+	window.draw(t_darkness);
       window.draw(t_score);
       window.display();
     }
