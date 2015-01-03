@@ -72,9 +72,11 @@ class App
 
   Animation explosion;
   std::vector<AnimatedSprite> explosion_sprites;
-
   Animation small_explosion;
   AnimatedSprite small_explosion_sprite;
+  Animation bonus_animation;
+  AnimatedSprite bonus_animation_sprite;
+  
 
   // texture holder
   ResourceMenager tex_menager;

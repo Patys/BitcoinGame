@@ -2,7 +2,8 @@
 
 App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
-  small_explosion_sprite(sf::milliseconds(50), true, false)
+  small_explosion_sprite(sf::milliseconds(50), true, false),
+  bonus_animation_sprite(sf::milliseconds(50), true, false)
 {
   srand(time(0));
   window.setFramerateLimit(60);
@@ -135,6 +136,14 @@ If you can, tell about\nBitcoins to sombody.\
   small_explosion.addFrame(sf::IntRect(151, 305, 47, 47));
   small_explosion.addFrame(sf::IntRect(201, 305, 47, 47));
   small_explosion.addFrame(sf::IntRect(251, 305, 47, 47));
+
+  bonus_animation.setSpriteSheet(tex_menager.getTexture("data/graphics/bonus_animation.png"));
+  bonus_animation.addFrame(sf::IntRect(0, 0, 55, 55));
+  bonus_animation.addFrame(sf::IntRect(55, 0, 55, 55));
+  bonus_animation.addFrame(sf::IntRect(110, 0, 55, 55));
+  bonus_animation.addFrame(sf::IntRect(165, 0, 55, 55));
+  bonus_animation.addFrame(sf::IntRect(220, 0, 55, 55));
+  bonus_animation.addFrame(sf::IntRect(275, 0, 55, 55));
 
 
   for(int i = 0; i < 25; i++)

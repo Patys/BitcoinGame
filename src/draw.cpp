@@ -28,6 +28,7 @@ void App::draw()
 	  window.draw(i);
 	}
       window.draw(small_explosion_sprite);
+      window.draw(bonus_animation_sprite);
       s_wallet.setPosition(player.getPosition());
       window.draw(s_wallet);
       if(show_t_darkness) // HACK - using bool used to text

@@ -71,6 +71,10 @@ void App::update()
 	small_explosion_sprite.setPosition(sf::Vector2f(-100, -100));
       small_explosion_sprite.update(frame_time);
 
+      if(!bonus_animation_sprite.isPlaying())
+	bonus_animation_sprite.setPosition(sf::Vector2f(-100,-100));
+      bonus_animation_sprite.update(frame_time);
+
       // POINTS
       std::ostringstream _score_string;
       _score_string << player.getScore();
@@ -277,6 +281,8 @@ void App::updateBonuses(float delta_time)
 		    }
 		  explosion_sound.play();
 		}
+	      bonus_animation_sprite.setPosition(bonuses[i].pos.x - 12, bonuses[i].pos.y - 12);
+	      bonus_animation_sprite.play(bonus_animation);
 	    }
 	  bonuses.erase(bonuses.begin() + i);
 	}
