@@ -48,13 +48,18 @@ void App::update()
 	  t_btc_falling.setRotation(0);
 	  t_enemy_falling.setRotation(0);
 	  t_explosion.setRotation(0);
+	  t_darkness.setRotation(0);
+	  t_keys.setRotation(0);
 	  sin_clock.restart();
 	}
+      float angel_rotate = 5*sin(sin_amplitude * frame_time.asSeconds());
 
-      t_btc_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
-      t_enemy_falling.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
-      t_explosion.rotate(5*sin(sin_amplitude * frame_time.asSeconds()));
-      
+      t_btc_falling.rotate(angel_rotate);
+      t_enemy_falling.rotate(angel_rotate);
+      t_explosion.rotate(angel_rotate);
+      t_darkness.rotate(angel_rotate);
+      t_keys.rotate(angel_rotate);
+
       for(std::size_t i = 0; i < explosion_sprites.size(); i++)
 	{
 	  if(!explosion_sprites[i].isPlaying())
