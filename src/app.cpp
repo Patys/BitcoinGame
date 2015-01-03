@@ -9,7 +9,7 @@ App::App():
   window.setFramerateLimit(60);
 
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
-  s_enemy.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
+  s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
   s_bonus.setTexture(tex_menager.getTexture("data/graphics/bonus.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));

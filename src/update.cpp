@@ -393,7 +393,7 @@ void App::addBitcoin(float milliseconds)
 {
   if(bitcoin_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50), rand()%20+1));
+      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50), rand()%5+1));
       bitcoin_clock.restart();
     }
 }
