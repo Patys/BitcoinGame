@@ -5,7 +5,7 @@
 class Player
 {
  public:
-  Player() {}
+  Player() { inverse_keys = false; }
  Player(sf::Vector2f _pos): pos(_pos) { inverse_keys = false; }
 
   const sf::Vector2f getPosition() { return pos; }

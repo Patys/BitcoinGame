@@ -3,7 +3,8 @@
 App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
   small_explosion_sprite(sf::milliseconds(50), true, false),
-  bonus_animation_sprite(sf::milliseconds(50), true, false)
+  bonus_animation_sprite(sf::milliseconds(50), true, false),
+  player()
 {
   srand(time(0));
   window.setFramerateLimit(60);
