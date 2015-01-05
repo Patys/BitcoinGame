@@ -6,14 +6,20 @@ Todo:
  - displaying frame under menu button text
  - super fast shuriken
  - new option - buying some stuff e.g. better graphics or more bitcoins
- - server and networking with node.js
+ - server and networking with server in node.js
  - buying new stuff after spend some bitcoins
  - sharing your score on site
+ - add animation after collision with shuriken
+ - add new text interface
+
+Bugs:
+ - inverted keys all time
 
 Testing:
  - resume in menu to allow pause game
  - better bonus graphics
  - animation bonus
+ - add incresing difficult
 
 Done:
  - lighting bonus

@@ -4,7 +4,8 @@ App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
   small_explosion_sprite(sf::milliseconds(50), true, false),
   bonus_animation_sprite(sf::milliseconds(50), true, false),
-  player()
+  player(),
+  txt_manager()
 {
   srand(time(0));
   window.setFramerateLimit(60);
@@ -157,6 +158,9 @@ If you can, tell about\nBitcoins to sombody.\
   bitcoin_timer = 1000;
   enemy_timer = 1000;
   bonus_timer = 4000;
+
+  difficulty_timer = 1.1;
+
 }
 
 void App::run()

@@ -15,6 +15,7 @@
 #include <enemy.h>
 #include <bitcoin.h>
 #include <bonus.h>
+#include <Text.h>
 
 enum APP_STATE {MENU, GAME, CREDITS, SCORE, RESUME};
 
@@ -63,6 +64,8 @@ class App
   float bitcoin_timer;
   float enemy_timer;
   float bonus_timer;
+
+  float difficulty_timer;
   
   bool show_t_btc_falling;
   bool show_t_enemy_falling;
@@ -76,7 +79,6 @@ class App
   AnimatedSprite small_explosion_sprite;
   Animation bonus_animation;
   AnimatedSprite bonus_animation_sprite;
-  
 
   // texture holder
   ResourceMenager tex_menager;

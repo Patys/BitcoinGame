@@ -5,7 +5,6 @@
 
 void App::update()
 {
-
   static sf::Clock frame_clock;
   static sf::Clock sin_clock;
   static float sin_amplitude = 15;
@@ -24,13 +23,25 @@ void App::update()
     {
       
       static float temp_resume_timer = 0;
+      static float increase_difficulty_timer = 0;
+
       temp_resume_timer += frame_time.asMilliseconds();
+      
+      if(difficulty_timer < 4)
+	increase_difficulty_timer += frame_time.asMilliseconds();
+
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 100)
 	{
 	  state = RESUME;
 	  temp_resume_timer = 0;
 	}
       
+      if(increase_difficulty_timer > 2000 && difficulty_timer < 4)
+	{
+	  difficulty_timer += 0.1;
+	  increase_difficulty_timer = 0;
+	}
+
       // ADDING NEW BITCOINS, STONES, BONUSES
       addBitcoin(bitcoin_timer);
       addEnemy(enemy_timer);
@@ -40,6 +51,7 @@ void App::update()
       updateBitcoins(frame_time.asSeconds());
       updateEnemies(frame_time.asSeconds());
       updateBonuses(frame_time.asSeconds());
+
       updateActiveBonuses();
 
       if(sin_clock.getElapsedTime().asMilliseconds() > sin_time)
@@ -310,12 +322,20 @@ void App::updateActiveBonuses()
 	  switch(active_bonuses[i].type)
 	    {
 	    case B_DOUBLE_BTC:
-	      bitcoin_timer = 150;
+	      for(std::size_t i = 0; i < 10; i++)
+		{
+		  bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32),
+					     sf::Vector2f(0,rand()%400+50),
+					     rand()%5+1));
+		}
 	      show_t_btc_falling = true;
 	      alarm_sound.play();
 	      break;
 	    case B_DOUBLE_ENEMIES:
-	      enemy_timer = 150;
+	      for(std::size_t i = 0; i < 5; i++)
+		{
+		  enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50)));
+		}
 	      show_t_enemy_falling = true;
 	      alarm_sound.play();
 	      break;
@@ -351,11 +371,9 @@ void App::updateActiveBonuses()
 	  switch(active_bonuses[i].type)
 	    {
 	    case B_DOUBLE_BTC:
-	      bitcoin_timer = 1000;
 	      show_t_btc_falling = false;
 	      break;
 	    case B_DOUBLE_ENEMIES:
-	      enemy_timer = 1000;
 	      show_t_enemy_falling = false;
 	      break;
 	    case B_EXPLODE:
@@ -383,6 +401,7 @@ void App::restart()
   bonuses.clear();
   player.setPosition(sf::Vector2f(300,400));
   player.setScore(0);
+  difficulty_timer = 1;
   state = GAME;
   menu_music.stop();
   score_music.stop();
@@ -400,7 +419,7 @@ void App::addBitcoin(float milliseconds)
 
 void App::addEnemy(float milliseconds)
 {
-  if(enemy_clock.getElapsedTime().asMilliseconds() > milliseconds)
+  if(enemy_clock.getElapsedTime().asMilliseconds() * difficulty_timer > milliseconds)
     {
       enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50)));
       enemy_clock.restart();
