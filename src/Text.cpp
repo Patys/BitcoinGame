@@ -3,12 +3,24 @@
 
 Text::Text():
   is_shaking(0),
-  speed(0),
-  frequency(1),
+  speed(50),
+  frequency(0.2),
   timer(0),
   direction(1)
 {
 
+}
+
+Text::Text(const std::string& string, sf::Font& font, int character_size):
+  is_shaking(0),
+  speed(50),
+  frequency(0.2),
+  timer(0),
+  direction(1)
+{
+  setFont(font);
+  setString(string);
+  setCharacterSize(character_size);
 }
 
 void Text::shake(float delta_time)
@@ -44,6 +56,13 @@ void TextManager::update(float delta_time)
 bool TextManager::addText(const std::string& text_id)
 {
   texts[text_id] = Text();
+  return true;
+}
+
+bool TextManager::addText(const std::string& text_id, Text& text)
+{
+  texts[text_id] = text;
+  return true;
 }
 
 bool TextManager::deleteText(const std::string& text_id)

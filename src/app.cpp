@@ -5,7 +5,7 @@ App::App():
   small_explosion_sprite(sf::milliseconds(50), true, false),
   bonus_animation_sprite(sf::milliseconds(50), true, false),
   player(),
-  txt_manager()
+  texts()
 {
   srand(time(0));
   window.setFramerateLimit(60);
@@ -25,74 +25,6 @@ App::App():
 
   font.loadFromFile("data/RussoOne-Regular.ttf");
   font1.loadFromFile("data/Raleway-Regular.otf");
-
-  b_start.setFont(font);
-  b_start.setString("Start");
-  b_credits.setFont(font);
-  b_credits.setString("Credits");
-  b_exit.setFont(font);
-  b_exit.setString("Exit");
-  b_back.setFont(font);
-  b_back.setString("Go to menu.");
-  b_menu.setFont(font);
-  b_menu.setString("Menu");
-  b_resume.setFont(font);
-  b_resume.setString("Resume");
-
-  b_back.setPosition(sf::Vector2f(500,500));
-  b_start.setPosition(sf::Vector2f(100,100));
-  b_credits.setPosition(sf::Vector2f(100,150));
-  b_exit.setPosition(sf::Vector2f(100,200));
-  b_menu.setPosition(sf::Vector2f(100,150));
-  b_resume.setPosition(sf::Vector2f(100,100));
-
-  t_credits.setFont(font1);
-  t_credits.setString(L"\
-Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
-If you can, tell about\nBitcoins to sombody.\
-");
-  t_credits.setPosition(sf::Vector2f(50,100));
-  t_score.setFont(font);
-
-  t_btc_falling.setFont(font);
-  t_btc_falling.setCharacterSize(56);
-  t_btc_falling.setString("! BITCOINS !");
-  t_btc_falling.setPosition(sf::Vector2f(400,300));
-  sf::Vector2f center_t_btc_falling(t_btc_falling.getLocalBounds().width/2,
-				    t_btc_falling.getLocalBounds().height/2);
-  t_btc_falling.setOrigin(center_t_btc_falling);
-
-  t_enemy_falling.setFont(font);
-  t_enemy_falling.setCharacterSize(56);
-  t_enemy_falling.setString("! SHURIKENS !");
-  t_enemy_falling.setPosition(sf::Vector2f(400,300));
-  sf::Vector2f center_t_enemy_falling(t_enemy_falling.getLocalBounds().width/2,
-				      t_enemy_falling.getLocalBounds().height/2);
-  t_enemy_falling.setOrigin(center_t_enemy_falling);
-
-  t_explosion.setFont(font);
-  t_explosion.setCharacterSize(56);
-  t_explosion.setString("! EXPLOSION !");
-  t_explosion.setPosition(sf::Vector2f(400,300));
-  sf::Vector2f center_t_explosion(t_explosion.getLocalBounds().width/2,
-				  t_explosion.getLocalBounds().height/2);
-  t_explosion.setOrigin(center_t_explosion);
-
-  t_keys.setFont(font);
-  t_keys.setCharacterSize(56);
-  t_keys.setString("! INVERTED KEYS !");
-  t_keys.setPosition(sf::Vector2f(400,300));
-  sf::Vector2f center_t_keys(t_keys.getLocalBounds().width/2,
-				  t_keys.getLocalBounds().height/2);
-  t_keys.setOrigin(center_t_keys);
-
-  t_darkness.setFont(font);
-  t_darkness.setCharacterSize(56);
-  t_darkness.setString("DARKNESS");
-  t_darkness.setPosition(sf::Vector2f(400,300));
-  sf::Vector2f center_t_darkness(t_darkness.getLocalBounds().width/2,
-				 t_darkness.getLocalBounds().height/2);
-  t_darkness.setOrigin(center_t_darkness);
 
   show_t_btc_falling = false;
   show_t_enemy_falling = false;
@@ -163,8 +95,77 @@ If you can, tell about\nBitcoins to sombody.\
 
 }
 
+void App::initTexts()
+{
+  Text btn_start("Start", font);
+  btn_start.setPosition(sf::Vector2f(100, 100));
+  texts.addText("btn_start", btn_start);
+
+  Text btn_credits("Credits", font);
+  btn_credits.setPosition(sf::Vector2f(100, 150));
+  texts.addText("btn_credits", btn_credits);
+
+  Text btn_exit("Exit", font);
+  btn_exit.setPosition(sf::Vector2f(100, 200));
+  texts.addText("btn_exit", btn_exit);
+  
+  Text btn_back("Go to menu", font);
+  btn_back.setPosition(sf::Vector2f(500,500));
+  texts.addText("btn_back", btn_back);
+
+  Text btn_menu("Menu", font);
+  btn_menu.setPosition(sf::Vector2f(100,150));
+  texts.addText("btn_menu", btn_menu);
+  
+  Text btn_resume("Resume", font);
+  btn_resume.setPosition(sf::Vector2f(100,100));
+  texts.addText("btn_resume", btn_resume);
+
+  Text t_credits("", font1);
+  t_credits.setString(L"Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
+If you can, tell about\nBitcoins to sombody.");
+  t_credits.setPosition(sf::Vector2f(50,100));
+  texts.addText("txt_credits", t_credits);
+
+  Text t_btc("BITCOINS", font, 56);
+  t_btc.setPosition(sf::Vector2f(400,300));
+  texts.addText("txt_btc_falling", t_btc);
+  texts.getText("txt_btc_falling").setOrigin(texts.getText("txt_btc_falling").getCenter());
+  texts.getText("txt_btc_falling").setShaking(true);
+
+  Text t_enemy("SHURIKENS", font, 56);
+  t_enemy.setPosition(sf::Vector2f(400,300));
+  texts.addText("txt_enemy_falling", t_enemy);
+  texts.getText("txt_enemy_falling").setOrigin(texts.getText("txt_enemy_falling").getCenter());
+  texts.getText("txt_enemy_falling").setShaking(true);
+
+  Text t_explosion("EXPLOSION", font, 56);
+  t_explosion.setPosition(sf::Vector2f(400,300));
+  texts.addText("txt_explosion", t_explosion);
+  texts.getText("txt_explosion").setOrigin(texts.getText("txt_explosion").getCenter());
+  texts.getText("txt_explosion").setShaking(true);
+
+  Text t_keys("INVERTED KEYS", font, 56);
+  t_keys.setPosition(sf::Vector2f(400,300));
+  texts.addText("txt_inverted_keys", t_keys);
+  texts.getText("txt_inverted_keys").setOrigin(texts.getText("txt_inverted_keys").getCenter());
+  texts.getText("txt_inverted_keys").setShaking(true);
+
+  Text t_darkness("DARKNESS", font, 56);
+  t_darkness.setPosition(sf::Vector2f(400,300));
+  texts.addText("txt_darkness", t_darkness);
+  texts.getText("txt_darkness").setOrigin(texts.getText("txt_darkness").getCenter());
+  texts.getText("txt_darkness").setShaking(true);
+  
+  Text t_score("", font);
+  texts.addText("score", t_score);
+}
+
 void App::run()
 {
+  initTexts();
+
+  // TODO: fuck off this shit
   menu_music.play();
   while(window.isOpen())
     {

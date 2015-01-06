@@ -6,9 +6,6 @@
 void App::update()
 {
   static sf::Clock frame_clock;
-  static sf::Clock sin_clock;
-  static float sin_amplitude = 15;
-  static float sin_time = 100;
 
   // Process events
   sf::Event event;
@@ -19,6 +16,10 @@ void App::update()
 	window.close();
     }
   sf::Time frame_time = frame_clock.restart();
+
+  texts.update(frame_time.asSeconds());
+
+
   if(state == GAME)
     {
       
@@ -54,24 +55,6 @@ void App::update()
 
       updateActiveBonuses();
 
-      if(sin_clock.getElapsedTime().asMilliseconds() > sin_time)
-	{
-	  sin_amplitude = -sin_amplitude;
-	  t_btc_falling.setRotation(0);
-	  t_enemy_falling.setRotation(0);
-	  t_explosion.setRotation(0);
-	  t_darkness.setRotation(0);
-	  t_keys.setRotation(0);
-	  sin_clock.restart();
-	}
-      float angel_rotate = 5*sin(sin_amplitude * frame_time.asSeconds());
-
-      t_btc_falling.rotate(angel_rotate);
-      t_enemy_falling.rotate(angel_rotate);
-      t_explosion.rotate(angel_rotate);
-      t_darkness.rotate(angel_rotate);
-      t_keys.rotate(angel_rotate);
-
       for(std::size_t i = 0; i < explosion_sprites.size(); i++)
 	{
 	  if(!explosion_sprites[i].isPlaying())
@@ -90,50 +73,47 @@ void App::update()
       // POINTS
       std::ostringstream _score_string;
       _score_string << player.getScore();
-	  
-      t_score.setString( _score_string.str());
-      sf::FloatRect textRect = t_score.getLocalBounds();
-      t_score.setOrigin(textRect.left + textRect.width/2.0f,
-			textRect.top  + textRect.height/2.0f);
-      t_score.setPosition(sf::Vector2f(400,textRect.top  + textRect.height/2.0f + 10));
+      texts.getText("score").setOrigin(texts.getText("score").getCenter());
+      texts.getText("score").setPosition(sf::Vector2f(400,30));
+      texts.getText("score").setString( _score_string.str());
 
     }
   //MENU
   else if(state == MENU)
     {
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-      sf::Vector2f b_start_size(b_start.getLocalBounds().width, b_start.getLocalBounds().height);
-      sf::Vector2f b_credits_size(b_credits.getLocalBounds().width, b_credits.getLocalBounds().height);
-      sf::Vector2f b_exit_size(b_exit.getLocalBounds().width, b_exit.getLocalBounds().height);
-
+     
       // Click on start menu
-      bool click_on_start = isCollision(mouse_position, sf::Vector2f(1,1),
-					b_start.getPosition(), b_start_size);
+      bool mouse_on_start = isCollision(mouse_position, sf::Vector2f(1,1),
+					texts.getText("btn_start").getPosition(),
+					texts.getText("btn_start").getSize());
       
-      bool click_on_credits = isCollision(mouse_position, sf::Vector2f(1,1),
-					  b_credits.getPosition(), b_credits_size);
+      bool mouse_on_credits = isCollision(mouse_position, sf::Vector2f(1,1),
+					  texts.getText("btn_credits").getPosition(),
+					  texts.getText("btn_credits").getSize());
       
-      bool click_on_exit = isCollision(mouse_position, sf::Vector2f(1,1),
-				       b_exit.getPosition(), b_exit_size);
+      bool mouse_on_exit = isCollision(mouse_position, sf::Vector2f(1,1),
+				       texts.getText("btn_exit").getPosition(),
+				       texts.getText("btn_exit").getSize());
 
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
 
-      if(click_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
 	{
 	  restart();
 	  temp_resume_timer = 0;
 	}
 
       // Click on credits menu
-      if(click_on_credits && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_credits && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
 	{
 	  state = CREDITS;
 	  temp_resume_timer = 0;
 	}
 
       // Click on exit menu
-      if(click_on_exit && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_exit && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
 	{
 	  window.close();
 	  temp_resume_timer = 0;
@@ -142,16 +122,15 @@ void App::update()
   // SCORE
   else if(state == SCORE)
     {
-      b_back.setPosition(sf::Vector2f(500,500));
-      t_score.setPosition(sf::Vector2f(100,150));
+      texts.getText("score").setPosition(sf::Vector2f(100,150));
 
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-      sf::Vector2f b_back_size(b_back.getLocalBounds().width, b_back.getLocalBounds().height);
-      
-      bool click_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
-				       b_back.getPosition(), b_back_size);
 
-      if(click_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+      bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
+				       texts.getText("btn_back").getPosition(),
+				       texts.getText("btn_back").getSize());
+
+      if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  state = MENU;
 	  score_music.stop();
@@ -172,12 +151,12 @@ void App::update()
   else if(state == CREDITS)
     {
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-      sf::Vector2f b_back_size(b_back.getLocalBounds().width, b_back.getLocalBounds().height);
       
-      bool click_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
-				       b_back.getPosition(), b_back_size);
+      bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
+				       texts.getText("btn_back").getPosition(),
+				       texts.getText("btn_back").getSize());
 
-      if(click_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+      if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  state = MENU;
 	}
@@ -190,14 +169,14 @@ void App::update()
   else if(state == RESUME)
     {
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-      sf::Vector2f b_menu_size(b_menu.getLocalBounds().width, b_menu.getLocalBounds().height);
-      sf::Vector2f b_resume_size(b_resume.getLocalBounds().width, b_resume.getLocalBounds().height);
-
+      
       bool mouse_on_menu = isCollision(mouse_position, sf::Vector2f(1,1),
-				       b_menu.getPosition(), b_menu_size);
+				       texts.getText("btn_menu").getPosition(), 
+				       texts.getText("btn_menu").getSize());
 
       bool mouse_on_resume = isCollision(mouse_position, sf::Vector2f(1,1),
-					 b_resume.getPosition(), b_resume_size);
+					 texts.getText("btn_resume").getPosition(),
+					 texts.getText("btn_resume").getSize());
 
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
@@ -326,7 +305,7 @@ void App::updateActiveBonuses()
 		{
 		  bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32),
 					     sf::Vector2f(0,rand()%400+50),
-					     rand()%5+1));
+					     1));
 		}
 	      show_t_btc_falling = true;
 	      alarm_sound.play();
@@ -412,7 +391,7 @@ void App::addBitcoin(float milliseconds)
 {
   if(bitcoin_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50), rand()%5+1));
+      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50), 1));
       bitcoin_clock.restart();
     }
 }

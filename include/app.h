@@ -28,6 +28,8 @@ class App
   // //
  private:
 
+  void initTexts();
+
   void draw();
   void update();
 
@@ -82,6 +84,8 @@ class App
 
   // texture holder
   ResourceMenager tex_menager;
+  // texts manager
+  TextManager texts;
   
   // TEST : lighting - darkness bonus
   sf::Sprite s_light;
@@ -102,21 +106,6 @@ class App
   sf::Sprite s_menu_background;
   sf::Sprite s_game_background;
   sf::Sprite s_credits_background;
-
-  // sf::Text ...
-  sf::Text b_start;
-  sf::Text b_credits;
-  sf::Text b_exit;
-  sf::Text b_back;
-  sf::Text b_menu;
-  sf::Text b_resume;
-  sf::Text t_credits;
-  sf::Text t_score;
-  sf::Text t_btc_falling;
-  sf::Text t_enemy_falling;
-  sf::Text t_explosion;
-  sf::Text t_keys;
-  sf::Text t_darkness;
 
   // sf::Music ...
   sf::Music menu_music;

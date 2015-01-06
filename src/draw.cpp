@@ -34,49 +34,49 @@ void App::draw()
       if(show_t_darkness) // HACK - using bool used to text
 	window.draw( s_lighting, sf::BlendMultiply );
       if(show_t_btc_falling)
-	window.draw(t_btc_falling);
+	window.draw(texts.getText("txt_btc_falling"));
       if(show_t_enemy_falling)
-	window.draw(t_enemy_falling);
+	window.draw(texts.getText("txt_enemy_falling"));
       if(show_t_explosion)
-	window.draw(t_explosion);
+	window.draw(texts.getText("txt_explosion"));
       if(show_t_keys)
-	window.draw(t_keys);
+	window.draw(texts.getText("txt_inverted_keys"));
       if(show_t_darkness)
-	window.draw(t_darkness);
-      window.draw(t_score);
+	window.draw(texts.getText("txt_darkness"));
+      window.draw(texts.getText("score"));
       window.display();
     }
   else if(state == MENU)
     {
       window.clear();
       window.draw(s_menu_background);
-      window.draw(b_start);
-      window.draw(b_credits);
-      window.draw(b_exit);
+      window.draw(texts.getText("btn_start"));
+      window.draw(texts.getText("btn_credits"));
+      window.draw(texts.getText("btn_exit"));
       window.display();
     }
   else if(state == SCORE)
     {  
       window.clear();
       window.draw(s_credits_background);
-      window.draw(t_score);
-      window.draw(b_back);
+      window.draw(texts.getText("score"));
+      window.draw(texts.getText("btn_back"));
       window.display();
     }
   else if(state == CREDITS)
     {
       window.clear();
       window.draw(s_credits_background);
-      window.draw(t_credits);
-      window.draw(b_back);
+      window.draw(texts.getText("txt_credits"));
+      window.draw(texts.getText("btn_back"));
       window.display();
     }
   else if(state == RESUME)
     {
       window.clear();
       window.draw(s_menu_background);
-      window.draw(b_resume);
-      window.draw(b_menu);
+      window.draw(texts.getText("btn_resume"));
+      window.draw(texts.getText("btn_menu"));
       window.display();
     }
 }
