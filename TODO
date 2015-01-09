@@ -4,16 +4,20 @@ Todo:
  - some better graphics
  - animation for wallet
  - displaying frame under menu button text
- - super fast shuriken
  - new option - buying some stuff e.g. better graphics or more bitcoins
  - server and networking with server in node.js
  - buying new stuff after spend some bitcoins
  - sharing your score on site
  - add animation after collision with shuriken
  - add new text interface
+ - new bonus - immortality - the defence against shurikens
+ - super fast shuriken
+ - explosion only on shurikens
+ - add when touching baloon it booms and the bonus fall down
+ - add when touching bonus, the baloon flow away
 
 Bugs:
- - inverted keys all time
+ - inverted keys all time - probaly done
 
 Testing:
  - resume in menu to allow pause game

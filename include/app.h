@@ -54,6 +54,7 @@ class App
   std::vector<Enemy> enemies;
   std::vector<Bonus> bonuses;
   std::vector<ActiveBonus> active_bonuses;
+  std::vector<GameObject> baloons;
   Player player;
 
   // state - 1-game, 2-menu, 3-credits, 4-score
@@ -68,19 +69,11 @@ class App
   float bonus_timer;
 
   float difficulty_timer;
-  
-  bool show_t_btc_falling;
-  bool show_t_enemy_falling;
-  bool show_t_explosion;
-  bool show_t_keys;
-  bool show_t_darkness;
 
   Animation explosion;
   std::vector<AnimatedSprite> explosion_sprites;
   Animation small_explosion;
   AnimatedSprite small_explosion_sprite;
-  Animation bonus_animation;
-  AnimatedSprite bonus_animation_sprite;
 
   // texture holder
   ResourceMenager tex_menager;
@@ -102,6 +95,8 @@ class App
   sf::Sprite s_wallet;
   sf::Sprite s_bonus;
   sf::Sprite s_explosion;
+
+  sf::Sprite s_baloon;
 
   sf::Sprite s_menu_background;
   sf::Sprite s_game_background;

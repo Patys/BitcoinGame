@@ -3,7 +3,6 @@
 App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
   small_explosion_sprite(sf::milliseconds(50), true, false),
-  bonus_animation_sprite(sf::milliseconds(50), true, false),
   player(),
   texts()
 {
@@ -17,7 +16,8 @@ App::App():
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
   s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
-
+  s_baloon.setTexture(tex_menager.getTexture("data/graphics/baloon.png"));
+  
   // TEST : lighting - darkness bonus
   s_light.setTexture(tex_menager.getTexture("data/graphics/light.png"));
   tex_lighting.create( 800, 600 );
@@ -25,12 +25,6 @@ App::App():
 
   font.loadFromFile("data/RussoOne-Regular.ttf");
   font1.loadFromFile("data/Raleway-Regular.otf");
-
-  show_t_btc_falling = false;
-  show_t_enemy_falling = false;
-  show_t_explosion = false;
-  show_t_keys = false;
-  show_t_darkness = false;
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
   menu_music.setVolume(80);
@@ -71,15 +65,6 @@ App::App():
   small_explosion.addFrame(sf::IntRect(201, 305, 47, 47));
   small_explosion.addFrame(sf::IntRect(251, 305, 47, 47));
 
-  bonus_animation.setSpriteSheet(tex_menager.getTexture("data/graphics/bonus_animation.png"));
-  bonus_animation.addFrame(sf::IntRect(0, 0, 55, 55));
-  bonus_animation.addFrame(sf::IntRect(55, 0, 55, 55));
-  bonus_animation.addFrame(sf::IntRect(110, 0, 55, 55));
-  bonus_animation.addFrame(sf::IntRect(165, 0, 55, 55));
-  bonus_animation.addFrame(sf::IntRect(220, 0, 55, 55));
-  bonus_animation.addFrame(sf::IntRect(275, 0, 55, 55));
-
-
   for(int i = 0; i < 25; i++)
     {
       explosion_sprites.push_back(AnimatedSprite(sf::milliseconds(50), true, false));
@@ -97,68 +82,80 @@ App::App():
 
 void App::initTexts()
 {
-  Text btn_start("Start", font);
-  btn_start.setPosition(sf::Vector2f(100, 100));
+  ShakingText btn_start("Start", font);
+  btn_start.text().setPosition(sf::Vector2f(100, 100));
   texts.addText("btn_start", btn_start);
 
-  Text btn_credits("Credits", font);
-  btn_credits.setPosition(sf::Vector2f(100, 150));
+  ShakingText btn_credits("Credits", font);
+  btn_credits.text().setPosition(sf::Vector2f(100, 150));
   texts.addText("btn_credits", btn_credits);
 
-  Text btn_exit("Exit", font);
-  btn_exit.setPosition(sf::Vector2f(100, 200));
+  ShakingText btn_exit("Exit", font);
+  btn_exit.text().setPosition(sf::Vector2f(100, 200));
   texts.addText("btn_exit", btn_exit);
   
-  Text btn_back("Go to menu", font);
-  btn_back.setPosition(sf::Vector2f(500,500));
+  ShakingText btn_back("Go to menu", font);
+  btn_back.text().setPosition(sf::Vector2f(500,500));
   texts.addText("btn_back", btn_back);
 
-  Text btn_menu("Menu", font);
-  btn_menu.setPosition(sf::Vector2f(100,150));
+  ShakingText btn_menu("Menu", font);
+  btn_menu.text().setPosition(sf::Vector2f(100,150));
   texts.addText("btn_menu", btn_menu);
   
-  Text btn_resume("Resume", font);
-  btn_resume.setPosition(sf::Vector2f(100,100));
+  ShakingText btn_resume("Resume", font);
+  btn_resume.text().setPosition(sf::Vector2f(100,100));
   texts.addText("btn_resume", btn_resume);
 
-  Text t_credits("", font1);
-  t_credits.setString(L"Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
+  ShakingText t_credits("", font1);
+  t_credits.text().setString(L"Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
 If you can, tell about\nBitcoins to sombody.");
-  t_credits.setPosition(sf::Vector2f(50,100));
+  t_credits.text().setPosition(sf::Vector2f(50,100));
   texts.addText("txt_credits", t_credits);
 
-  Text t_btc("BITCOINS", font, 56);
-  t_btc.setPosition(sf::Vector2f(400,300));
+  ShakingText t_btc("BITCOINS", font, 56);
+  t_btc.text().setPosition(sf::Vector2f(400,300));
   texts.addText("txt_btc_falling", t_btc);
-  texts.getText("txt_btc_falling").setOrigin(texts.getText("txt_btc_falling").getCenter());
+  texts.getText("txt_btc_falling").text().setOrigin(texts.getText("txt_btc_falling").getCenterOfText());
   texts.getText("txt_btc_falling").setShaking(true);
+  texts.getText("txt_btc_falling").hide();
 
-  Text t_enemy("SHURIKENS", font, 56);
-  t_enemy.setPosition(sf::Vector2f(400,300));
+  ShakingText t_enemy("SHURIKENS", font, 56);
+  t_enemy.text().setPosition(sf::Vector2f(400,300));
   texts.addText("txt_enemy_falling", t_enemy);
-  texts.getText("txt_enemy_falling").setOrigin(texts.getText("txt_enemy_falling").getCenter());
+  texts.getText("txt_enemy_falling").text().setOrigin(texts.getText("txt_enemy_falling").getCenterOfText());
   texts.getText("txt_enemy_falling").setShaking(true);
+  texts.getText("txt_enemy_falling").hide();
 
-  Text t_explosion("EXPLOSION", font, 56);
-  t_explosion.setPosition(sf::Vector2f(400,300));
+  ShakingText t_explosion("EXPLOSION", font, 56);
+  t_explosion.text().setPosition(sf::Vector2f(400,300));
   texts.addText("txt_explosion", t_explosion);
-  texts.getText("txt_explosion").setOrigin(texts.getText("txt_explosion").getCenter());
+  texts.getText("txt_explosion").text().setOrigin(texts.getText("txt_explosion").getCenterOfText());
   texts.getText("txt_explosion").setShaking(true);
+  texts.getText("txt_explosion").hide();
 
-  Text t_keys("INVERTED KEYS", font, 56);
-  t_keys.setPosition(sf::Vector2f(400,300));
+  ShakingText t_keys("INVERTED KEYS", font, 56);
+  t_keys.text().setPosition(sf::Vector2f(400,300));
   texts.addText("txt_inverted_keys", t_keys);
-  texts.getText("txt_inverted_keys").setOrigin(texts.getText("txt_inverted_keys").getCenter());
+  texts.getText("txt_inverted_keys").text().setOrigin(texts.getText("txt_inverted_keys").getCenterOfText());
   texts.getText("txt_inverted_keys").setShaking(true);
+  texts.getText("txt_inverted_keys").hide();
 
-  Text t_darkness("DARKNESS", font, 56);
-  t_darkness.setPosition(sf::Vector2f(400,300));
+  ShakingText t_darkness("DARKNESS", font, 56);
+  t_darkness.text().setPosition(sf::Vector2f(400,300));
   texts.addText("txt_darkness", t_darkness);
-  texts.getText("txt_darkness").setOrigin(texts.getText("txt_darkness").getCenter());
+  texts.getText("txt_darkness").text().setOrigin(texts.getText("txt_darkness").getCenterOfText());
   texts.getText("txt_darkness").setShaking(true);
+  texts.getText("txt_darkness").hide();
   
-  Text t_score("", font);
+  ShakingText t_score("", font);
   texts.addText("score", t_score);
+
+
+  texts.getText("txt_btc_falling").hide();
+  texts.getText("txt_enemy_falling").hide();
+  texts.getText("txt_explosion").hide();
+  texts.getText("txt_inverted_keys").hide();
+  texts.getText("txt_darkness").hide();
 }
 
 void App::run()

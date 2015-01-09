@@ -66,16 +66,12 @@ void App::update()
 	small_explosion_sprite.setPosition(sf::Vector2f(-100, -100));
       small_explosion_sprite.update(frame_time);
 
-      if(!bonus_animation_sprite.isPlaying())
-	bonus_animation_sprite.setPosition(sf::Vector2f(-100,-100));
-      bonus_animation_sprite.update(frame_time);
-
       // POINTS
       std::ostringstream _score_string;
       _score_string << player.getScore();
-      texts.getText("score").setOrigin(texts.getText("score").getCenter());
-      texts.getText("score").setPosition(sf::Vector2f(400,30));
-      texts.getText("score").setString( _score_string.str());
+      texts.getText("score").text().setOrigin(texts.getText("score").getCenterOfText());
+      texts.getText("score").text().setPosition(sf::Vector2f(400,30));
+      texts.getText("score").text().setString( _score_string.str());
 
     }
   //MENU
@@ -85,16 +81,16 @@ void App::update()
      
       // Click on start menu
       bool mouse_on_start = isCollision(mouse_position, sf::Vector2f(1,1),
-					texts.getText("btn_start").getPosition(),
-					texts.getText("btn_start").getSize());
+					texts.getText("btn_start").text().getPosition(),
+					texts.getText("btn_start").getSizeOfText());
       
       bool mouse_on_credits = isCollision(mouse_position, sf::Vector2f(1,1),
-					  texts.getText("btn_credits").getPosition(),
-					  texts.getText("btn_credits").getSize());
+					  texts.getText("btn_credits").text().getPosition(),
+					  texts.getText("btn_credits").getSizeOfText());
       
       bool mouse_on_exit = isCollision(mouse_position, sf::Vector2f(1,1),
-				       texts.getText("btn_exit").getPosition(),
-				       texts.getText("btn_exit").getSize());
+				       texts.getText("btn_exit").text().getPosition(),
+				       texts.getText("btn_exit").getSizeOfText());
 
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
@@ -122,13 +118,13 @@ void App::update()
   // SCORE
   else if(state == SCORE)
     {
-      texts.getText("score").setPosition(sf::Vector2f(100,150));
+      texts.getText("score").text().setPosition(sf::Vector2f(100,150));
 
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
 
       bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
-				       texts.getText("btn_back").getPosition(),
-				       texts.getText("btn_back").getSize());
+				       texts.getText("btn_back").text().getPosition(),
+				       texts.getText("btn_back").getSizeOfText());
 
       if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
@@ -153,8 +149,8 @@ void App::update()
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
       
       bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
-				       texts.getText("btn_back").getPosition(),
-				       texts.getText("btn_back").getSize());
+				       texts.getText("btn_back").text().getPosition(),
+				       texts.getText("btn_back").getSizeOfText());
 
       if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
@@ -171,12 +167,12 @@ void App::update()
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
       
       bool mouse_on_menu = isCollision(mouse_position, sf::Vector2f(1,1),
-				       texts.getText("btn_menu").getPosition(), 
-				       texts.getText("btn_menu").getSize());
+				       texts.getText("btn_menu").text().getPosition(), 
+				       texts.getText("btn_menu").getSizeOfText());
 
       bool mouse_on_resume = isCollision(mouse_position, sf::Vector2f(1,1),
-					 texts.getText("btn_resume").getPosition(),
-					 texts.getText("btn_resume").getSize());
+					 texts.getText("btn_resume").text().getPosition(),
+					 texts.getText("btn_resume").getSizeOfText());
 
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
@@ -254,7 +250,8 @@ void App::updateBonuses(float delta_time)
       bonuses[i].pos.y += bonuses[i].vel * delta_time;
 
       bool collision_with_player = isCollision(player.getPosition(), sf::Vector2f(96, 64),
-					       bonuses[i].pos, sf::Vector2f(32, 32));
+					       sf::Vector2f(bonuses[i].pos.x, bonuses[i].pos.y+76),
+					       sf::Vector2f(64, 64));
 
       if(bonuses[i].pos.y > 600 || collision_with_player)
 	{
@@ -272,10 +269,22 @@ void App::updateBonuses(float delta_time)
 		    }
 		  explosion_sound.play();
 		}
-	      bonus_animation_sprite.setPosition(bonuses[i].pos.x - 12, bonuses[i].pos.y - 12);
-	      bonus_animation_sprite.play(bonus_animation);
 	    }
+	  GameObject baloon;
+	  baloon.setPosition(bonuses[i].pos);
+	  baloons.push_back(baloon);
 	  bonuses.erase(bonuses.begin() + i);
+	}
+    }
+  
+  // updating baloons from bonuses
+  for(std::size_t i = 0; i < baloons.size(); i++)
+    {
+      sf::Vector2f vel(0, -300 * delta_time);
+      baloons[i].setPosition(baloons[i].getPosition() + vel);
+      if(baloons[i].getPosition().y < -500)
+	{
+	  baloons.erase(baloons.begin() + i);
 	}
     }
 }
@@ -285,10 +294,10 @@ void App::updateActiveBonuses()
   for(std::size_t i = 0; i < active_bonuses.size(); i++)
     {
       // HACK hardcoded update darkness bonus
-      if(active_bonuses[i].type == B_DARKNESS && show_t_darkness)
+      if(active_bonuses[i].type == B_DARKNESS)
 	{
-	  s_light.setPosition(sf::Vector2f(player.getPosition().x + 32 - 310,
-					 player.getPosition().y + 32 - 310));
+	  s_light.setPosition(sf::Vector2f(player.getPosition().x + 48 - 310,
+					   player.getPosition().y + 32 - 310));
 	  tex_lighting.clear( sf::Color( 0, 0, 0, 0 ) );
 	  tex_lighting.draw( s_light, sf::BlendAdd ); // light - sprite, figura, cokolwiek sf::Drawable
 	  tex_lighting.display(); // wywołanie tekstury, zapieczętowanie
@@ -307,7 +316,7 @@ void App::updateActiveBonuses()
 					     sf::Vector2f(0,rand()%400+50),
 					     1));
 		}
-	      show_t_btc_falling = true;
+	      texts.getText("txt_btc_falling").show();
 	      alarm_sound.play();
 	      break;
 	    case B_DOUBLE_ENEMIES:
@@ -315,19 +324,19 @@ void App::updateActiveBonuses()
 		{
 		  enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50)));
 		}
-	      show_t_enemy_falling = true;
+	      texts.getText("txt_enemy_falling").show();
 	      alarm_sound.play();
 	      break;
 	    case B_EXPLODE:
 	      {
 		// deleting enemies and adding bitcoins
-		show_t_explosion = true;
+		texts.getText("txt_explosion").show();
 		std::size_t num_enemies = enemies.size();
 		for(std::size_t i = 0; i < num_enemies; i++)
 		  {
 		    sf::Vector2f pos = enemies[i].getPosition();
 		    sf::Vector2f vel = enemies[i].getVelocity();
-		    float points = rand() % 20 + 1;
+		    float points = 1;
 		    Bitcoin btc(pos, vel, points);
 		    bitcoins.push_back(btc);
 		  }
@@ -336,10 +345,10 @@ void App::updateActiveBonuses()
 	      break;
 	    case B_INVERSE_KEYS:
 	      player.inverseKeys();
-	      show_t_keys = true;
+	      texts.getText("txt_inverted_keys").show();
 	      break;
 	    case B_DARKNESS:
-	      show_t_darkness = true;
+	      texts.getText("txt_darkness").show();
 	      break;
 	    }
 	  active_bonuses[i].activated = true;
@@ -350,20 +359,20 @@ void App::updateActiveBonuses()
 	  switch(active_bonuses[i].type)
 	    {
 	    case B_DOUBLE_BTC:
-	      show_t_btc_falling = false;
+	      texts.getText("txt_btc_falling").hide();
 	      break;
 	    case B_DOUBLE_ENEMIES:
-	      show_t_enemy_falling = false;
+	      texts.getText("txt_enemy_falling").hide();
 	      break;
 	    case B_EXPLODE:
-	      show_t_explosion = false;
+	      texts.getText("txt_explosion").hide();
 	      break;
 	    case B_INVERSE_KEYS:
 	      player.inverseKeys();
-	      show_t_keys = false;
+	      texts.getText("txt_inverted_keys").hide();
 	      break;
 	    case B_DARKNESS:
-	      show_t_darkness = false;
+	      texts.getText("txt_darkness").hide();
 	      break;
 	    default:
 	      break;
@@ -378,13 +387,25 @@ void App::restart()
   enemies.clear();
   bitcoins.clear();
   bonuses.clear();
+
   player.setPosition(sf::Vector2f(300,400));
   player.setScore(0);
+
   difficulty_timer = 1;
+
   state = GAME;
+
   menu_music.stop();
   score_music.stop();
   game_music.play();
+
+  /* HACK: TEMPORARY OFF
+  texts.getText("txt_btc_falling").hide();
+  texts.getText("txt_enemy_falling").hide();
+  texts.getText("txt_explosion").hide();
+  texts.getText("txt_inverted_keys").hide();
+  texts.getText("txt_darkness").hide();
+  */
 }
 
 void App::addBitcoin(float milliseconds)
@@ -438,7 +459,7 @@ void App::addBonus(float milliseconds)
 	  time_work = 4000;
 	  break;
 	}
-      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -32), rand()%500+100, type, time_work));
+      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -150), rand()%300+100, type, time_work));
       bonus_clock.restart();
     }
 }

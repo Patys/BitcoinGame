@@ -23,26 +23,25 @@ void App::draw()
 	  s_bonus.setPosition(i.pos);
 	  window.draw(s_bonus);
 	}
+      for(auto i : baloons)
+	{
+	  s_baloon.setPosition(sf::Vector2f(i.getPosition().x+12, i.getPosition().y));
+	  window.draw(s_baloon);
+	}
       for(auto i : explosion_sprites)
 	{
 	  window.draw(i);
 	}
       window.draw(small_explosion_sprite);
-      window.draw(bonus_animation_sprite);
       s_wallet.setPosition(player.getPosition());
       window.draw(s_wallet);
-      if(show_t_darkness) // HACK - using bool used to text
+      if(texts.getText("txt_darkness").isVisible()) // HACK - using bool used to text
 	window.draw( s_lighting, sf::BlendMultiply );
-      if(show_t_btc_falling)
-	window.draw(texts.getText("txt_btc_falling"));
-      if(show_t_enemy_falling)
-	window.draw(texts.getText("txt_enemy_falling"));
-      if(show_t_explosion)
-	window.draw(texts.getText("txt_explosion"));
-      if(show_t_keys)
-	window.draw(texts.getText("txt_inverted_keys"));
-      if(show_t_darkness)
-	window.draw(texts.getText("txt_darkness"));
+      window.draw(texts.getText("txt_btc_falling"));
+      window.draw(texts.getText("txt_enemy_falling"));
+      window.draw(texts.getText("txt_explosion"));
+      window.draw(texts.getText("txt_inverted_keys"));
+      window.draw(texts.getText("txt_darkness"));
       window.draw(texts.getText("score"));
       window.display();
     }
