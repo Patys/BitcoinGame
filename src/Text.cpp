@@ -81,7 +81,7 @@ bool TextManager::deleteText(const std::string& text_id)
   if(texts.empty() == false)
     {
       auto it = texts.find(text_id);
-      texts.erase(it);      
+      texts.erase(it);
       return true;
     }
   else

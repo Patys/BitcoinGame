@@ -12,10 +12,16 @@ void Player::update(float delta_time)
 	pos.y += 500 * delta_time;
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
 	 sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	pos.x -= 500 * delta_time;
+	{
+	  pos.x -= 500 * delta_time;
+	  this->direction = 0;
+	}
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
 	 sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	pos.x += 500 * delta_time;
+	{
+	  pos.x += 500 * delta_time;
+	  this->direction = 1;
+	}
     }
   else
     {
@@ -27,10 +33,16 @@ void Player::update(float delta_time)
 	pos.y -= 500 * delta_time;
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) ||
 	 sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	pos.x += 500 * delta_time;
+	{
+	  pos.x += 500 * delta_time;
+	  this->direction = 1;
+	}
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) ||
 	 sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	pos.x -= 500 * delta_time;
+	{
+	  pos.x -= 500 * delta_time;
+	  this->direction = 0;
+	}
     }
 
   if(pos.y > 600 - 64)

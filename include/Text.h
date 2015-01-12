@@ -63,5 +63,4 @@ class TextManager
 
  private:
   std::map<std::string, ShakingText> texts;
-
 };

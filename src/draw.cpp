@@ -33,8 +33,16 @@ void App::draw()
 	  window.draw(i);
 	}
       window.draw(small_explosion_sprite);
-      s_wallet.setPosition(player.getPosition());
-      window.draw(s_wallet);
+      if(player.getDirection() == 0)
+	{
+	  s_wallet_left.setPosition(player.getPosition());
+	  window.draw(s_wallet_left);
+	}
+      else if(player.getDirection() == 1)
+	{
+	  s_wallet.setPosition(player.getPosition());
+	  window.draw(s_wallet);
+	}
       if(texts.getText("txt_darkness").isVisible()) // HACK - using bool used to text
 	window.draw( s_lighting, sf::BlendMultiply );
       window.draw(texts.getText("txt_btc_falling"));
@@ -60,6 +68,9 @@ void App::draw()
       window.draw(s_credits_background);
       window.draw(texts.getText("score"));
       window.draw(texts.getText("btn_back"));
+      window.draw(texts.getText("btn_restart"));
+      window.draw(texts.getText("tip_text"));
+      window.draw(texts.getText("tip"));
       window.display();
     }
   else if(state == CREDITS)
@@ -73,9 +84,11 @@ void App::draw()
   else if(state == RESUME)
     {
       window.clear();
-      window.draw(s_menu_background);
+      window.draw(s_credits_background);
       window.draw(texts.getText("btn_resume"));
       window.draw(texts.getText("btn_menu"));
+      window.draw(texts.getText("tip_text"));
+      window.draw(texts.getText("tip"));
       window.display();
     }
 }

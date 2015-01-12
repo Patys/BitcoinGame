@@ -4,9 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include <sstream>
+#include <random>
 
 #include <ResourceMenager.h>
 #include <animated_sprite.h>
@@ -18,6 +17,10 @@
 #include <Text.h>
 
 enum APP_STATE {MENU, GAME, CREDITS, SCORE, RESUME};
+
+// generator random numbers
+extern std::default_random_engine number_generator;
+
 
 class App
 {
@@ -46,6 +49,7 @@ class App
   void addBitcoin(float milliseconds);
   void addEnemy(float milliseconds);
   void addBonus(float milliseconds);
+
 
   sf::RenderWindow window;
   sf::Event event;
@@ -93,6 +97,7 @@ class App
   sf::Sprite s_btc;
   sf::Sprite s_enemy;
   sf::Sprite s_wallet;
+  sf::Sprite s_wallet_left;
   sf::Sprite s_bonus;
   sf::Sprite s_explosion;
 

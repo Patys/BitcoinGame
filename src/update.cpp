@@ -2,6 +2,14 @@
 
 #include <cmath>
 
+std::vector<std::string> tips = {
+  {"Avoid shurikens."},
+  {"Take every bitcoin!"},
+  {"Bonuses contains good and bad things."},
+  {"Check out bitcoin.org"}
+};
+
+void setRandomTip(ShakingText& text);
 
 void App::update()
 {
@@ -31,13 +39,14 @@ void App::update()
       if(difficulty_timer < 4)
 	increase_difficulty_timer += frame_time.asMilliseconds();
 
-      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 100)
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 200)
 	{
 	  state = RESUME;
 	  temp_resume_timer = 0;
+	  setRandomTip(texts.getText("tip"));
 	}
       
-      if(increase_difficulty_timer > 2000 && difficulty_timer < 4)
+      if(increase_difficulty_timer > 8000 && difficulty_timer < 4)
 	{
 	  difficulty_timer += 0.1;
 	  increase_difficulty_timer = 0;
@@ -95,21 +104,21 @@ void App::update()
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
 
-      if(mouse_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_start && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 200)
 	{
 	  restart();
 	  temp_resume_timer = 0;
 	}
 
       // Click on credits menu
-      if(mouse_on_credits && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_credits && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 200)
 	{
 	  state = CREDITS;
 	  temp_resume_timer = 0;
 	}
 
       // Click on exit menu
-      if(mouse_on_exit && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_exit && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 200)
 	{
 	  window.close();
 	  temp_resume_timer = 0;
@@ -125,6 +134,9 @@ void App::update()
       bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
 				       texts.getText("btn_back").text().getPosition(),
 				       texts.getText("btn_back").getSizeOfText());
+      bool mouse_on_restart = isCollision(mouse_position, sf::Vector2f(1,1),
+					  texts.getText("btn_restart").text().getPosition(),
+					  texts.getText("btn_restart").getSizeOfText());
 
       if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
@@ -133,6 +145,11 @@ void App::update()
 	  menu_music.play();
 	}
 
+      if(mouse_on_restart && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  restart();
+	}
+	 
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 	  state = MENU;
@@ -177,19 +194,19 @@ void App::update()
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
 
-      if(mouse_on_menu && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_menu && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 200)
 	{
 	  state = MENU;
 	  game_music.stop();
 	  menu_music.play();
 	  temp_resume_timer = 0;
 	}
-      if(mouse_on_resume && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 100)
+      if(mouse_on_resume && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 200)
 	{
 	  state = GAME;
 	  temp_resume_timer = 0;
 	}
-      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 100)
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 200)
 	{
 	  state = GAME;
 	  temp_resume_timer = 0;
@@ -228,6 +245,7 @@ void App::updateEnemies(float delta_time)
 	  state = SCORE;
 	  score_music.play();
 	  game_music.stop();
+	  setRandomTip(texts.getText("tip"));
 	}
 
       if(enemies[i].isCollisionWithBottom())
@@ -263,7 +281,10 @@ void App::updateBonuses(float delta_time)
 		{
 		  for(std::size_t i = 0; i < explosion_sprites.size(); i++)
 		    {
-		      sf::Vector2f pos = sf::Vector2f(rand()%800, rand()%600);
+		      std::uniform_int_distribution<int> posx_rand(1,800);
+		      std::uniform_int_distribution<int> posy_rand(1,600);
+		      sf::Vector2f pos = sf::Vector2f(posx_rand(number_generator),
+						      posy_rand(number_generator));
 		      explosion_sprites[i].setPosition(pos);
 		      explosion_sprites[i].play(explosion);
 		    }
@@ -312,9 +333,10 @@ void App::updateActiveBonuses()
 	    case B_DOUBLE_BTC:
 	      for(std::size_t i = 0; i < 10; i++)
 		{
-		  bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32),
-					     sf::Vector2f(0,rand()%400+50),
-					     1));
+		  std::uniform_int_distribution<int> pos_rand(1,760);
+		  std::uniform_int_distribution<int> vel_rand(50,400);
+		  bitcoins.push_back(Bitcoin(sf::Vector2f(pos_rand(number_generator), -32),
+					     sf::Vector2f(0,vel_rand(number_generator)), 1));
 		}
 	      texts.getText("txt_btc_falling").show();
 	      alarm_sound.play();
@@ -322,7 +344,10 @@ void App::updateActiveBonuses()
 	    case B_DOUBLE_ENEMIES:
 	      for(std::size_t i = 0; i < 5; i++)
 		{
-		  enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50)));
+		  std::uniform_int_distribution<int> pos_rand(1,760);
+		  std::uniform_int_distribution<int> vel_rand(50,400);
+		  enemies.push_back(Enemy(sf::Vector2f(pos_rand(number_generator), -32),
+					  sf::Vector2f(0,vel_rand(number_generator))));
 		}
 	      texts.getText("txt_enemy_falling").show();
 	      alarm_sound.play();
@@ -400,11 +425,11 @@ void App::restart()
   game_music.play();
 
   /* HACK: TEMPORARY OFF
-  texts.getText("txt_btc_falling").hide();
-  texts.getText("txt_enemy_falling").hide();
-  texts.getText("txt_explosion").hide();
-  texts.getText("txt_inverted_keys").hide();
-  texts.getText("txt_darkness").hide();
+     texts.getText("txt_btc_falling").hide();
+     texts.getText("txt_enemy_falling").hide();
+     texts.getText("txt_explosion").hide();
+     texts.getText("txt_inverted_keys").hide();
+     texts.getText("txt_darkness").hide();
   */
 }
 
@@ -412,7 +437,10 @@ void App::addBitcoin(float milliseconds)
 {
   if(bitcoin_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {
-      bitcoins.push_back(Bitcoin(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50), 1));
+      std::uniform_int_distribution<int> pos_rand(1,760);
+      std::uniform_int_distribution<int> vel_rand(50,400);
+      bitcoins.push_back(Bitcoin(sf::Vector2f(pos_rand(number_generator), -32),
+				 sf::Vector2f(0,vel_rand(number_generator)), 1));
       bitcoin_clock.restart();
     }
 }
@@ -421,7 +449,10 @@ void App::addEnemy(float milliseconds)
 {
   if(enemy_clock.getElapsedTime().asMilliseconds() * difficulty_timer > milliseconds)
     {
-      enemies.push_back(Enemy(sf::Vector2f(rand()%760+1, -32), sf::Vector2f(0,rand()%400+50)));
+      std::uniform_int_distribution<int> pos_rand(1,760);
+      std::uniform_int_distribution<int> vel_rand(50,400);
+      enemies.push_back(Enemy(sf::Vector2f(pos_rand(number_generator), -32),
+			      sf::Vector2f(0,vel_rand(number_generator))));
       enemy_clock.restart();
     }
 }
@@ -430,8 +461,9 @@ void App::addEnemy(float milliseconds)
 void App::addBonus(float milliseconds)
 {
   if(bonus_clock.getElapsedTime().asMilliseconds() > milliseconds)
-    {
-      int rand_bonus = rand()%5+1;
+    {      
+      std::uniform_int_distribution<int> bonus_rand(1,5);
+      int rand_bonus = bonus_rand(number_generator);
       // HACK TO TESTING BONUSES
       // rand_bonus = 5;
       int time_work = 0;
@@ -459,7 +491,24 @@ void App::addBonus(float milliseconds)
 	  time_work = 4000;
 	  break;
 	}
-      bonuses.push_back(Bonus(sf::Vector2f(rand()%760+1, -150), rand()%300+100, type, time_work));
+      
+      std::uniform_int_distribution<int> pos_rand(1,760);
+      std::uniform_int_distribution<int> vel_rand(100,300);
+
+      bonuses.push_back(Bonus(sf::Vector2f(pos_rand(number_generator), -150),
+			      vel_rand(number_generator), type, time_work));
       bonus_clock.restart();
+
+      std::uniform_int_distribution<int> bonus_time_rand(6000,14000);
+      bonus_timer = bonus_time_rand(number_generator);
     }
+}
+
+
+void setRandomTip(ShakingText& text)
+{
+  std::uniform_int_distribution<int> distribution(0,tips.size()-1);
+  int i = distribution(number_generator);
+  text.text().setString(tips[i]);
+  text.text().setOrigin(text.getCenterOfText());
 }

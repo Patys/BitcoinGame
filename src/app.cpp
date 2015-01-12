@@ -1,24 +1,26 @@
 #include <app.h>
 
+std::default_random_engine number_generator;
+
 App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
   small_explosion_sprite(sf::milliseconds(50), true, false),
   player(),
   texts()
 {
-  srand(time(0));
   window.setFramerateLimit(60);
 
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
   s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
+  s_wallet_left.setTexture(tex_menager.getTexture("data/graphics/wallet_left.png"));
   s_bonus.setTexture(tex_menager.getTexture("data/graphics/bonus.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
   s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
   s_baloon.setTexture(tex_menager.getTexture("data/graphics/baloon.png"));
   
-  // TEST : lighting - darkness bonus
+  // lighting - darkness bonus
   s_light.setTexture(tex_menager.getTexture("data/graphics/light.png"));
   tex_lighting.create( 800, 600 );
   // 
@@ -27,23 +29,27 @@ App::App():
   font1.loadFromFile("data/Raleway-Regular.otf");
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
-  menu_music.setVolume(80);
+  menu_music.setVolume(20);
   menu_music.setLoop(true);
   game_music.openFromFile("data/audio/loop3.wav");
-  game_music.setVolume(80);
+  game_music.setVolume(20);
   game_music.setLoop(true);
   score_music.openFromFile("data/audio/awesomeness.wav");
-  score_music.setVolume(80);
+  score_music.setVolume(20);
   score_music.setLoop(true);
 
   btc_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   btc_sound.setBuffer(btc_soundbuffer);
+  btc_sound.setVolume(40);
   enemy_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   enemy_sound.setBuffer(enemy_soundbuffer);
+  enemy_sound.setVolume(40);
   explosion_soundbuffer.loadFromFile("data/audio/explosion.wav");
   explosion_sound.setBuffer(explosion_soundbuffer);
+  explosion_sound.setVolume(40);
   alarm_soundbuffer.loadFromFile("data/audio/alarm_0.ogg");
   alarm_sound.setBuffer(alarm_soundbuffer);
+  alarm_sound.setVolume(40);
 
   explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion3.png"));
   explosion.addFrame(sf::IntRect(1, 1, 89, 89));
@@ -74,7 +80,7 @@ App::App():
   
   bitcoin_timer = 1000;
   enemy_timer = 1000;
-  bonus_timer = 4000;
+  bonus_timer = 8000;
 
   difficulty_timer = 1.1;
 
@@ -105,6 +111,10 @@ void App::initTexts()
   ShakingText btn_resume("Resume", font);
   btn_resume.text().setPosition(sf::Vector2f(100,100));
   texts.addText("btn_resume", btn_resume);
+
+  ShakingText btn_restart("Restart", font);
+  btn_restart.text().setPosition(500,450);
+  texts.addText("btn_restart", btn_restart);
 
   ShakingText t_credits("", font1);
   t_credits.text().setString(L"Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\
@@ -150,6 +160,18 @@ If you can, tell about\nBitcoins to sombody.");
   ShakingText t_score("", font);
   texts.addText("score", t_score);
 
+  ShakingText t_random_tip("Avoid shurikens!", font1);
+  t_random_tip.text().setPosition(400,580);
+  t_random_tip.text().setCharacterSize(16);
+  texts.addText("tip", t_random_tip);
+  texts.getText("tip").text().setOrigin(texts.getText("tip").getCenterOfText());
+
+  ShakingText t_tip("Tip:", font1);
+  t_tip.text().setPosition(400,560);
+  t_tip.text().setCharacterSize(18);
+  texts.addText("tip_text", t_tip);
+  texts.getText("tip_text").text().setOrigin(texts.getText("tip_text").getCenterOfText());
+  texts.getText("tip_text").setShaking(true);
 
   texts.getText("txt_btc_falling").hide();
   texts.getText("txt_enemy_falling").hide();
