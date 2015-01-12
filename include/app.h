@@ -98,6 +98,9 @@ class App
   sf::Sprite s_enemy;
   sf::Sprite s_wallet;
   sf::Sprite s_wallet_left;
+  sf::Sprite s_wallet_right;
+  sf::Sprite s_wallet_up;
+  sf::Sprite s_wallet_down;
   sf::Sprite s_bonus;
   sf::Sprite s_explosion;
 

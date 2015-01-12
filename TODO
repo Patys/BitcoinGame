@@ -14,9 +14,8 @@ Todo:
  - super fast shuriken
  - explosion only on shurikens
  - add when touching baloon it booms and the bonus fall down
- - IMPORTANT - ADD OPTIONS
+ - IMPORTANT - ADD OPTIONS - to change the volume of music
  - animation bonus
- - add new number generator
 
 Bugs:
  - inverted keys all time - probaly done
@@ -24,6 +23,8 @@ Bugs:
 Testing: 
  - add new text interface
  - add when touching bonus, the baloon flow away
+ - tips system
+ - number generator system
 
 Done:
  - resume in menu to allow pause game

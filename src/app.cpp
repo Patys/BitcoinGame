@@ -14,6 +14,9 @@ App::App():
   s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
   s_wallet_left.setTexture(tex_menager.getTexture("data/graphics/wallet_left.png"));
+  s_wallet_right.setTexture(tex_menager.getTexture("data/graphics/wallet_right.png"));
+  s_wallet_up.setTexture(tex_menager.getTexture("data/graphics/wallet_up.png"));
+  s_wallet_down.setTexture(tex_menager.getTexture("data/graphics/wallet_down.png"));
   s_bonus.setTexture(tex_menager.getTexture("data/graphics/bonus.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
@@ -162,13 +165,13 @@ If you can, tell about\nBitcoins to sombody.");
 
   ShakingText t_random_tip("Avoid shurikens!", font1);
   t_random_tip.text().setPosition(400,580);
-  t_random_tip.text().setCharacterSize(16);
+  t_random_tip.text().setCharacterSize(18);
   texts.addText("tip", t_random_tip);
   texts.getText("tip").text().setOrigin(texts.getText("tip").getCenterOfText());
 
   ShakingText t_tip("Tip:", font1);
-  t_tip.text().setPosition(400,560);
-  t_tip.text().setCharacterSize(18);
+  t_tip.text().setPosition(400,550);
+  t_tip.text().setCharacterSize(20);
   texts.addText("tip_text", t_tip);
   texts.getText("tip_text").text().setOrigin(texts.getText("tip_text").getCenterOfText());
   texts.getText("tip_text").setShaking(true);

@@ -33,16 +33,31 @@ void App::draw()
 	  window.draw(i);
 	}
       window.draw(small_explosion_sprite);
-      if(player.getDirection() == 0)
+
+      switch(player.getDirection())
 	{
+	case 1: // left
 	  s_wallet_left.setPosition(player.getPosition());
 	  window.draw(s_wallet_left);
-	}
-      else if(player.getDirection() == 1)
-	{
+	  break;
+	case 2: // right
+	  s_wallet_right.setPosition(player.getPosition());
+	  window.draw(s_wallet_right);
+	  break;
+	case 3: // up
+	  s_wallet_up.setPosition(player.getPosition());
+	  window.draw(s_wallet_up);
+	  break;
+	case 4: // down
+	  s_wallet_down.setPosition(player.getPosition());
+	  window.draw(s_wallet_down);
+	  break;
+	default:
 	  s_wallet.setPosition(player.getPosition());
 	  window.draw(s_wallet);
+	  break;
 	}
+
       if(texts.getText("txt_darkness").isVisible()) // HACK - using bool used to text
 	window.draw( s_lighting, sf::BlendMultiply );
       window.draw(texts.getText("txt_btc_falling"));
