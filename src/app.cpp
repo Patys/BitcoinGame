@@ -4,8 +4,8 @@ std::default_random_engine number_generator;
 
 App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
-  small_explosion_sprite(sf::milliseconds(50), true, false),
   player(),
+  small_explosion_sprite(sf::milliseconds(50), true, false),
   texts()
 {
   window.setFramerateLimit(60);
@@ -22,7 +22,8 @@ App::App():
   s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
   s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
   s_baloon.setTexture(tex_menager.getTexture("data/graphics/baloon.png"));
-  
+  s_bloody_btc.setTexture(tex_menager.getTexture("data/graphics/bloody_btc.png"));
+
   // lighting - darkness bonus
   s_light.setTexture(tex_menager.getTexture("data/graphics/light.png"));
   tex_lighting.create( 800, 600 );
@@ -77,6 +78,10 @@ App::App():
   for(int i = 0; i < 25; i++)
     {
       explosion_sprites.push_back(AnimatedSprite(sf::milliseconds(50), true, false));
+    }
+  for(int i = 0; i < 10; i++)
+    {
+      end_game_bitcoins.push_back(EndGameBitcoin());
     }
 
   state = MENU;
@@ -176,11 +181,12 @@ If you can, tell about\nBitcoins to sombody.");
   texts.getText("tip_text").text().setOrigin(texts.getText("tip_text").getCenterOfText());
   texts.getText("tip_text").setShaking(true);
 
-  texts.getText("txt_btc_falling").hide();
-  texts.getText("txt_enemy_falling").hide();
-  texts.getText("txt_explosion").hide();
-  texts.getText("txt_inverted_keys").hide();
-  texts.getText("txt_darkness").hide();
+  ShakingText t_die("You DIE !", font, 56);
+  t_die.text().setPosition(400,300);
+  texts.addText("t_die", t_die);
+  texts.getText("t_die").text().setOrigin(texts.getText("t_die").getCenterOfText());
+  texts.getText("t_die").setShaking(true);
+  texts.getText("t_die").hide();
 }
 
 void App::run()

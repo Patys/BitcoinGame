@@ -9,7 +9,6 @@ Todo:
  - some better graphics
  - animation for wallet
  - displaying frame under menu button text
- - add animation after collision with shuriken
  - new bonus - immortality - the defence against shurikens
  - super fast shuriken
  - explosion only on shurikens
@@ -21,12 +20,14 @@ Bugs:
  - inverted keys all time - probaly done
 
 Testing: 
- - add new text interface
- - add when touching bonus, the baloon flow away
- - tips system
- - number generator system
+ - droping bitcoins
+ - add animation after collision with shuriken
 
 Done:
+ - number generator system
+ - tips system
+ - add when touching bonus, the baloon flow away
+ - add new text interface
  - resume in menu to allow pause game
  - better bonus graphics
  - add incresing difficult

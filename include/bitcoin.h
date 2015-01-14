@@ -1,5 +1,7 @@
 #pragma once
 
+#include <random>
+
 #include <GameObject.h>
 #include <Collision.h>
 #include <player.h>
@@ -26,4 +28,22 @@ class Bitcoin : public GameObject
   float points;
   bool collision_with_player;
   bool collision_with_bottom;
+};
+
+class EndGameBitcoin : public GameObject
+{
+ public:
+  EndGameBitcoin();
+
+  void update(float delta_time, Player& player);
+  void reset();
+  const sf::Vector2f getPosition() const { return this->position; }
+
+ private:    
+  sf::Vector2f start_pos;
+  sf::Vector2f position;
+  int side;
+  float b_func;
+  float a_func;
+  float vel;
 };

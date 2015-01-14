@@ -19,7 +19,7 @@ class GameObject
   void setCollidable(bool is_collidable) { collidable = is_collidable; }
 
 
-  virtual void update(float delta_time) { pos += vel; }
+  virtual void update(float delta_time) { pos += vel * delta_time; }
   
 
  protected:

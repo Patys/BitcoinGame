@@ -57,6 +57,11 @@ void App::draw()
 	  window.draw(s_wallet);
 	  break;
 	}
+      for(auto btc : end_game_bitcoins)
+	{
+	  s_bloody_btc.setPosition(btc.getPosition());
+	  window.draw(s_bloody_btc);
+	}
 
       if(texts.getText("txt_darkness").isVisible()) // HACK - using bool used to text
 	window.draw( s_lighting, sf::BlendMultiply );
@@ -65,6 +70,7 @@ void App::draw()
       window.draw(texts.getText("txt_explosion"));
       window.draw(texts.getText("txt_inverted_keys"));
       window.draw(texts.getText("txt_darkness"));
+      window.draw(texts.getText("t_die"));
       window.draw(texts.getText("score"));
       window.display();
     }

@@ -55,6 +55,7 @@ class App
   sf::Event event;
 
   std::vector<Bitcoin> bitcoins;
+  std::vector<EndGameBitcoin> end_game_bitcoins;
   std::vector<Enemy> enemies;
   std::vector<Bonus> bonuses;
   std::vector<ActiveBonus> active_bonuses;
@@ -95,6 +96,7 @@ class App
 
   // sf::Sprite ...
   sf::Sprite s_btc;
+  sf::Sprite s_bloody_btc;
   sf::Sprite s_enemy;
   sf::Sprite s_wallet;
   sf::Sprite s_wallet_left;
