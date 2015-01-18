@@ -11,7 +11,7 @@ COMPILE_OPTIONS = -pedantic -Wextra -Wall -Wunsafe-loop-optimizations -Wmissing-
 #Header include directories
 HEADERS = -I"include/" 
 #Libraries for linking
-LIBS = -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
+LIBS = -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network
 
 # Dependency optionse
 DEPENDENCY_OPTIONS = -MM

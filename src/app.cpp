@@ -17,12 +17,15 @@ App::App():
   s_wallet_right.setTexture(tex_menager.getTexture("data/graphics/wallet_right.png"));
   s_wallet_up.setTexture(tex_menager.getTexture("data/graphics/wallet_up.png"));
   s_wallet_down.setTexture(tex_menager.getTexture("data/graphics/wallet_down.png"));
+  s_wallet_dead.setTexture(tex_menager.getTexture("data/graphics/wallet_dead.png"));
   s_bonus.setTexture(tex_menager.getTexture("data/graphics/bonus.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
-  s_game_background.setTexture(tex_menager.getTexture("data/graphics/btc_game_background.png"));
+  s_game_background.setTexture(tex_menager.getTexture("data/graphics/background/btc_game_background.png"));
   s_credits_background.setTexture(tex_menager.getTexture("data/graphics/btc_credits.png"));
   s_baloon.setTexture(tex_menager.getTexture("data/graphics/baloon.png"));
   s_bloody_btc.setTexture(tex_menager.getTexture("data/graphics/bloody_btc.png"));
+  s_bonus_immortality.setTexture(tex_menager.getTexture("data/graphics/immortality.png"));
+  s_warning.setTexture(tex_menager.getTexture("data/graphics/warning.png"));
 
   // lighting - darkness bonus
   s_light.setTexture(tex_menager.getTexture("data/graphics/light.png"));
@@ -33,27 +36,27 @@ App::App():
   font1.loadFromFile("data/Raleway-Regular.otf");
 
   menu_music.openFromFile("data/audio/rock_theme.wav");
-  menu_music.setVolume(20);
+  menu_music.setVolume(40);
   menu_music.setLoop(true);
   game_music.openFromFile("data/audio/loop3.wav");
-  game_music.setVolume(20);
+  game_music.setVolume(40);
   game_music.setLoop(true);
   score_music.openFromFile("data/audio/awesomeness.wav");
-  score_music.setVolume(20);
+  score_music.setVolume(40);
   score_music.setLoop(true);
 
   btc_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   btc_sound.setBuffer(btc_soundbuffer);
-  btc_sound.setVolume(40);
+  btc_sound.setVolume(60);
   enemy_soundbuffer.loadFromFile("data/audio/handleCoins.ogg");
   enemy_sound.setBuffer(enemy_soundbuffer);
-  enemy_sound.setVolume(40);
+  enemy_sound.setVolume(60);
   explosion_soundbuffer.loadFromFile("data/audio/explosion.wav");
   explosion_sound.setBuffer(explosion_soundbuffer);
-  explosion_sound.setVolume(40);
+  explosion_sound.setVolume(60);
   alarm_soundbuffer.loadFromFile("data/audio/alarm_0.ogg");
   alarm_sound.setBuffer(alarm_soundbuffer);
-  alarm_sound.setVolume(40);
+  alarm_sound.setVolume(60);
 
   explosion.setSpriteSheet(tex_menager.getTexture("data/graphics/explosion3.png"));
   explosion.addFrame(sf::IntRect(1, 1, 89, 89));

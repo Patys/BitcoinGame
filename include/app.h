@@ -49,7 +49,9 @@ class App
   void addBitcoin(float milliseconds);
   void addEnemy(float milliseconds);
   void addBonus(float milliseconds);
+  void addSpeedEnemy();
 
+  bool immortalityIsEnding();
 
   sf::RenderWindow window;
   sf::Event event;
@@ -74,6 +76,9 @@ class App
   float bonus_timer;
 
   float difficulty_timer;
+
+  sf::Vector2f speed_enemy_position;
+  bool speed_enemy;
 
   Animation explosion;
   std::vector<AnimatedSprite> explosion_sprites;
@@ -103,10 +108,12 @@ class App
   sf::Sprite s_wallet_right;
   sf::Sprite s_wallet_up;
   sf::Sprite s_wallet_down;
+  sf::Sprite s_wallet_dead;
   sf::Sprite s_bonus;
   sf::Sprite s_explosion;
-
+  sf::Sprite s_bonus_immortality;
   sf::Sprite s_baloon;
+  sf::Sprite s_warning;
 
   sf::Sprite s_menu_background;
   sf::Sprite s_game_background;

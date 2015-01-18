@@ -18,6 +18,11 @@ void App::draw()
 	  s_enemy.setPosition(sf::Vector2f(st.getPosition().x + 16, st.getPosition().y + 16));
 	  window.draw(s_enemy);
 	}
+      if(speed_enemy)
+	{
+	  s_warning.setPosition(sf::Vector2f(speed_enemy_position.x, 0));
+	  window.draw(s_warning);
+	}
       for(auto i : bonuses)
 	{
 	  s_bonus.setPosition(i.pos);
@@ -34,29 +39,43 @@ void App::draw()
 	}
       window.draw(small_explosion_sprite);
 
-      switch(player.getDirection())
+      if(player.isControl())
 	{
-	case 1: // left
-	  s_wallet_left.setPosition(player.getPosition());
-	  window.draw(s_wallet_left);
-	  break;
-	case 2: // right
-	  s_wallet_right.setPosition(player.getPosition());
-	  window.draw(s_wallet_right);
-	  break;
-	case 3: // up
-	  s_wallet_up.setPosition(player.getPosition());
-	  window.draw(s_wallet_up);
-	  break;
-	case 4: // down
-	  s_wallet_down.setPosition(player.getPosition());
-	  window.draw(s_wallet_down);
-	  break;
-	default:
-	  s_wallet.setPosition(player.getPosition());
-	  window.draw(s_wallet);
-	  break;
+	  switch(player.getDirection())
+	    {
+	    case 1: // left
+	      s_wallet_left.setPosition(player.getPosition());
+	      window.draw(s_wallet_left);
+	      break;
+	    case 2: // right
+	      s_wallet_right.setPosition(player.getPosition());
+	      window.draw(s_wallet_right);
+	      break;
+	    case 3: // up
+	      s_wallet_up.setPosition(player.getPosition());
+	      window.draw(s_wallet_up);
+	      break;
+	    case 4: // down
+	      s_wallet_down.setPosition(player.getPosition());
+	      window.draw(s_wallet_down);
+	      break;
+	    default:
+	      s_wallet.setPosition(player.getPosition());
+	      window.draw(s_wallet);
+	      break;
+	    }
 	}
+      else
+	{
+	  s_wallet_dead.setPosition(player.getPosition());
+	  window.draw(s_wallet_dead);
+	}
+      if(player.isImmortality() && !immortalityIsEnding() )
+	{
+	  s_bonus_immortality.setPosition(player.getPosition() + sf::Vector2f(-10,-40));
+	  window.draw(s_bonus_immortality);
+	}
+
       for(auto btc : end_game_bitcoins)
 	{
 	  s_bloody_btc.setPosition(btc.getPosition());

@@ -9,17 +9,25 @@ Todo:
  - some better graphics
  - animation for wallet
  - displaying frame under menu button text
- - new bonus - immortality - the defence against shurikens
  - super fast shuriken
  - explosion only on shurikens
  - add when touching baloon it booms and the bonus fall down
  - IMPORTANT - ADD OPTIONS - to change the volume of music
  - animation bonus
+ - better activating and deactivating bonuses
+ - better graphic for immortality
+
+ --------------
+[16:15:11] kamyk: 1 kwadracik ma zalozmy lepsze bonusy do trafienia ale mniejsze prawodopobienstwo ze trafi na nie a te gorsze dosatnie
+[16:15:18] kamyk: a 2 ze ma gorsze bonusy ale wieksze szanse ze trafi lepszy bonus
+[16:15:29] kamyk: znacyz na taki ktory ci nie przeszkadza
+ --------------
 
 Bugs:
  - inverted keys all time - probaly done
 
 Testing: 
+ - new bonus - immortality - the defence against shurikens
  - droping bitcoins
  - add animation after collision with shuriken
 

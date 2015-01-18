@@ -35,7 +35,9 @@ void App::update()
       
       static float temp_resume_timer = 0;
       static float increase_difficulty_timer = 0;
+      static float speed_enemy_timer = 0;
 
+      speed_enemy_timer += frame_time.asMilliseconds();
       temp_resume_timer += frame_time.asMilliseconds();
       
       if(difficulty_timer < 4)
@@ -52,6 +54,23 @@ void App::update()
 	{
 	  difficulty_timer += 0.1;
 	  increase_difficulty_timer = 0;
+	}
+
+      if(speed_enemy_timer > 10000)
+	{
+	  if(!speed_enemy)
+	    {
+	      std::uniform_int_distribution<int> posx_rand(1,800);
+	      speed_enemy_position = sf::Vector2f( posx_rand(number_generator) , -32 );
+	      alarm_sound.play();
+	    }
+	  speed_enemy = true;
+	  if(speed_enemy_timer > 12000)
+	    {
+	      addSpeedEnemy();
+	      speed_enemy = false;
+	      speed_enemy_timer = 0;
+	    }
 	}
 
       // ADDING NEW BITCOINS, STONES, BONUSES
@@ -245,7 +264,7 @@ void App::updateEnemies(float delta_time)
     {
       enemies[i].update(delta_time, &player);
 
-      if(enemies[i].isCollisionWithPlayer())
+      if(enemies[i].isCollisionWithPlayer() && !player.isImmortality())
 	{
 	  start_timer = true;
 	}
@@ -347,8 +366,8 @@ void App::updateActiveBonuses()
       // HACK hardcoded update darkness bonus
       if(active_bonuses[i].type == B_DARKNESS)
 	{
-	  s_light.setPosition(sf::Vector2f(player.getPosition().x + 48 - 310,
-					   player.getPosition().y + 32 - 310));
+	  s_light.setPosition(sf::Vector2f(player.getPosition().x + 48 - 400,
+					   player.getPosition().y + 32 - 400));
 	  tex_lighting.clear( sf::Color( 0, 0, 0, 0 ) );
 	  tex_lighting.draw( s_light, sf::BlendAdd ); // light - sprite, figura, cokolwiek sf::Drawable
 	  tex_lighting.display(); // wywołanie tekstury, zapieczętowanie
@@ -405,6 +424,9 @@ void App::updateActiveBonuses()
 	    case B_DARKNESS:
 	      texts.getText("txt_darkness").show();
 	      break;
+	    case B_IMMORTALITY:
+	      player.setImmortality(true);
+	      break;
 	    }
 	  active_bonuses[i].activated = true;
 	}
@@ -428,6 +450,9 @@ void App::updateActiveBonuses()
 	      break;
 	    case B_DARKNESS:
 	      texts.getText("txt_darkness").hide();
+	      break;
+	    case B_IMMORTALITY:
+	      player.setImmortality(false);
 	      break;
 	    default:
 	      break;
@@ -492,10 +517,10 @@ void App::addBonus(float milliseconds)
 {
   if(bonus_clock.getElapsedTime().asMilliseconds() > milliseconds)
     {      
-      std::uniform_int_distribution<int> bonus_rand(1,5);
+      std::uniform_int_distribution<int> bonus_rand(1,6);
       int rand_bonus = bonus_rand(number_generator);
       // HACK TO TESTING BONUSES
-      // rand_bonus = 5;
+       rand_bonus = 6;
       int time_work = 0;
       BONUS_TYPE type;
       switch(rand_bonus)
@@ -520,6 +545,10 @@ void App::addBonus(float milliseconds)
 	  type = B_DARKNESS;
 	  time_work = 4000;
 	  break;
+	case 6:
+	  type = B_IMMORTALITY;
+	  time_work = 5000;
+	  break;
 	}
       
       std::uniform_int_distribution<int> pos_rand(1,760);
@@ -534,6 +563,28 @@ void App::addBonus(float milliseconds)
     }
 }
 
+void App::addSpeedEnemy()
+{
+  enemies.push_back(Enemy(speed_enemy_position, sf::Vector2f(0,800)));
+}
+
+bool App::immortalityIsEnding()
+{
+  for(std::size_t i = 0; i < active_bonuses.size(); i++)
+    {
+      if(active_bonuses[i].type == B_IMMORTALITY)
+	{
+	  if(active_bonuses[i].clock.getElapsedTime().asMilliseconds() > 3500 &&
+	     active_bonuses[i].clock.getElapsedTime().asMilliseconds() < 4000 ||
+	     active_bonuses[i].clock.getElapsedTime().asMilliseconds() > 4400 &&
+	     active_bonuses[i].clock.getElapsedTime().asMilliseconds() < 4700)
+	    {
+	      return true;
+	    }
+	  else return false;
+	}
+    }
+}
 
 void setRandomTip(ShakingText& text)
 {
