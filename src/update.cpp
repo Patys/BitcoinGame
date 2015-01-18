@@ -520,7 +520,7 @@ void App::addBonus(float milliseconds)
       std::uniform_int_distribution<int> bonus_rand(1,6);
       int rand_bonus = bonus_rand(number_generator);
       // HACK TO TESTING BONUSES
-       rand_bonus = 6;
+      // rand_bonus = 6;
       int time_work = 0;
       BONUS_TYPE type;
       switch(rand_bonus)
