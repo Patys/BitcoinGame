@@ -6,17 +6,14 @@ App::App():
   window(sf::VideoMode(800, 600), "BTC", sf::Style::Close),
   player(),
   small_explosion_sprite(sf::milliseconds(50), true, false),
-  texts()
+  texts(),
+  setting_skins()
 {
   window.setFramerateLimit(60);
 
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
   s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
   s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
-  s_wallet_left.setTexture(tex_menager.getTexture("data/graphics/wallet_left.png"));
-  s_wallet_right.setTexture(tex_menager.getTexture("data/graphics/wallet_right.png"));
-  s_wallet_up.setTexture(tex_menager.getTexture("data/graphics/wallet_up.png"));
-  s_wallet_down.setTexture(tex_menager.getTexture("data/graphics/wallet_down.png"));
   s_wallet_dead.setTexture(tex_menager.getTexture("data/graphics/wallet_dead.png"));
   s_bonus.setTexture(tex_menager.getTexture("data/graphics/bonus.png"));
   s_menu_background.setTexture(tex_menager.getTexture("data/graphics/btc_background.png"));
@@ -99,7 +96,7 @@ App::App():
 
 void App::initTexts()
 {
-  ShakingText btn_start("Start", font);
+  ShakingText btn_start("Play", font);
   btn_start.text().setPosition(sf::Vector2f(100, 100));
   texts.addText("btn_start", btn_start);
 
@@ -190,6 +187,16 @@ If you can, tell about\nBitcoins to sombody.");
   texts.getText("t_die").text().setOrigin(texts.getText("t_die").getCenterOfText());
   texts.getText("t_die").setShaking(true);
   texts.getText("t_die").hide();
+
+  ShakingText t_game_score("", font1);
+  texts.addText("game_score", t_game_score);
+
+  game_score += player.getScore();
+  std::ostringstream _score_string;
+  _score_string << game_score;
+  texts.getText("game_score").text().setString("Bitcoins: " + _score_string.str());
+  texts.getText("game_score").text().setOrigin(texts.getText("game_score").getCenterOfText());
+
 }
 
 void App::run()

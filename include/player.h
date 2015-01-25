@@ -18,6 +18,7 @@ class Player
   void setPosition(sf::Vector2f pos) { this->pos = pos; }
 
   void inverseKeys() { inverse_keys = !inverse_keys; }
+  void setInverseKeys(bool inverse) { this->inverse_keys = inverse; }
 
   const float getScore() const { return this->score; }
   void setScore(float score) { this->score = score; }

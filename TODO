@@ -1,17 +1,17 @@
 TODO list:
 
 Todo:
- - new option - buying some stuff e.g. better graphics or more bitcoins
- - server and networking with server in node.js
  - buying new stuff after spend some bitcoins
  - sharing your score on site
+ - data format to sending request to server
+ - handling errors
+ - add input name
+ - add share button
+ - anty-hack stuff
 
  - some better graphics
  - animation for wallet
  - displaying frame under menu button text
- - super fast shuriken
- - explosion only on shurikens
- - add when touching baloon it booms and the bonus fall down
  - IMPORTANT - ADD OPTIONS - to change the volume of music
  - animation bonus
  - better activating and deactivating bonuses
@@ -27,11 +27,13 @@ Bugs:
  - inverted keys all time - probaly done
 
 Testing: 
- - new bonus - immortality - the defence against shurikens
- - droping bitcoins
- - add animation after collision with shuriken
+ - super fast shuriken
+ - server and networking with server in node.js
 
-Done:
+Done: 
+ - new bonus - immortality - the defence against shurikens
+ - add animation after collision with shuriken
+ - droping bitcoins
  - number generator system
  - tips system
  - add when touching bonus, the baloon flow away

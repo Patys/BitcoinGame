@@ -41,29 +41,8 @@ void App::draw()
 
       if(player.isControl())
 	{
-	  switch(player.getDirection())
-	    {
-	    case 1: // left
-	      s_wallet_left.setPosition(player.getPosition());
-	      window.draw(s_wallet_left);
-	      break;
-	    case 2: // right
-	      s_wallet_right.setPosition(player.getPosition());
-	      window.draw(s_wallet_right);
-	      break;
-	    case 3: // up
-	      s_wallet_up.setPosition(player.getPosition());
-	      window.draw(s_wallet_up);
-	      break;
-	    case 4: // down
-	      s_wallet_down.setPosition(player.getPosition());
-	      window.draw(s_wallet_down);
-	      break;
-	    default:
-	      s_wallet.setPosition(player.getPosition());
-	      window.draw(s_wallet);
-	      break;
-	    }
+	  s_wallet.setPosition(player.getPosition());
+	  window.draw(s_wallet);
 	}
       else
 	{
@@ -100,6 +79,7 @@ void App::draw()
       window.draw(texts.getText("btn_start"));
       window.draw(texts.getText("btn_credits"));
       window.draw(texts.getText("btn_exit"));
+      window.draw(texts.getText("game_score"));
       window.display();
     }
   else if(state == SCORE)
@@ -107,6 +87,7 @@ void App::draw()
       window.clear();
       window.draw(s_credits_background);
       window.draw(texts.getText("score"));
+      window.draw(texts.getText("game_score"));
       window.draw(texts.getText("btn_back"));
       window.draw(texts.getText("btn_restart"));
       window.draw(texts.getText("tip_text"));

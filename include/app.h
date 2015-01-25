@@ -15,6 +15,7 @@
 #include <bitcoin.h>
 #include <bonus.h>
 #include <Text.h>
+#include <SettingSkins.h>
 
 enum APP_STATE {MENU, GAME, CREDITS, SCORE, RESUME};
 
@@ -51,6 +52,8 @@ class App
   void addBonus(float milliseconds);
   void addSpeedEnemy();
 
+  void checkSettings();
+
   bool immortalityIsEnding();
 
   sf::RenderWindow window;
@@ -63,6 +66,10 @@ class App
   std::vector<ActiveBonus> active_bonuses;
   std::vector<GameObject> baloons;
   Player player;
+  
+  // player things: - buying in shop
+  int game_score;
+  SettingSkins setting_skins;
 
   // state - 1-game, 2-menu, 3-credits, 4-score
   APP_STATE state;
@@ -104,10 +111,6 @@ class App
   sf::Sprite s_bloody_btc;
   sf::Sprite s_enemy;
   sf::Sprite s_wallet;
-  sf::Sprite s_wallet_left;
-  sf::Sprite s_wallet_right;
-  sf::Sprite s_wallet_up;
-  sf::Sprite s_wallet_down;
   sf::Sprite s_wallet_dead;
   sf::Sprite s_bonus;
   sf::Sprite s_explosion;

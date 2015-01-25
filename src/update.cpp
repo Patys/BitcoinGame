@@ -1,4 +1,5 @@
 #include <app.h>
+#include <Network.h>
 
 #include <cmath>
 
@@ -8,10 +9,12 @@ std::vector<std::string> tips = {
   {"Bonuses contain good and bad things."},
   {"Check out bitcoin.org"},
   {"Tell to friends about this game."},
-  {"Go to bitcoin-patys.rhcloud.com and give me some feedback!"}
+  {"Go to bitcoin-patys.rhcloud.com and give me some feedback!"},
+  {"Enjoy the game :D"}
 };
 
 void setRandomTip(ShakingText& text);
+
 
 void App::update()
 {
@@ -24,7 +27,13 @@ void App::update()
       // Close window : exit
       if (event.type == sf::Event::Closed)
 	window.close();
+      if (event.type == sf::Event::LostFocus)
+	{
+	  if(state == GAME)
+	    state = RESUME;
+	}
     }
+
   sf::Time frame_time = frame_clock.restart();
 
   texts.update(frame_time.asSeconds());
@@ -40,7 +49,7 @@ void App::update()
       speed_enemy_timer += frame_time.asMilliseconds();
       temp_resume_timer += frame_time.asMilliseconds();
       
-      if(difficulty_timer < 4)
+      if(difficulty_timer < 10)
 	increase_difficulty_timer += frame_time.asMilliseconds();
 
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && temp_resume_timer > 200)
@@ -50,7 +59,7 @@ void App::update()
 	  setRandomTip(texts.getText("tip"));
 	}
       
-      if(increase_difficulty_timer > 8000 && difficulty_timer < 4)
+      if(increase_difficulty_timer > 8000 && difficulty_timer < 10)
 	{
 	  difficulty_timer += 0.1;
 	  increase_difficulty_timer = 0;
@@ -107,6 +116,7 @@ void App::update()
   //MENU
   else if(state == MENU)
     {
+      texts.getText("game_score").text().setPosition(sf::Vector2f(400,550));
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
      
       // Click on start menu
@@ -149,6 +159,7 @@ void App::update()
   else if(state == SCORE)
     {
       texts.getText("score").text().setPosition(sf::Vector2f(100,150));
+      texts.getText("game_score").text().setPosition(sf::Vector2f(100,200));
 
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
 
@@ -170,7 +181,12 @@ void App::update()
 	{
 	  restart();
 	}
-	 
+
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+	  sendScore(player.getScore(), "TEST", 0);
+	  state = MENU;
+	}	 
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 	  state = MENU;
@@ -267,6 +283,11 @@ void App::updateEnemies(float delta_time)
       if(enemies[i].isCollisionWithPlayer() && !player.isImmortality())
 	{
 	  start_timer = true;
+	  texts.getText("txt_btc_falling").hide();
+	  texts.getText("txt_enemy_falling").hide();
+	  texts.getText("txt_explosion").hide();
+	  texts.getText("txt_inverted_keys").hide();
+	  texts.getText("txt_darkness").hide();
 	}
       if(enemies[i].isCollisionWithBottom())
 	{
@@ -279,6 +300,7 @@ void App::updateEnemies(float delta_time)
       for(std::size_t i = 0; i < end_game_bitcoins.size(); i++)
 	{
 	  end_game_bitcoins[i].update(delta_time, player);
+
 	}
       player.denyControls();
       player.shake(delta_time);
@@ -296,6 +318,12 @@ void App::updateEnemies(float delta_time)
 	  game_music.stop();
 	  setRandomTip(texts.getText("tip"));
 	  
+	  game_score += player.getScore();
+	  std::ostringstream _score_string;
+	  _score_string << game_score;
+	  texts.getText("game_score").text().setString("Bitcoins: " + _score_string.str());
+	  texts.getText("game_score").text().setOrigin(texts.getText("game_score").getCenterOfText());
+
 	  for(std::size_t i = 0; i < end_game_bitcoins.size(); i++)
 	    {
 	      end_game_bitcoins[i].reset();
@@ -467,9 +495,13 @@ void App::restart()
   enemies.clear();
   bitcoins.clear();
   bonuses.clear();
+  active_bonuses.clear();
 
   player.setPosition(sf::Vector2f(300,400));
   player.setScore(0);
+  player.setImmortality(false);
+  player.setInverseKeys(false);
+  player.allowControls();
 
   difficulty_timer = 1;
 
@@ -479,13 +511,16 @@ void App::restart()
   score_music.stop();
   game_music.play();
 
-  /* HACK: TEMPORARY OFF
-     texts.getText("txt_btc_falling").hide();
-     texts.getText("txt_enemy_falling").hide();
-     texts.getText("txt_explosion").hide();
-     texts.getText("txt_inverted_keys").hide();
-     texts.getText("txt_darkness").hide();
-  */
+  setting_skins.addEnemySkin(ES_SHURIKEN);
+  setting_skins.setEnemySkin(ES_SHURIKEN);
+
+  checkSettings();
+
+  texts.getText("txt_btc_falling").hide();
+  texts.getText("txt_enemy_falling").hide();
+  texts.getText("txt_explosion").hide();
+  texts.getText("txt_inverted_keys").hide();
+  texts.getText("txt_darkness").hide();
 }
 
 void App::addBitcoin(float milliseconds)
@@ -583,6 +618,31 @@ bool App::immortalityIsEnding()
 	    }
 	  else return false;
 	}
+    }
+}
+
+void App::checkSettings()
+{
+
+  PLAYERSKINS player_skin = setting_skins.getCurrentPlayerSkin();
+  switch(player_skin)
+    {
+    case PS_BASIC:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet1.png"));
+      break;
+    case PS_FACE:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
+      break;
+    }
+  ENEMYSKINS enemy_skin = setting_skins.getCurrentEnemySkin();
+  switch(enemy_skin)
+    {
+    case ES_STONE:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
+      break;
+    case ES_SHURIKEN:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
+      break;
     }
 }
 
