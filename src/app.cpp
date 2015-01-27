@@ -7,9 +7,12 @@ App::App():
   player(),
   small_explosion_sprite(sf::milliseconds(50), true, false),
   texts(),
-  setting_skins()
+  setting_skins(),
+  shop()
 {
   window.setFramerateLimit(60);
+
+  shop.init(this);
 
   s_btc.setTexture(tex_menager.getTexture("data/graphics/bitcoin32.png"));
   s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
@@ -101,11 +104,11 @@ void App::initTexts()
   texts.addText("btn_start", btn_start);
 
   ShakingText btn_credits("Credits", font);
-  btn_credits.text().setPosition(sf::Vector2f(100, 150));
+  btn_credits.text().setPosition(sf::Vector2f(100, 200));
   texts.addText("btn_credits", btn_credits);
 
   ShakingText btn_exit("Exit", font);
-  btn_exit.text().setPosition(sf::Vector2f(100, 200));
+  btn_exit.text().setPosition(sf::Vector2f(100, 250));
   texts.addText("btn_exit", btn_exit);
   
   ShakingText btn_back("Go to menu", font);
@@ -123,6 +126,10 @@ void App::initTexts()
   ShakingText btn_restart("Restart", font);
   btn_restart.text().setPosition(500,450);
   texts.addText("btn_restart", btn_restart);
+
+  ShakingText btn_shop("Shop", font);
+  btn_shop.text().setPosition(sf::Vector2f(100,150));
+  texts.addText("btn_shop", btn_shop);
 
   ShakingText t_credits("", font1);
   t_credits.text().setString(L"Credits:\nPatryk Szczygło\n\nI hope it helps to promote\nBitcoins.\n\n\

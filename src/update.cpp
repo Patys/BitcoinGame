@@ -18,7 +18,6 @@ void setRandomTip(ShakingText& text);
 
 void App::update()
 {
-  static sf::Clock frame_clock;
 
   // Process events
   sf::Event event;
@@ -33,10 +32,15 @@ void App::update()
 	    state = RESUME;
 	}
     }
-
+  static sf::Clock frame_clock;
   sf::Time frame_time = frame_clock.restart();
 
   texts.update(frame_time.asSeconds());
+
+  std::ostringstream _score_string;
+  _score_string << game_score;
+  texts.getText("game_score").text().setString("Bitcoins: " + _score_string.str());
+  texts.getText("game_score").text().setOrigin(texts.getText("game_score").getCenterOfText());
 
 
   if(state == GAME)
@@ -132,6 +136,10 @@ void App::update()
 				       texts.getText("btn_exit").text().getPosition(),
 				       texts.getText("btn_exit").getSizeOfText());
 
+      bool mouse_on_shop = isCollision(mouse_position, sf::Vector2f(1,1),
+				       texts.getText("btn_shop").text().getPosition(),
+				       texts.getText("btn_shop").getSizeOfText());
+
       static float temp_resume_timer = 0;
       temp_resume_timer += frame_time.asMilliseconds();
 
@@ -154,6 +162,11 @@ void App::update()
 	  window.close();
 	  temp_resume_timer = 0;
 	}
+      if(mouse_on_shop && sf::Mouse::isButtonPressed(sf::Mouse::Left) && temp_resume_timer > 200)
+      	{
+      	  state = SHOP;
+      	  temp_resume_timer = 0;
+      	}
     } 
   // SCORE
   else if(state == SCORE)
@@ -249,6 +262,10 @@ void App::update()
 	  temp_resume_timer = 0;
 	}
     }
+  else if(state == SHOP) // SHOP LOGIC
+    {
+      shop.update(this);
+    }
 }
 
 void App::updateBitcoins(float delta_time)
@@ -319,11 +336,6 @@ void App::updateEnemies(float delta_time)
 	  setRandomTip(texts.getText("tip"));
 	  
 	  game_score += player.getScore();
-	  std::ostringstream _score_string;
-	  _score_string << game_score;
-	  texts.getText("game_score").text().setString("Bitcoins: " + _score_string.str());
-	  texts.getText("game_score").text().setOrigin(texts.getText("game_score").getCenterOfText());
-
 	  for(std::size_t i = 0; i < end_game_bitcoins.size(); i++)
 	    {
 	      end_game_bitcoins[i].reset();
@@ -510,9 +522,6 @@ void App::restart()
   menu_music.stop();
   score_music.stop();
   game_music.play();
-
-  setting_skins.addEnemySkin(ES_SHURIKEN);
-  setting_skins.setEnemySkin(ES_SHURIKEN);
 
   checkSettings();
 

@@ -77,6 +77,7 @@ void App::draw()
       window.clear();
       window.draw(s_menu_background);
       window.draw(texts.getText("btn_start"));
+      window.draw(texts.getText("btn_shop"));
       window.draw(texts.getText("btn_credits"));
       window.draw(texts.getText("btn_exit"));
       window.draw(texts.getText("game_score"));
@@ -110,6 +111,14 @@ void App::draw()
       window.draw(texts.getText("btn_menu"));
       window.draw(texts.getText("tip_text"));
       window.draw(texts.getText("tip"));
+      window.display();
+    }
+  else if(state == SHOP)
+    {
+      window.clear();
+      window.draw(s_game_background);
+      window.draw(texts.getText("game_score"));
+      shop.draw(this);
       window.display();
     }
 }

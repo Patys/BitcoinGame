@@ -17,10 +17,37 @@
 #include <Text.h>
 #include <SettingSkins.h>
 
-enum APP_STATE {MENU, GAME, CREDITS, SCORE, RESUME};
+enum APP_STATE {MENU, GAME, CREDITS, SCORE, RESUME, SHOP};
 
 // generator random numbers
 extern std::default_random_engine number_generator;
+
+class App;
+
+class Shop 
+{
+ public:
+  Shop();
+
+  void init(App* app);
+
+  void update(App* app);
+  void draw(App* app);
+
+ private:
+  void createPlayerSkin(App* app, const std::string& id,
+			const std::string& name, const std::string& des, PLAYERSKINS type);
+  void createEnemySkin(App* app, const std::string& id,
+		       const std::string& name, const std::string& des, ENEMYSKINS type);
+
+  std::vector<Skin*> skins;
+  TextManager texts;
+  sf::RectangleShape select_rectangle;
+
+  PLAYERSKINS select_player_skin;
+  ENEMYSKINS select_enemy_skin;
+
+};
 
 
 class App
@@ -30,7 +57,6 @@ class App
 
   void run();
   // //
- private:
 
   void initTexts();
 
@@ -56,6 +82,8 @@ class App
 
   bool immortalityIsEnding();
 
+  void setGameScore(int value) { this->game_score = value; }
+
   sf::RenderWindow window;
   sf::Event event;
 
@@ -70,6 +98,7 @@ class App
   // player things: - buying in shop
   int game_score;
   SettingSkins setting_skins;
+  Shop shop;
 
   // state - 1-game, 2-menu, 3-credits, 4-score
   APP_STATE state;
