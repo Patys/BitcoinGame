@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="800"
+   height="600"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="btc_game_background.svg"
+   inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/btc_game_background.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.60625"
+     inkscape:cx="546.18405"
+     inkscape:cy="286.98911"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:window-width="1024"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-452.36218)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="tlo">
+    <rect
+       transform="translate(0,452.36218)"
+       y="0"
+       x="0"
+       height="600"
+       width="800"
+       id="rect2985"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     inkscape:label="[]"
+     id="layer2"
+     inkscape:groupmode="layer"
+     sodipodi:insensitive="true">
+    <rect
+       y="0"
+       x="0"
+       height="600"
+       width="2"
+       id="rect2991"
+       style="fill:#ffd42a;fill-opacity:1;stroke:none" />
+    <rect
+       y="0"
+       x="798"
+       height="600"
+       width="2"
+       id="rect2993"
+       style="fill:#ffd42a;fill-opacity:1;stroke:none" />
+  </g>
+  <g
+     inkscape:label="&lt;&gt;"
+     id="layer3"
+     inkscape:groupmode="layer"
+     sodipodi:insensitive="true" />
+  <g
+     sodipodi:insensitive="true"
+     inkscape:label="Warstwa"
+     id="layer4"
+     inkscape:groupmode="layer" />
+</svg>

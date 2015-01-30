@@ -12,7 +12,12 @@ void App::draw()
 	  window.draw(s_btc);
 	}
       s_enemy.setOrigin(sf::Vector2f(16,16));
-      s_enemy.rotate(5);
+      if(setting_skins.getCurrentEnemySkin() == ES_SKIN2 ||
+	 setting_skins.getCurrentEnemySkin() == ES_SKIN5 ||
+	 setting_skins.getCurrentEnemySkin() == ES_SKIN7)
+	{
+	  s_enemy.rotate(5);
+	}
       for(auto st : enemies)
 	{
 	  s_enemy.setPosition(sf::Vector2f(st.getPosition().x + 16, st.getPosition().y + 16));

@@ -4,76 +4,76 @@ enum SHOPSTATE { MAINSHOP, PLAYERSHOP, ENEMYSHOP };
 
 SHOPSTATE shop_state;
 
-Shop::Shop()
+Shop::Shop(): texts()
 {
-
+  shop_state = MAINSHOP;
 }
 
 void Shop::init(App* app)
 {
-  createPlayerSkin(app, "basic", "Basic", "Simple wallet.", PS_BASIC);
-  texts.getText("ps_name_basic").text().setPosition(100,120);
-  texts.getText("ps_des_basic").text().setPosition(100,150);
+  createPlayerSkin(app, "skin1", "Basic", "Simple wallet.", PS_SKIN1);
+  texts.getText("ps_name_skin1").text().setPosition(100,120);
+  texts.getText("ps_des_skin1").text().setPosition(100,150);
 
-  createPlayerSkin(app, "face", "Happy Wallet", "Happy wallet\nwith nice smile.\nCost: 200", PS_FACE);
-  texts.getText("ps_name_face").text().setPosition(250,120);
-  texts.getText("ps_des_face").text().setPosition(250,150);
+  createPlayerSkin(app, "skin2", "Happy Wallet", "Happy wallet\nwith nice smile.\nCost:20", PS_SKIN2);
+  texts.getText("ps_name_skin2").text().setPosition(250,120);
+  texts.getText("ps_des_skin2").text().setPosition(250,150);
 
-  createPlayerSkin(app, "test1", "Wallet", "Test wallet\nand some more\ndescription.\nCost: 200", PS_TEST1);
-  texts.getText("ps_name_test1").text().setPosition(400,120);
-  texts.getText("ps_des_test1").text().setPosition(400,150);
+  createPlayerSkin(app, "skin3", "Kitty Wallet", "Wallet looks\nlike a cat.\nCost: 30", PS_SKIN3);
+  texts.getText("ps_name_skin3").text().setPosition(400,120);
+  texts.getText("ps_des_skin3").text().setPosition(400,150);
 
-  createPlayerSkin(app, "test2", "Wallet", "Test wallet\nand some more\ndescription.\nCost: 200", PS_TEST2);
-  texts.getText("ps_name_test2").text().setPosition(550,120);
-  texts.getText("ps_des_test2").text().setPosition(550,150);
+  createPlayerSkin(app, "skin4", "Ninja Wallet", "Wallet\nmade only\nfor ninja.\nCost: 40", PS_SKIN4);
+  texts.getText("ps_name_skin4").text().setPosition(550,120);
+  texts.getText("ps_des_skin4").text().setPosition(550,150);
 
-  createPlayerSkin(app, "test3", "Wallet", "Test wallet\nand some more\ndescription.\nCost: 200", PS_TEST3);
-  texts.getText("ps_name_test3").text().setPosition(100,390);
-  texts.getText("ps_des_test3").text().setPosition(100,420);
+  createPlayerSkin(app, "skin5", "Vampire Wallet", "Vampire\nwants\nmore bitcoins.\nCost: 50", PS_SKIN5);
+  texts.getText("ps_name_skin5").text().setPosition(100,390);
+  texts.getText("ps_des_skin5").text().setPosition(100,420);
 
-  createPlayerSkin(app, "test4", "Wallet", "Test wallet\nand some more\ndescription.\nCost: 200", PS_TEST4);
-  texts.getText("ps_name_test4").text().setPosition(250,390);
-  texts.getText("ps_des_test4").text().setPosition(250,420);
+  createPlayerSkin(app, "skin6", "Pirat Wallet", "Pirates\nflow on\nbitcoins.\nCost: 60", PS_SKIN6);
+  texts.getText("ps_name_skin6").text().setPosition(250,390);
+  texts.getText("ps_des_skin6").text().setPosition(250,420);
 
-  createPlayerSkin(app, "test5", "Wallet", "Test wallet\nand some more\ndescription.\nCost: 200", PS_TEST5);
-  texts.getText("ps_name_test5").text().setPosition(400,390);
-  texts.getText("ps_des_test5").text().setPosition(400,420);
+  createPlayerSkin(app, "skin7", "Creazy Wallet", "Creazy!\nI want more\nbitcoins!.\nCost: 70", PS_SKIN7);
+  texts.getText("ps_name_skin7").text().setPosition(400,390);
+  texts.getText("ps_des_skin7").text().setPosition(400,420);
 
-  createPlayerSkin(app, "test6", "Wallet", "Test wallet\nand some more\ndescription.\nCost: 200", PS_TEST6);
-  texts.getText("ps_name_test6").text().setPosition(550,390);
-  texts.getText("ps_des_test6").text().setPosition(550,420);
+  createPlayerSkin(app, "skin8", "Smart Wallet", "Wallet\nfull of\nknowledge.\nCost: 80", PS_SKIN8);
+  texts.getText("ps_name_skin8").text().setPosition(550,390);
+  texts.getText("ps_des_skin8").text().setPosition(550,420);
 
-  createEnemySkin(app, "stone", "Stone", "Stones falling\nfrom heaven.\nCost: 200", ES_STONE);
-  texts.getText("es_name_stone").text().setPosition(100,120);
-  texts.getText("es_des_stone").text().setPosition(100,150);
+  createEnemySkin(app, "skin1", "Stone", "Stones come\nfrom heaven.", ES_SKIN1);
+  texts.getText("es_name_skin1").text().setPosition(100,120);
+  texts.getText("es_des_skin1").text().setPosition(100,150);
 
-  createEnemySkin(app, "shuriken", "Shuriken", "Shurikens falling\nfrom heaven.\nCost: 200", ES_SHURIKEN);
-  texts.getText("es_name_shuriken").text().setPosition(250,120);
-  texts.getText("es_des_shuriken").text().setPosition(250,150);
+  createEnemySkin(app, "skin2", "Shuriken", "Deadly shurkiens\nare attacking.\nCost: 20", ES_SKIN2);
+  texts.getText("es_name_skin2").text().setPosition(250,120);
+  texts.getText("es_des_skin2").text().setPosition(250,150);
 
-  createEnemySkin(app, "test1", "Enemy", "Enemy test1\nand some\ndescription.\nCost: 200", ES_TEST1);
-  texts.getText("es_name_test1").text().setPosition(400,120);
-  texts.getText("es_des_test1").text().setPosition(400,150);
+  createEnemySkin(app, "skin3", "Chest", "Careful!\nChests\nfalling down.\nCost: 30", ES_SKIN3);
+  texts.getText("es_name_skin3").text().setPosition(400,120);
+  texts.getText("es_des_skin3").text().setPosition(400,150);
 
-  createEnemySkin(app, "test2", "Enemy", "Enemy test1\nand some\ndescription.\nCost: 200", ES_TEST2);
-  texts.getText("es_name_test2").text().setPosition(550,120);
-  texts.getText("es_des_test2").text().setPosition(550,150);
+  createEnemySkin(app, "skin4", "Flowerpot", "Angry man\nthrows\nflowerpots.\nCost: 40", ES_SKIN4);
+  texts.getText("es_name_skin4").text().setPosition(550,120);
+  texts.getText("es_des_skin4").text().setPosition(550,150);
 
-  createEnemySkin(app, "test3", "Enemy", "Enemy test1\nand some\ndescription.\nCost: 200", ES_TEST3);
-  texts.getText("es_name_test3").text().setPosition(100,420);
-  texts.getText("es_des_test3").text().setPosition(100,450);
+  createEnemySkin(app, "skin5", "Deadly ball", "Ball which\nkill\neverybody.\nCost: 50", ES_SKIN5);
+  texts.getText("es_name_skin5").text().setPosition(100,420);
+  texts.getText("es_des_skin5").text().setPosition(100,450);
 
-  createEnemySkin(app, "test4", "Enemy", "Enemy test1\nand some\ndescription.\nCost: 200", ES_TEST4);
-  texts.getText("es_name_test4").text().setPosition(250,420);
-  texts.getText("es_des_test4").text().setPosition(250,450);
+  createEnemySkin(app, "skin6", "Stalagmite", "Stalagmites\nare in caves.\nCareful!\nCost: 60", ES_SKIN6);
+  texts.getText("es_name_skin6").text().setPosition(250,420);
+  texts.getText("es_des_skin6").text().setPosition(250,450);
 
-  createEnemySkin(app, "test5", "Enemy", "Enemy test1\nand some\ndescription.\nCost: 200", ES_TEST5);
-  texts.getText("es_name_test5").text().setPosition(400,420);
-  texts.getText("es_des_test5").text().setPosition(400,450);
+  createEnemySkin(app, "skin7", "Hammer", "Hammers\nare very\ndangerous!\nCost: 70", ES_SKIN7);
+  texts.getText("es_name_skin7").text().setPosition(400,420);
+  texts.getText("es_des_skin7").text().setPosition(400,450);
 
-  createEnemySkin(app, "test6", "Enemy", "Enemy test1\nand some\ndescription.\nCost: 200", ES_TEST6);
-  texts.getText("es_name_test6").text().setPosition(550,420);
-  texts.getText("es_des_test6").text().setPosition(550,450);
+  createEnemySkin(app, "skin8", "Meteorite", "Meteorites\nare comming\nfrom space!\nCost: 80", ES_SKIN8);
+  texts.getText("es_name_skin8").text().setPosition(550,420);
+  texts.getText("es_des_skin8").text().setPosition(550,450);
 
   
   select_rectangle.setSize(sf::Vector2f(150, 260));
@@ -103,8 +103,8 @@ void Shop::init(App* app)
   texts.addText("btn_enemyskins", t_enemyskin);
 
   shop_state = MAINSHOP;
-  select_player_skin = PS_BASIC;
-  select_enemy_skin = ES_STONE;
+  select_player_skin = PS_SKIN1;
+  select_enemy_skin = ES_SKIN1;
 }
 
 void Shop::update(App* app)
@@ -116,6 +116,8 @@ void Shop::update(App* app)
 
   static float click_time = 0;
   click_time += shop_time.asSeconds();
+
+  texts.update(0.016);
 
   app->s_wallet.setRotation(0);
   app->s_enemy.setRotation(0);
@@ -203,56 +205,56 @@ void Shop::update(App* app)
 	{
 	  select_rectangle.setPosition(80,10);
 
-	  select_player_skin = PS_BASIC;
+	  select_player_skin = PS_SKIN1;
 	}
 
       if(mouse_on_wallet2 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(230,10);
 
-	  select_player_skin = PS_FACE;
+	  select_player_skin = PS_SKIN2;
 	}
 
       if(mouse_on_wallet3 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(380,10);
 
-	  select_player_skin = PS_TEST1;
+	  select_player_skin = PS_SKIN3;
 	}
 
       if(mouse_on_wallet4 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(530,10);
 
-	  select_player_skin = PS_TEST2;
+	  select_player_skin = PS_SKIN4;
 	}
 
       if(mouse_on_wallet5 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(80,270);
 
-	  select_player_skin = PS_TEST3;
+	  select_player_skin = PS_SKIN5;
 	}
 
       if(mouse_on_wallet6 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(230,270);
 
-	  select_player_skin = PS_TEST4;
+	  select_player_skin = PS_SKIN6;
 	}
 
       if(mouse_on_wallet7 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(380,270);
 
-	  select_player_skin = PS_TEST5;
+	  select_player_skin = PS_SKIN7;
 	}
 
       if(mouse_on_wallet8 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(530,270);
 
-	  select_player_skin = PS_TEST6;
+	  select_player_skin = PS_SKIN8;
 	}
 
 
@@ -265,9 +267,37 @@ void Shop::update(App* app)
       if(mouse_on_buy && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2 &&
 	 !app->setting_skins.isOwnedPlayerSkin(select_player_skin))
 	{
-	  if(app->game_score >= 200)
+	  int cost = 20;
+	  switch(select_player_skin)
 	    {
-	      app->setGameScore(app->game_score - 200);
+	    case PS_SKIN1:
+	      cost = 20;
+	      break;
+	    case PS_SKIN2:
+	      cost = 20;
+	      break;
+	    case PS_SKIN3:
+	      cost = 30;
+	      break;
+	    case PS_SKIN4:
+	      cost = 40;
+	      break;
+	    case PS_SKIN5:
+	      cost = 50;
+	      break;
+	    case PS_SKIN6:
+	      cost = 60;
+	      break;
+	    case PS_SKIN7:
+	      cost = 70;
+	      break;
+	    case PS_SKIN8:
+	      cost = 80;
+	      break;
+	    }
+	  if(app->game_score >= cost)
+	    {
+	      app->setGameScore(app->game_score - cost);
 	      app->setting_skins.addPlayerSkin(select_player_skin);
 	    }
 	  click_time = 0;
@@ -335,64 +365,92 @@ void Shop::update(App* app)
 	{
 	  select_rectangle.setPosition(80,10);
 
-	  select_enemy_skin = ES_STONE;
+	  select_enemy_skin = ES_SKIN1;
 	}
 
       if(mouse_on_enemy2 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(230,10);
 
-	  select_enemy_skin = ES_SHURIKEN;
+	  select_enemy_skin = ES_SKIN2;
 	}
 
       if(mouse_on_enemy3 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(380,10);
 
-	  select_enemy_skin = ES_TEST1;
+	  select_enemy_skin = ES_SKIN3;
 	}
 
       if(mouse_on_enemy4 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(530,10);
 
-	  select_enemy_skin = ES_TEST2;
+	  select_enemy_skin = ES_SKIN4;
 	}
 
       if(mouse_on_enemy5 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(80,270);
 
-	  select_enemy_skin = ES_TEST3;
+	  select_enemy_skin = ES_SKIN5;
 	}
 
       if(mouse_on_enemy6 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(230,270);
 
-	  select_enemy_skin = ES_TEST4;
+	  select_enemy_skin = ES_SKIN6;
 	}
 
       if(mouse_on_enemy7 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(380,270);
 
-	  select_enemy_skin = ES_TEST5;
+	  select_enemy_skin = ES_SKIN7;
 	}
 
       if(mouse_on_enemy8 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 	  select_rectangle.setPosition(530,270);
 
-	  select_enemy_skin = ES_TEST6;
+	  select_enemy_skin = ES_SKIN8;
 	}
 
       if(mouse_on_buy && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2 &&
 	 !app->setting_skins.isOwnedEnemySkin(select_enemy_skin))
 	{
-	  if(app->game_score >= 200)
+	  int cost = 200;
+	  switch(select_enemy_skin)
 	    {
-	      app->setGameScore(app->game_score - 200);
+	    case ES_SKIN1:
+	      cost = 20;
+	      break;
+	    case ES_SKIN2:
+	      cost = 20;
+	      break;
+	    case ES_SKIN3:
+	      cost = 30;
+	      break;
+	    case ES_SKIN4:
+	      cost = 40;
+	      break;
+	    case ES_SKIN5:
+	      cost = 50;
+	      break;
+	    case ES_SKIN6:
+	      cost = 60;
+	      break;
+	    case ES_SKIN7:
+	      cost = 70;
+	      break;
+	    case ES_SKIN8:
+	      cost = 80;
+	      break;
+	    }
+	  if(app->game_score >= cost)
+	    {
+	      app->setGameScore(app->game_score - cost);
 	      app->setting_skins.addEnemySkin(select_enemy_skin);
 	    }
 	  click_time = 0;
@@ -426,59 +484,59 @@ void Shop::draw(App* app)
     }
   if(shop_state == PLAYERSHOP)
     {
-      app->window.draw(texts.getText("ps_name_basic"));
-      app->window.draw(texts.getText("ps_des_basic"));
+      app->window.draw(texts.getText("ps_name_skin1"));
+      app->window.draw(texts.getText("ps_des_skin1"));
 
-      app->window.draw(texts.getText("ps_name_face"));
-      app->window.draw(texts.getText("ps_des_face"));
+      app->window.draw(texts.getText("ps_name_skin2"));
+      app->window.draw(texts.getText("ps_des_skin2"));
 
-      app->window.draw(texts.getText("ps_name_test1"));
-      app->window.draw(texts.getText("ps_des_test1"));
+      app->window.draw(texts.getText("ps_name_skin3"));
+      app->window.draw(texts.getText("ps_des_skin3"));
 
-      app->window.draw(texts.getText("ps_name_test2"));
-      app->window.draw(texts.getText("ps_des_test2"));
+      app->window.draw(texts.getText("ps_name_skin4"));
+      app->window.draw(texts.getText("ps_des_skin4"));
 
-      app->window.draw(texts.getText("ps_name_test3"));
-      app->window.draw(texts.getText("ps_des_test3"));
+      app->window.draw(texts.getText("ps_name_skin5"));
+      app->window.draw(texts.getText("ps_des_skin5"));
 
-      app->window.draw(texts.getText("ps_name_test4"));
-      app->window.draw(texts.getText("ps_des_test4"));
+      app->window.draw(texts.getText("ps_name_skin6"));
+      app->window.draw(texts.getText("ps_des_skin6"));
 
-      app->window.draw(texts.getText("ps_name_test5"));
-      app->window.draw(texts.getText("ps_des_test5"));
+      app->window.draw(texts.getText("ps_name_skin7"));
+      app->window.draw(texts.getText("ps_des_skin7"));
 
-      app->window.draw(texts.getText("ps_name_test6"));
-      app->window.draw(texts.getText("ps_des_test6"));
+      app->window.draw(texts.getText("ps_name_skin8"));
+      app->window.draw(texts.getText("ps_des_skin8"));
 
       app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet1.png"));
       app->s_wallet.setPosition(sf::Vector2f(100,20));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet2.png"));
       app->s_wallet.setPosition(sf::Vector2f(250,20));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet3.png"));
       app->s_wallet.setPosition(sf::Vector2f(400,20));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet4.png"));
       app->s_wallet.setPosition(sf::Vector2f(550,20));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet5.png"));
       app->s_wallet.setPosition(sf::Vector2f(100,300));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet6.png"));
       app->s_wallet.setPosition(sf::Vector2f(250,300));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet7.png"));
       app->s_wallet.setPosition(sf::Vector2f(400,300));
       app->window.draw(app->s_wallet);
 
-      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet.png"));
+      app->s_wallet.setTexture(app->tex_menager.getTexture("data/graphics/wallet8.png"));
       app->s_wallet.setPosition(sf::Vector2f(550,300));
       app->window.draw(app->s_wallet);
       
@@ -495,59 +553,59 @@ void Shop::draw(App* app)
     }
   if(shop_state == ENEMYSHOP)
     {
-      app->window.draw(texts.getText("es_name_stone"));
-      app->window.draw(texts.getText("es_des_stone"));
+      app->window.draw(texts.getText("es_name_skin1"));
+      app->window.draw(texts.getText("es_des_skin1"));
 
-      app->window.draw(texts.getText("es_name_shuriken"));
-      app->window.draw(texts.getText("es_des_shuriken"));
+      app->window.draw(texts.getText("es_name_skin2"));
+      app->window.draw(texts.getText("es_des_skin2"));
 
-      app->window.draw(texts.getText("es_name_test1"));
-      app->window.draw(texts.getText("es_des_test1"));
+      app->window.draw(texts.getText("es_name_skin3"));
+      app->window.draw(texts.getText("es_des_skin3"));
 
-      app->window.draw(texts.getText("es_name_test2"));
-      app->window.draw(texts.getText("es_des_test2"));
+      app->window.draw(texts.getText("es_name_skin4"));
+      app->window.draw(texts.getText("es_des_skin4"));
 
-      app->window.draw(texts.getText("es_name_test3"));
-      app->window.draw(texts.getText("es_des_test3"));
+      app->window.draw(texts.getText("es_name_skin5"));
+      app->window.draw(texts.getText("es_des_skin5"));
 
-      app->window.draw(texts.getText("es_name_test4"));
-      app->window.draw(texts.getText("es_des_test4"));
+      app->window.draw(texts.getText("es_name_skin6"));
+      app->window.draw(texts.getText("es_des_skin6"));
 
-      app->window.draw(texts.getText("es_name_test5"));
-      app->window.draw(texts.getText("es_des_test5"));
+      app->window.draw(texts.getText("es_name_skin7"));
+      app->window.draw(texts.getText("es_des_skin7"));
 
-      app->window.draw(texts.getText("es_name_test6"));
-      app->window.draw(texts.getText("es_des_test6"));
+      app->window.draw(texts.getText("es_name_skin8"));
+      app->window.draw(texts.getText("es_des_skin8"));
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/stone.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy1.png"));
       app->s_enemy.setPosition(sf::Vector2f(100,20));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy2.png"));
       app->s_enemy.setPosition(sf::Vector2f(250,20));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy3.png"));
       app->s_enemy.setPosition(sf::Vector2f(400,20));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy4.png"));
       app->s_enemy.setPosition(sf::Vector2f(550,20));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy5.png"));
       app->s_enemy.setPosition(sf::Vector2f(100,300));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy6.png"));
       app->s_enemy.setPosition(sf::Vector2f(250,300));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy7.png"));
       app->s_enemy.setPosition(sf::Vector2f(400,300));
       app->window.draw(app->s_enemy);
 
-      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/shuriken.png"));
+      app->s_enemy.setTexture(app->tex_menager.getTexture("data/graphics/enemy8.png"));
       app->s_enemy.setPosition(sf::Vector2f(550,300));
       app->window.draw(app->s_enemy);
 

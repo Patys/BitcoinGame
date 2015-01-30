@@ -1,0 +1,1028 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="enemies.svg">
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="388.21698"
+     inkscape:cy="73.729696"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1024"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect3102"
+       is_visible="true" />
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 265.15856,1010.8302 2.65606,2.6253"
+       id="path3250"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 268.91367,1007.7295 0.53121,5.726"
+       id="path3252"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 266.62397,1003.3163 1.88671,10.1392"
+       id="path3254"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 270.15927,1001.6189 1.08074,11.814"
+       id="path3256"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 274.06092,1009.3817 0.0366,4.187"
+       id="path3258"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 274.37232,1003.4973 0.69606,9.8903"
+       id="path3260"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 277.63284,1001.8678 -1.06241,11.7688"
+       id="path3262"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 278.51209,1009.5175 -0.45795,4.1417"
+       id="path3264"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 281.14983,1004.1989 0.055,9.1887"
+       id="path3266"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 284.19055,1009.0649 -0.12823,4.2095"
+       id="path3268"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 290.30863,1009.3817 -1.53869,4.0964"
+       id="path3270"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.91217005px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 286.57183,1003.4294 0.78766,9.9356"
+       id="path3272"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       sodipodi:nodetypes="aaaaaaaaaaaaa"
+       inkscape:connector-curvature="0"
+       id="path2985"
+       d="m 62.837155,995.68783 c -7.53702,2.13784 -22.20956,2.98114 -22.17062,6.64977 0.0434,4.0862 23.27174,3.2861 24.85058,7.3244 1.743,4.4582 -12.94952,7.4339 -19.97791,10.9866 -1.31376,0.664 -4.12384,1.0842 -4.14177,1.9274 -0.0248,1.164 2.6761,2.5801 5.60356,2.6985 2.70013,0.1092 5.68763,-0.9811 6.33446,-2.0238 0.48538,-0.7825 -2.66258,-1.4159 -2.43633,-2.2166 1.34241,-4.7509 23.31179,-6.8422 21.43972,-11.5649 -1.52246,-3.8406 -23.63347,-2.9561 -23.87605,-6.8425 -0.19534,-3.12964 13.70494,-3.39304 18.51611,-5.87876 1.7244,-0.89092 5.59151,-2.36635 3.41086,-3.08395 -2.33764,-0.76927 -5.08145,1.32291 -7.55261,2.02384 z"
+       style="fill:#5fd35f;stroke:#000000;stroke-width:0.71499999999999997;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <path
+       transform="translate(-164.65486,68.185297)"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       d="m 210.89286,954.03632 a 0.63616073,0.55803573 0 1 1 -1.27232,0 0.63616073,0.55803573 0 1 1 1.27232,0 z"
+       sodipodi:ry="0.55803573"
+       sodipodi:rx="0.63616073"
+       sodipodi:cy="954.03632"
+       sodipodi:cx="210.2567"
+       id="path2987"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       sodipodi:type="arc" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       d="m 210.89286,954.03632 a 0.63616073,0.55803573 0 1 1 -1.27232,0 0.63616073,0.55803573 0 1 1 1.27232,0 z"
+       sodipodi:ry="0.55803573"
+       sodipodi:rx="0.63616073"
+       sodipodi:cy="954.03632"
+       sodipodi:cx="210.2567"
+       id="path2987-2"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       sodipodi:type="arc"
+       transform="translate(-161.25085,68.162949)" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       inkscape:connector-curvature="0"
+       id="path3007"
+       d="m 46.550495,1023.6055 -0.067,1.2947 0.49108,-0.3349 0.35714,0.4241 0.13393,-1.2946 z"
+       style="fill:#ff0000;stroke:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:connector-curvature="0"
+       id="path3009"
+       d="m 105.80187,992.88907 -14.096466,17.17013 17.558776,-4.0881 -12.612646,18.0786 26.214486,-24.52878 -22.01028,5.17828 z"
+       style="fill:#5fd3bc;stroke:#000000;stroke-width:0.83938562999999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       transform="matrix(0.69667479,0,0,0.70578778,12.493418,343.67013)"
+       d="m 215.17857,949.41577 a 17.232143,17.767857 0 1 1 -34.46429,0 17.232143,17.767857 0 1 1 34.46429,0 z"
+       sodipodi:ry="17.767857"
+       sodipodi:rx="17.232143"
+       sodipodi:cy="949.41577"
+       sodipodi:cx="197.94643"
+       id="path3011"
+       style="fill:#cccccc;fill-opacity:1;stroke:#000000"
+       sodipodi:type="arc" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013"
+       d="m 154.66314,997.65018 c -1.88617,2.1746 -2.82925,4.80222 -2.82925,4.80222 l 3.08645,0.8155 c 0,0 0.51442,-4.62103 -0.2572,-5.61772 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-4"
+       d="m 162.61185,1003.4713 c -2.84367,0.2843 -5.30356,1.5519 -5.30356,1.5519 l 1.70562,2.7307 c 0,0 3.49005,-3.0207 3.59794,-4.2826 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-6"
+       d="m 165.93383,1012.8415 c -2.65045,-1.0818 -5.41014,-1.1121 -5.41014,-1.1121 l 0.26381,3.2203 c 0,0 4.47395,-1.0403 5.14633,-2.1082 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-64"
+       d="m 163.78264,1022.8465 c -1.80356,-2.2454 -4.20469,-3.6238 -4.20469,-3.6238 l -1.30623,2.948 c 0,0 4.41264,1.2812 5.51092,0.6758 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0"
+       d="m 155.47488,1028.7853 c 0.92631,-2.7385 0.81031,-5.532 0.81031,-5.532 l -3.16038,0.4371 c 0,0 1.26187,4.4711 2.35007,5.0949 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0-8"
+       d="m 147.24561,1028.9521 c 1.70804,-2.3207 2.4402,-5.0165 2.4402,-5.0165 l -3.14104,-0.5622 c 0,0 -0.14715,4.6479 0.70084,5.5787 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0-8-6"
+       d="m 140.09942,1024.7366 c 2.6372,-1.1146 4.62348,-3.0557 4.62348,-3.0557 l -2.41943,-2.1058 c 0,0 -2.46525,3.9228 -2.20405,5.1615 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0-8-6-8"
+       d="m 134.63184,1017.8507 c 2.84754,0.2413 5.49314,-0.5549 5.49314,-0.5549 l -1.19012,-2.998 c 0,0 -3.97166,2.3315 -4.30302,3.5529 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0-8-6-8-0"
+       d="m 134.7189,1008.1748 c 2.0323,2.0351 4.56627,3.1428 4.56627,3.1428 l 0.98447,-3.0736 c 0,0 -4.52338,-0.7911 -5.55074,-0.069 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0-8-6-8-0-7"
+       d="m 139.46555,1001.332 c 0.87396,2.7561 2.61578,4.9249 2.61578,4.9249 l 2.27514,-2.2649 c 0,0 -3.65053,-2.8193 -4.89091,-2.66 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy5.png"
+       inkscape:connector-curvature="0"
+       id="path3013-0-8-6-8-0-7-2"
+       d="m 146.95947,997.82846 c -0.66578,2.81524 -0.28878,5.58494 -0.28878,5.58494 l 3.10522,-0.7387 c 0,0 -1.67476,-4.32982 -2.81641,-4.84624 z"
+       style="fill:#999999;stroke:#000000;stroke-width:0.69801700000000000px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path3166"
+       d="m 180.15269,1001.1314 15.01163,31.1383 16.04013,-31.1383 z"
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:0.90764891999999997px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168"
+       d="m 183.3738,1003.5738 7.97318,-0.696 6.62387,1.1243 -7.78919,1.5527 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.45382445999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-4"
+       d="m 206.06669,1006.8933 -7.97318,-0.696 -6.62386,1.1243 7.78918,1.5527 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.45382445999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-45"
+       d="m 186.37907,1012.2473 7.97318,0.6961 6.62387,-1.1244 -7.78918,-1.5527 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.45382445999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-0"
+       d="m 190.64323,1015.2334 6.06191,-0.7092 5.03607,1.1457 -5.92203,1.5821 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.39944764999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-2"
+       d="m 190.45525,1019.5578 4.79324,-0.4326 3.98207,0.6988 -4.68263,0.9651 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.27741589999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-25"
+       d="m 191.95646,1022.3263 3.25377,-0.3915 2.70312,0.6325 -3.17867,0.8733 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.21743444000000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-25-1"
+       d="m 192.56864,1024.9857 2.28349,-0.2946 1.89704,0.4759 -2.23078,0.6572 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.15800399000000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-25-1-8"
+       d="m 193.33499,1027.8736 1.27881,-0.2112 1.06239,0.3411 -1.2493,0.4712 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.10011907000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-2-6"
+       d="m 184.13805,1007.7789 4.79324,-0.4326 3.98207,0.6988 -4.68263,0.9651 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.27741589999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-2-5"
+       d="m 199.59374,1003.4957 4.79323,-0.4326 3.98208,0.6988 -4.68262,0.9651 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.27741589999999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-25-1-5"
+       d="m 200.78714,1009.6196 2.2835,-0.2946 1.89704,0.4759 -2.23078,0.6572 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.15800399000000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy6.png"
+       inkscape:connector-curvature="0"
+       id="path3168-25-1-84"
+       d="m 199.31518,1013.0462 2.2835,-0.2946 1.89704,0.4759 -2.23078,0.6572 z"
+       style="fill:#666666;stroke:#000000;stroke-width:0.15800399000000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:0.55257118;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3014"
+       width="24.61931"
+       height="26.345478"
+       x="224.77083"
+       y="1004.092"
+       ry="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.83444101;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3016-7"
+       width="36.261669"
+       height="7.5025196"
+       x="872.72168"
+       y="542.63434"
+       transform="matrix(0.70301193,0.71117806,-0.71195469,0.70222541,0,0)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.83444101;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect3016-7-3"
+       width="36.261669"
+       height="7.5025196"
+       x="539.62811"
+       y="879.80853"
+       transform="matrix(-0.70301193,0.71117806,0.71195469,0.70222541,0,0)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy3.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#999999;stroke:#000000;stroke-width:1.18714808999999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 270.84296,1017.8397 0.84837,10.7624 13.18445,-0.011 1.10364,-10.8567 4.8581,-1.0163 -0.1276,-3.3448 -25.077,0.2063 0.14186,3.3865 z"
+       id="path3104"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <g
+       id="g3112"
+       transform="matrix(0.82062828,0,0,1.0139233,26.861336,80.430246)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-8"
+       transform="matrix(0.82062828,0,0,1.0139233,32.2897,76.308116)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-9"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-8"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-80"
+       transform="matrix(0.82062828,0,0,1.0139233,39.154523,76.46815)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-6"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-3"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-4"
+       transform="matrix(0.82062828,0,0,1.0139233,36.408594,82.165358)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-62"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-80"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-1"
+       transform="matrix(0.82062828,0,0,1.0139233,42.340836,81.973317)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-5"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-9"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-3"
+       transform="matrix(0.82062828,0,0,1.0139233,44.775906,76.340123)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-3"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-7"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-2"
+       transform="matrix(0.82062828,0,0,1.0139233,32.160175,82.005324)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-4"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-5"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-5"
+       transform="matrix(0.82062828,0,0,1.0139233,28.246768,74.159952)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-99"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-2"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-41"
+       transform="matrix(0.82062828,0,0,1.0139233,35.720346,74.431539)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-33"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-6"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-9"
+       transform="matrix(0.82062828,0,0,1.0139233,48.469393,82.035964)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-1"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-77"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-97"
+       transform="matrix(0.82062828,0,0,1.0139233,23.117841,83.756012)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-42"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-32"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <g
+       id="g3112-6"
+       transform="matrix(0.82062828,0,0,1.0139233,24.509978,76.242116)"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy4.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         transform="translate(3.9508928,1.1830357)"
+         inkscape:transform-center-y="-0.17605732"
+         inkscape:transform-center-x="0.21459621"
+         d="m 293.77233,916.02289 -2.28431,-1.72251 0.30311,2.84486 -0.99042,-2.68406 -1.28306,2.55712 0.61791,-2.79343 -2.46186,1.45751 2.03007,-2.01592 -2.85904,-0.10484 2.79769,-0.59836 -2.34849,-1.63392 2.67706,1.00917 -1.09232,-2.64422 1.70649,2.29629 0.51066,-2.81501 0.19412,2.85437 1.95151,-2.09206 -1.37989,2.50619 2.77277,-0.70488 -2.51578,1.36232 2.71368,0.90608 -2.85293,-0.21408 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0"
+         inkscape:flatsided="false"
+         sodipodi:arg2="1.0553738"
+         sodipodi:arg1="0.76977443"
+         sodipodi:r2="1.2527421"
+         sodipodi:r1="4.0411034"
+         sodipodi:cy="913.21039"
+         sodipodi:cx="290.87054"
+         sodipodi:sides="11"
+         id="path3110-2"
+         style="fill:#d35f5f;fill-opacity:1;stroke:none"
+         sodipodi:type="star" />
+      <path
+         transform="matrix(0.41463568,0,0,0.42194019,174.01954,528.38017)"
+         d="m 293.0705,914.72888 c 0,0.87171 -0.74906,1.57837 -1.67307,1.57837 -0.92401,0 -1.67306,-0.70666 -1.67306,-1.57837 0,-0.8717 0.74905,-1.57836 1.67306,-1.57836 0.92401,0 1.67307,0.70666 1.67307,1.57836 z"
+         sodipodi:ry="1.5783633"
+         sodipodi:rx="1.6730652"
+         sodipodi:cy="914.72888"
+         sodipodi:cx="291.39743"
+         id="path3106-37"
+         style="fill:#ddff55;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+    </g>
+    <path
+       style="fill:#333333;stroke:#000000;stroke-width:1.08183384px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 308.41076,1015.3375 25.45852,0.4266 -0.17497,5.439 -25.28355,-1.3864 z"
+       id="path3274"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:1.08183384px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 303.69346,1003.1875 -0.74234,20.8886 4.76339,10.0295 0.61861,-30.4657 z"
+       id="path3276"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.64663714"
+       d="m 361.18933,1004.7358 c -0.46277,0 -0.91636,0.021 -1.36816,0.057 0.008,0.1072 0.0214,0.2158 0.0214,0.3248 0,2.6641 -2.50254,4.8326 -5.57954,4.8326 -1.42847,0 -2.71225,-0.4763 -3.69831,-1.2416 -1.40453,1.2831 -2.49336,2.8263 -3.18525,4.527 1.35586,1.1651 2.26602,3.2515 2.26602,5.654 0,1.7777 -0.49694,3.3928 -1.30404,4.5843 1.82949,2.8866 4.92007,5.0928 8.63653,6.0552 0.93662,-1.1493 2.49338,-1.9102 4.25413,-1.9102 1.74974,0 3.29431,0.754 4.23275,1.8911 1.68054,-0.4451 3.22818,-1.1418 4.59617,-2.0439 -0.22896,-0.5378 -0.36342,-1.1254 -0.36342,-1.7382 0,-2.6215 2.29215,-4.7371 5.13061,-4.7371 0.1349,0 0.27389,0.01 0.40618,0.019 0.39425,-1.145 0.61995,-2.3548 0.61995,-3.6102 0,-0.437 -0.0354,-0.8732 -0.0855,-1.2989 -0.19311,0.019 -0.4003,0.019 -0.59858,0.019 -3.17241,0 -5.72917,-2.4556 -5.72917,-5.4821 0,-1.1407 0.35813,-2.198 0.98337,-3.0753 -2.52291,-1.7713 -5.73195,-2.827 -9.2351,-2.827 z"
+       id="path3278"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 355.5464,1009.8788 -1.77075,-1.1577 0.30232,-3.203 2.20265,-2.9715 1.38205,2.7399 0.64784,3.396 z"
+       id="path3295-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 355.60547,1008.4378 0.32067,-3.2746"
+       id="path3297-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 367.72679,1008.9814 -1.77074,-1.1578 0.30232,-3.203 2.20265,-2.9714 1.38205,2.7399 0.64783,3.396 z"
+       id="path3295-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 367.78587,1007.5403 0.32067,-3.2745"
+       id="path3297-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 374.20517,1018.3203 -1.77076,-1.1577 0.30233,-3.2031 2.20264,-2.9714 1.38206,2.7399 0.64783,3.396 z"
+       id="path3295-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 374.26425,1016.8792 0.32066,-3.2745"
+       id="path3297-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 363.49426,1005.5082 -1.77075,-1.1577 0.30233,-3.203 2.20264,-2.97147 1.38206,2.73997 0.64783,3.3959 z"
+       id="path3295-14"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 363.55334,1004.0672 0.32066,-3.2745"
+       id="path3297-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 347.38666,1012.6592 -1.77075,-1.1578 0.30232,-3.203 2.20265,-2.9714 1.38205,2.7399 0.64784,3.396 z"
+       id="path3295-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 347.44573,1011.2181 0.32067,-3.2745"
+       id="path3297-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 361.19044,1016.6977 -1.77075,-1.1577 0.30232,-3.203 2.20265,-2.9715 1.38205,2.74 0.64784,3.3959 z"
+       id="path3295-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 361.24951,1015.2567 0.32067,-3.2745"
+       id="path3297-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 366.07673,1018.7716 -1.77075,-1.1577 0.30232,-3.203 2.20265,-2.9715 1.38205,2.7399 0.64783,3.396 z"
+       id="path3295-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 366.1358,1017.3306 0.32067,-3.2746"
+       id="path3297-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#c83737;stroke:#000000;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 353.2502,1020.518 -1.77074,-1.1577 0.30232,-3.203 2.20264,-2.9715 1.38206,2.7399 0.64783,3.396 z"
+       id="path3295-28"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;stroke:#ffdd55;stroke-width:0.64663714px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 353.30928,1019.077 0.32067,-3.2745"
+       id="path3297-19"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/patryk/Programowanie/projects/bitcoins_game/concepts/enemy8.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

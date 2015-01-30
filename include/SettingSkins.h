@@ -6,10 +6,10 @@
 class SettingSkins
 {
  public:
- SettingSkins(): current_player_skin(PS_BASIC), current_enemy_skin(ES_STONE)
+ SettingSkins(): current_player_skin(PS_SKIN1), current_enemy_skin(ES_SKIN1)
   {
-    owned_player_skins.push_back(PS_BASIC);
-    owned_enemy_skins.push_back(ES_STONE);
+    owned_player_skins.push_back(PS_SKIN1);
+    owned_enemy_skins.push_back(ES_SKIN1);
   } 
 
   PLAYERSKINS getCurrentPlayerSkin() { return this->current_player_skin; }

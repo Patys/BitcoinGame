@@ -1,7 +1,6 @@
 TODO list:
 
 Todo:
- - buying new stuff after spend some bitcoins
  - sharing your score on site
  - data format to sending request to server
  - handling errors
@@ -17,6 +16,8 @@ Todo:
  - better activating and deactivating bonuses
  - better graphic for immortality
 
+ - add changing colors in shop
+
  --------------
 [16:15:11] kamyk: 1 kwadracik ma zalozmy lepsze bonusy do trafienia ale mniejsze prawodopobienstwo ze trafi na nie a te gorsze dosatnie
 [16:15:18] kamyk: a 2 ze ma gorsze bonusy ale wieksze szanse ze trafi lepszy bonus
@@ -27,6 +28,8 @@ Bugs:
  - inverted keys all time - probaly done
 
 Testing: 
+ - buying new stuff after spend some bitcoins
+ - shop
  - super fast shuriken
  - server and networking with server in node.js
 

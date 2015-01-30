@@ -10,7 +10,9 @@ std::vector<std::string> tips = {
   {"Check out bitcoin.org"},
   {"Tell to friends about this game."},
   {"Go to bitcoin-patys.rhcloud.com and give me some feedback!"},
-  {"Enjoy the game :D"}
+  {"Enjoy the game :D"},
+  {"Go to shop and buy new skins."},
+  {"Send me some feedback."}
 };
 
 void setRandomTip(ShakingText& text);
@@ -195,11 +197,6 @@ void App::update()
 	  restart();
 	}
 
-      if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-	  sendScore(player.getScore(), "TEST", 0);
-	  state = MENU;
-	}	 
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 	  state = MENU;
@@ -264,6 +261,7 @@ void App::update()
     }
   else if(state == SHOP) // SHOP LOGIC
     {
+      checkSettings();
       shop.update(this);
     }
 }
@@ -636,21 +634,57 @@ void App::checkSettings()
   PLAYERSKINS player_skin = setting_skins.getCurrentPlayerSkin();
   switch(player_skin)
     {
-    case PS_BASIC:
+    case PS_SKIN1:
       s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet1.png"));
       break;
-    case PS_FACE:
-      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet.png"));
+    case PS_SKIN2:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet2.png"));
+      break;
+    case PS_SKIN3:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet3.png"));
+      break;
+    case PS_SKIN4:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet4.png"));
+      break;
+    case PS_SKIN5:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet5.png"));
+      break;
+    case PS_SKIN6:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet6.png"));
+      break;
+    case PS_SKIN7:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet7.png"));
+      break;
+    case PS_SKIN8:
+      s_wallet.setTexture(tex_menager.getTexture("data/graphics/wallet8.png"));
       break;
     }
   ENEMYSKINS enemy_skin = setting_skins.getCurrentEnemySkin();
   switch(enemy_skin)
     {
-    case ES_STONE:
-      s_enemy.setTexture(tex_menager.getTexture("data/graphics/stone.png"));
+    case ES_SKIN1:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy1.png"));
       break;
-    case ES_SHURIKEN:
-      s_enemy.setTexture(tex_menager.getTexture("data/graphics/shuriken.png"));
+    case ES_SKIN2:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy2.png"));
+      break;
+    case ES_SKIN3:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy3.png"));
+      break;
+    case ES_SKIN4:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy4.png"));
+      break;
+    case ES_SKIN5:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy5.png"));
+      break;
+    case ES_SKIN6:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy6.png"));
+      break;
+    case ES_SKIN7:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy7.png"));
+      break;
+    case ES_SKIN8:
+      s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy8.png"));
       break;
     }
 }

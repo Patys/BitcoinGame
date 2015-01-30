@@ -3,20 +3,20 @@
 #include <Skin.h>
 
 enum PLAYERSKINS { 
-  PS_BASIC = 1, // basic skin
-  PS_FACE = 2, // skin with simple face
-  PS_TEST1 = 3,
-  PS_TEST2 = 4,
-  PS_TEST3 = 5,
-  PS_TEST4 = 6,
-  PS_TEST5 = 7,
-  PS_TEST6 = 8
+  PS_SKIN1 = 1, // basic skin
+  PS_SKIN2 = 2, // skin with simple face
+  PS_SKIN3 = 3,
+  PS_SKIN4 = 4,
+  PS_SKIN5 = 5,
+  PS_SKIN6 = 6,
+  PS_SKIN7 = 7,
+  PS_SKIN8 = 8
 };
 
 class PlayerSkin : public Skin
 {
  public:
- PlayerSkin():type(PS_BASIC) {}
+ PlayerSkin():type(PS_SKIN1) {}
 
   void setType(PLAYERSKINS type) { this->type = type; }
   PLAYERSKINS getType() { return this->type; }
