@@ -7,12 +7,14 @@
 class Enemy : public GameObject
 {
  public:
-  Enemy(sf::Vector2f _pos, sf::Vector2f _vel)
+  Enemy(sf::Vector2f _pos, sf::Vector2f _vel):
+        collision_with_player(false),
+        collision_with_bottom(false)
   {
     pos = _pos;
     vel = _vel;
   }
-  
+
   const bool isCollisionWithPlayer() { return collision_with_player; }
   const bool isCollisionWithBottom() { return collision_with_bottom; }
 

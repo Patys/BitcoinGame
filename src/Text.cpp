@@ -2,6 +2,7 @@
 #include <iostream>
 
 ShakingText::ShakingText():
+  m_text(),
   is_shaking(0),
   speed(50),
   frequency(0.2),
@@ -13,6 +14,7 @@ ShakingText::ShakingText():
 }
 
 ShakingText::ShakingText(const std::string& string, sf::Font& font, int character_size):
+  m_text(),
   is_shaking(0),
   speed(50),
   frequency(0.2),
@@ -41,7 +43,7 @@ void ShakingText::shake(float delta_time)
     }
 }
 
-void ShakingText::draw(sf::RenderTarget& target, sf::RenderStates states) const 
+void ShakingText::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
   if(isVisible())
     {

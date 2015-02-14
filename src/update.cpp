@@ -47,14 +47,14 @@ void App::update()
 
   if(state == GAME)
     {
-      
+
       static float temp_resume_timer = 0;
       static float increase_difficulty_timer = 0;
       static float speed_enemy_timer = 0;
 
       speed_enemy_timer += frame_time.asMilliseconds();
       temp_resume_timer += frame_time.asMilliseconds();
-      
+
       if(difficulty_timer < 10)
 	increase_difficulty_timer += frame_time.asMilliseconds();
 
@@ -64,7 +64,7 @@ void App::update()
 	  temp_resume_timer = 0;
 	  setRandomTip(texts.getText("tip"));
 	}
-      
+
       if(increase_difficulty_timer > 8000 && difficulty_timer < 10)
 	{
 	  difficulty_timer += 0.1;
@@ -92,7 +92,7 @@ void App::update()
       addBitcoin(bitcoin_timer);
       addEnemy(enemy_timer);
       addBonus(bonus_timer);
-      
+
       updatePlayer(frame_time.asSeconds());
       updateBitcoins(frame_time.asSeconds());
       updateEnemies(frame_time.asSeconds());
@@ -124,16 +124,16 @@ void App::update()
     {
       texts.getText("game_score").text().setPosition(sf::Vector2f(400,550));
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-     
+
       // Click on start menu
       bool mouse_on_start = isCollision(mouse_position, sf::Vector2f(1,1),
 					texts.getText("btn_start").text().getPosition(),
 					texts.getText("btn_start").getSizeOfText());
-      
+
       bool mouse_on_credits = isCollision(mouse_position, sf::Vector2f(1,1),
 					  texts.getText("btn_credits").text().getPosition(),
 					  texts.getText("btn_credits").getSizeOfText());
-      
+
       bool mouse_on_exit = isCollision(mouse_position, sf::Vector2f(1,1),
 				       texts.getText("btn_exit").text().getPosition(),
 				       texts.getText("btn_exit").getSizeOfText());
@@ -169,7 +169,7 @@ void App::update()
       	  state = SHOP;
       	  temp_resume_timer = 0;
       	}
-    } 
+    }
   // SCORE
   else if(state == SCORE)
     {
@@ -211,7 +211,7 @@ void App::update()
   else if(state == CREDITS)
     {
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-      
+
       bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
 				       texts.getText("btn_back").text().getPosition(),
 				       texts.getText("btn_back").getSizeOfText());
@@ -229,9 +229,9 @@ void App::update()
   else if(state == RESUME)
     {
       sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
-      
+
       bool mouse_on_menu = isCollision(mouse_position, sf::Vector2f(1,1),
-				       texts.getText("btn_menu").text().getPosition(), 
+				       texts.getText("btn_menu").text().getPosition(),
 				       texts.getText("btn_menu").getSizeOfText());
 
       bool mouse_on_resume = isCollision(mouse_position, sf::Vector2f(1,1),
@@ -262,7 +262,7 @@ void App::update()
   else if(state == SHOP) // SHOP LOGIC
     {
       checkSettings();
-      shop.update(this);
+      updateShop();
     }
 }
 
@@ -320,7 +320,7 @@ void App::updateEnemies(float delta_time)
       player.denyControls();
       player.shake(delta_time);
       texts.getText("t_die").show();
-      
+
       dead_timer += delta_time;
       if(dead_timer > 1)
 	{
@@ -332,7 +332,7 @@ void App::updateEnemies(float delta_time)
 	  score_music.play();
 	  game_music.stop();
 	  setRandomTip(texts.getText("tip"));
-	  
+
 	  game_score += player.getScore();
 	  for(std::size_t i = 0; i < end_game_bitcoins.size(); i++)
 	    {
@@ -363,7 +363,7 @@ void App::updateBonuses(float delta_time)
 	  if(collision_with_player)
 	    {
 	      active_bonuses.push_back(ActiveBonus(bonuses[i].type, bonuses[i].time_working));
-	      
+
 	      if(bonuses[i].type == B_EXPLODE)
 		{
 		  for(std::size_t i = 0; i < explosion_sprites.size(); i++)
@@ -384,7 +384,7 @@ void App::updateBonuses(float delta_time)
 	  bonuses.erase(bonuses.begin() + i);
 	}
     }
-  
+
   // updating baloons from bonuses
   for(std::size_t i = 0; i < baloons.size(); i++)
     {
@@ -409,10 +409,10 @@ void App::updateActiveBonuses()
 	  tex_lighting.clear( sf::Color( 0, 0, 0, 0 ) );
 	  tex_lighting.draw( s_light, sf::BlendAdd ); // light - sprite, figura, cokolwiek sf::Drawable
 	  tex_lighting.display(); // wywołanie tekstury, zapieczętowanie
-  
+
 	  s_lighting.setTexture( tex_lighting.getTexture() );
 	}
-      
+
       if(active_bonuses[i].activated == false)
 	{
 	  switch(active_bonuses[i].type)
@@ -558,13 +558,13 @@ void App::addEnemy(float milliseconds)
 void App::addBonus(float milliseconds)
 {
   if(bonus_clock.getElapsedTime().asMilliseconds() > milliseconds)
-    {      
+    {
       std::uniform_int_distribution<int> bonus_rand(1,6);
       int rand_bonus = bonus_rand(number_generator);
       // HACK TO TESTING BONUSES
       // rand_bonus = 6;
       int time_work = 0;
-      BONUS_TYPE type;
+      BONUS_TYPE type = B_DOUBLE_BTC;
       switch(rand_bonus)
 	{
 	case 1:
@@ -592,7 +592,7 @@ void App::addBonus(float milliseconds)
 	  time_work = 5000;
 	  break;
 	}
-      
+
       std::uniform_int_distribution<int> pos_rand(1,760);
       std::uniform_int_distribution<int> vel_rand(100,300);
 
@@ -686,6 +686,372 @@ void App::checkSettings()
     case ES_SKIN8:
       s_enemy.setTexture(tex_menager.getTexture("data/graphics/enemy8.png"));
       break;
+    }
+}
+
+void App::updateShop()
+{
+  sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
+
+  static sf::Clock shop_clock;
+  sf::Time shop_time = shop_clock.restart();
+
+  static float click_time = 0;
+  click_time += shop_time.asSeconds();
+
+  shop_texts.update(0.016);
+
+  s_wallet.setRotation(0);
+  s_enemy.setRotation(0);
+
+  if(shop_state == MAINSHOP)
+    {
+      bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
+				       shop_texts.getText("btn_back").text().getPosition(),
+				       shop_texts.getText("btn_back").getSizeOfText());
+
+      bool mouse_on_playerskins = isCollision(mouse_position, sf::Vector2f(1,1),
+					      shop_texts.getText("btn_playerskins").text().getPosition(),
+					      shop_texts.getText("btn_playerskins").getSizeOfText());
+
+      bool mouse_on_enemyskins = isCollision(mouse_position, sf::Vector2f(1,1),
+					     shop_texts.getText("btn_enemyskins").text().getPosition(),
+					     shop_texts.getText("btn_enemyskins").getSizeOfText());
+      
+
+      if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2)
+	{
+	  state = MENU;
+	  click_time = 0;
+	}
+
+      if(mouse_on_playerskins && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2)
+	{
+	  shop_state = PLAYERSHOP;
+	  click_time = 0;
+	}
+
+      if(mouse_on_enemyskins && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2)
+	{
+	  shop_state = ENEMYSHOP;
+	  click_time = 0;
+	}
+    }
+  if(shop_state == PLAYERSHOP)
+    {
+      bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
+				       shop_texts.getText("btn_back").text().getPosition(),
+				       shop_texts.getText("btn_back").getSizeOfText());
+
+      bool mouse_on_buy = isCollision(mouse_position, sf::Vector2f(1,1),
+				      shop_texts.getText("btn_buy").text().getPosition(),
+				      shop_texts.getText("btn_buy").getSizeOfText());
+
+      bool mouse_on_equip = isCollision(mouse_position, sf::Vector2f(1,1),
+					shop_texts.getText("btn_equip").text().getPosition(),
+					shop_texts.getText("btn_equip").getSizeOfText());
+
+      bool mouse_on_wallet1 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(80,10), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet2 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(230,10), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet3 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(380,10), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet4 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(530,10), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet5 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(80,260), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet6 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(230,260), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet7 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(380,260), sf::Vector2f(140,260));
+
+      bool mouse_on_wallet8 = isCollision(mouse_position, sf::Vector2f(1,1),
+					  sf::Vector2f(530,260), sf::Vector2f(140,260));
+
+      if(setting_skins.isOwnedPlayerSkin(select_player_skin))
+	{
+	  select_rectangle.setOutlineColor(sf::Color::Green);
+	  if(setting_skins.getCurrentPlayerSkin() == select_player_skin)
+	    select_rectangle.setOutlineColor(sf::Color::Yellow);
+	}
+      else
+	select_rectangle.setOutlineColor(sf::Color::Red);
+
+      if(mouse_on_wallet1 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(80,10);
+
+	  select_player_skin = PS_SKIN1;
+	}
+
+      if(mouse_on_wallet2 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(230,10);
+
+	  select_player_skin = PS_SKIN2;
+	}
+
+      if(mouse_on_wallet3 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(380,10);
+
+	  select_player_skin = PS_SKIN3;
+	}
+
+      if(mouse_on_wallet4 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(530,10);
+
+	  select_player_skin = PS_SKIN4;
+	}
+
+      if(mouse_on_wallet5 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(80,270);
+
+	  select_player_skin = PS_SKIN5;
+	}
+
+      if(mouse_on_wallet6 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(230,270);
+
+	  select_player_skin = PS_SKIN6;
+	}
+
+      if(mouse_on_wallet7 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(380,270);
+
+	  select_player_skin = PS_SKIN7;
+	}
+
+      if(mouse_on_wallet8 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(530,270);
+
+	  select_player_skin = PS_SKIN8;
+	}
+
+
+      if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2)
+	{
+	  shop_state = MAINSHOP;
+	  click_time = 0;
+	}
+
+      if(mouse_on_buy && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2 &&
+	 !setting_skins.isOwnedPlayerSkin(select_player_skin))
+	{
+	  int cost = 20;
+	  switch(select_player_skin)
+	    {
+	    case PS_SKIN1:
+	      cost = 20;
+	      break;
+	    case PS_SKIN2:
+	      cost = 20;
+	      break;
+	    case PS_SKIN3:
+	      cost = 30;
+	      break;
+	    case PS_SKIN4:
+	      cost = 40;
+	      break;
+	    case PS_SKIN5:
+	      cost = 50;
+	      break;
+	    case PS_SKIN6:
+	      cost = 60;
+	      break;
+	    case PS_SKIN7:
+	      cost = 70;
+	      break;
+	    case PS_SKIN8:
+	      cost = 80;
+	      break;
+	    }
+	  if(game_score >= cost)
+	    {
+	      setGameScore(game_score - cost);
+	      setting_skins.addPlayerSkin(select_player_skin);
+	    }
+	  click_time = 0;
+	}
+
+      if(mouse_on_equip && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2 &&
+	 setting_skins.isOwnedPlayerSkin(select_player_skin) &&
+	 setting_skins.getCurrentPlayerSkin() != select_player_skin)
+	{
+	  setting_skins.setPlayerSkin(select_player_skin);
+	  click_time = 0;
+	}
+
+    }
+  if(shop_state == ENEMYSHOP)
+    {
+      bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
+				       shop_texts.getText("btn_back").text().getPosition(),
+				       shop_texts.getText("btn_back").getSizeOfText());
+
+
+      bool mouse_on_buy = isCollision(mouse_position, sf::Vector2f(1,1),
+				      shop_texts.getText("btn_buy").text().getPosition(),
+				      shop_texts.getText("btn_buy").getSizeOfText());
+
+      bool mouse_on_equip = isCollision(mouse_position, sf::Vector2f(1,1),
+					shop_texts.getText("btn_equip").text().getPosition(),
+					shop_texts.getText("btn_equip").getSizeOfText());
+
+      bool mouse_on_enemy1 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(80,10), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy2 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(230,10), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy3 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(380,10), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy4 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(530,10), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy5 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(80,260), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy6 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(230,260), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy7 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(380,260), sf::Vector2f(140,260));
+
+      bool mouse_on_enemy8 = isCollision(mouse_position, sf::Vector2f(1,1),
+					 sf::Vector2f(530,260), sf::Vector2f(140,260));
+
+
+      if(setting_skins.isOwnedEnemySkin(select_enemy_skin))
+	{
+	  select_rectangle.setOutlineColor(sf::Color::Green);
+	  if(setting_skins.getCurrentEnemySkin() == select_enemy_skin)
+	    select_rectangle.setOutlineColor(sf::Color::Yellow);
+	}
+      else
+	select_rectangle.setOutlineColor(sf::Color::Red);
+
+      if(mouse_on_enemy1 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(80,10);
+
+	  select_enemy_skin = ES_SKIN1;
+	}
+
+      if(mouse_on_enemy2 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(230,10);
+
+	  select_enemy_skin = ES_SKIN2;
+	}
+
+      if(mouse_on_enemy3 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(380,10);
+
+	  select_enemy_skin = ES_SKIN3;
+	}
+
+      if(mouse_on_enemy4 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(530,10);
+
+	  select_enemy_skin = ES_SKIN4;
+	}
+
+      if(mouse_on_enemy5 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(80,270);
+
+	  select_enemy_skin = ES_SKIN5;
+	}
+
+      if(mouse_on_enemy6 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(230,270);
+
+	  select_enemy_skin = ES_SKIN6;
+	}
+
+      if(mouse_on_enemy7 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(380,270);
+
+	  select_enemy_skin = ES_SKIN7;
+	}
+
+      if(mouse_on_enemy8 && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+	  select_rectangle.setPosition(530,270);
+
+	  select_enemy_skin = ES_SKIN8;
+	}
+
+      if(mouse_on_buy && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2 &&
+	 !setting_skins.isOwnedEnemySkin(select_enemy_skin))
+	{
+	  int cost = 200;
+	  switch(select_enemy_skin)
+	    {
+	    case ES_SKIN1:
+	      cost = 20;
+	      break;
+	    case ES_SKIN2:
+	      cost = 20;
+	      break;
+	    case ES_SKIN3:
+	      cost = 30;
+	      break;
+	    case ES_SKIN4:
+	      cost = 40;
+	      break;
+	    case ES_SKIN5:
+	      cost = 50;
+	      break;
+	    case ES_SKIN6:
+	      cost = 60;
+	      break;
+	    case ES_SKIN7:
+	      cost = 70;
+	      break;
+	    case ES_SKIN8:
+	      cost = 80;
+	      break;
+	    }
+	  if(game_score >= cost)
+	    {
+	      setGameScore(game_score - cost);
+	      setting_skins.addEnemySkin(select_enemy_skin);
+	    }
+	  click_time = 0;
+	}
+
+      if(mouse_on_equip && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2 &&
+	 setting_skins.isOwnedEnemySkin(select_enemy_skin) &&
+	 setting_skins.getCurrentEnemySkin() != select_enemy_skin)
+	{
+	  setting_skins.setEnemySkin(select_enemy_skin);
+	  click_time = 0;
+	}
+
+      if(mouse_on_back && sf::Mouse::isButtonPressed(sf::Mouse::Left) && click_time > 0.2)
+	{
+	  shop_state = MAINSHOP;
+	  click_time = 0;
+	}
     }
 }
 

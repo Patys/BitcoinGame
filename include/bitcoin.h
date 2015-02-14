@@ -9,7 +9,9 @@
 class Bitcoin : public GameObject
 {
  public:
- Bitcoin(sf::Vector2f _pos, sf::Vector2f _vel, float _points)
+ Bitcoin(sf::Vector2f _pos, sf::Vector2f _vel, float _points):
+     collision_with_player(false),
+     collision_with_bottom(false)
    {
      pos = _pos;
      vel = _vel;
@@ -17,7 +19,7 @@ class Bitcoin : public GameObject
    }
 
     const float getPoints() { return points; }
-    void setPoints(float _points) { points = _points; } 
+    void setPoints(float _points) { points = _points; }
 
     const bool isCollisionWithPlayer() { return collision_with_player; }
     const bool isCollisionWithBottom() { return collision_with_bottom; }
@@ -39,7 +41,7 @@ class EndGameBitcoin : public GameObject
   void reset();
   const sf::Vector2f getPosition() const { return this->position; }
 
- private:    
+ private:
   sf::Vector2f start_pos;
   sf::Vector2f position;
   int side;
