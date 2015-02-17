@@ -9,7 +9,7 @@ void App::updateMainShop()
   shop_time = shop_clock.restart();
   click_time += shop_time.asSeconds();
 
-  sf::Vector2f mouse_position = sf::Mouse::getPosition(window);
+  sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
 
   bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
 				   shop_texts.getText("btn_back").text().getPosition(),

@@ -1,7 +1,16 @@
 #include <app.h>
 
-void updateEnemyShop()
+void App::updateEnemyShop()
 {
+  sf::Vector2f mouse_position = (sf::Vector2f)sf::Mouse::getPosition(window);
+
+  static sf::Clock shop_clock;
+  static sf::Time shop_time;
+  static float click_time = 0;
+
+  shop_time = shop_clock.restart();
+  click_time += shop_time.asSeconds();
+
   bool mouse_on_back = isCollision(mouse_position, sf::Vector2f(1,1),
 				   shop_texts.getText("btn_back").text().getPosition(),
 				   shop_texts.getText("btn_back").getSizeOfText());

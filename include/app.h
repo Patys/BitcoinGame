@@ -16,6 +16,7 @@
 #include <bonus.h>
 #include <Text.h>
 #include <SettingSkins.h>
+#include <Tips.h>
 
 enum APP_STATE { MENU, GAME, CREDITS, SCORE, RESUME, SHOP };
 enum SHOPSTATE { MAINSHOP, PLAYERSHOP, ENEMYSHOP };
@@ -33,18 +34,29 @@ class App
 
   void initTexts();
 
+  /////////////////////////////
   void draw();
+  
+  void drawMenu();
+  void drawScore();
+  void drawResume();
+  void drawGame();
+  void drawShop();
+  void drawCredits();
+
+  //////////////////////////////
   void update();
-
-  ////////////////////
-  // Shop functions //
-  ////////////////////
-
   void updateShop();
   void updateMainShop();
   void updatePlayerShop();
   void updateEnemyShop();
 
+  void updateBitcoins(float delta_time);
+  void updateEnemies(float delta_time);
+  void updatePlayer(float delta_time);
+  void updateBonuses(float delta_time);
+
+  void updateActiveBonuses();
   ///////////////////////////
 
   ///////////////
@@ -62,12 +74,6 @@ class App
 
   ///////////////////////////////
 
-  void updateBitcoins(float delta_time);
-  void updateEnemies(float delta_time);
-  void updatePlayer(float delta_time);
-  void updateBonuses(float delta_time);
-
-  void updateActiveBonuses();
 
   void restart();
 

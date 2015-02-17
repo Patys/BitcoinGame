@@ -19,7 +19,7 @@ DEPENDENCY_OPTIONS = -MM
 #-- Do not edit below this line --
 
 # Subdirs to search for additional source files
-SUBDIRS := $(shell ls -F | grep "\/" )
+SUBDIRS := $(shell ls -d */ ls -d */*/ )
 DIRS := ./ $(SUBDIRS)
 SOURCE_FILES := $(foreach d, $(DIRS), $(wildcard $(d)*.cpp) )
 
