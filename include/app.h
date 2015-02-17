@@ -36,7 +36,31 @@ class App
   void draw();
   void update();
 
+  ////////////////////
+  // Shop functions //
+  ////////////////////
+
   void updateShop();
+  void updateMainShop();
+  void updatePlayerShop();
+  void updateEnemyShop();
+
+  ///////////////////////////
+
+  ///////////////
+  // Shop data //
+  ///////////////
+
+  std::vector<Skin*> skins;
+  TextManager shop_texts;
+  sf::RectangleShape select_rectangle;
+
+  PLAYERSKINS select_player_skin;
+  ENEMYSKINS select_enemy_skin;
+
+  SHOPSTATE shop_state;
+
+  ///////////////////////////////
 
   void updateBitcoins(float delta_time);
   void updateEnemies(float delta_time);
@@ -78,16 +102,6 @@ class App
   // player things: - buying in shop
   int game_score;
   SettingSkins setting_skins;
-
-  // shop components
-  std::vector<Skin*> skins;
-  TextManager shop_texts;
-  sf::RectangleShape select_rectangle;
-
-  PLAYERSKINS select_player_skin;
-  ENEMYSKINS select_enemy_skin;
-
-  SHOPSTATE shop_state;
 
   // state - 1-game, 2-menu, 3-credits, 4-score
   APP_STATE state;
