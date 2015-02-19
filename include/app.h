@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <random>
+#include <cmath>
 
 #include <ResourceMenager.h>
 #include <animated_sprite.h>
@@ -46,6 +47,13 @@ class App
 
   //////////////////////////////
   void update();
+
+  void updateGame();
+  void updateMenu();
+  void updateScore();
+  void updateResume();
+  void updateCredits();
+
   void updateShop();
   void updateMainShop();
   void updatePlayerShop();
@@ -57,6 +65,9 @@ class App
   void updateBonuses(float delta_time);
 
   void updateActiveBonuses();
+
+
+  void setRandomTip(ShakingText& text);
   ///////////////////////////
 
   ///////////////
@@ -96,6 +107,9 @@ class App
 
   sf::RenderWindow window;
   sf::Event event;
+
+  sf::Clock frame_clock;
+  sf::Time frame_time;
 
   std::vector<Bitcoin> bitcoins;
   std::vector<EndGameBitcoin> end_game_bitcoins;

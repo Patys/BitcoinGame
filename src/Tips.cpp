@@ -1,4 +1,4 @@
-#include <Tips.h>
+#include <app.h>
 
 
 std::vector<std::string> tips = {
@@ -12,3 +12,11 @@ std::vector<std::string> tips = {
   {"Go to shop and buy new skins."},
   {"Send me some feedback."}
 };
+
+void App::setRandomTip(ShakingText& text)
+{
+  std::uniform_int_distribution<int> distribution(0,tips.size()-1);
+  int i = distribution(number_generator);
+  text.text().setString(tips[i]);
+  text.text().setOrigin(text.getCenterOfText());
+}
